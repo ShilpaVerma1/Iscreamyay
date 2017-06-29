@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_os_notification_fallback_white_24dp.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/res/drawable-xxxhdpi-v4/ic_os_notification_fallback_white_24dp.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_os_notification_fallback_white_24dp.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/res/drawable-xxxhdpi-v4/ic_os_notification_fallback_white_24dp.png"
+    }
+]

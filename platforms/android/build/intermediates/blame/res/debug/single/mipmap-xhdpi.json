@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/mipmap-xhdpi/icon.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/res/mipmap-xhdpi/icon.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/mipmap-xhdpi/icon.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/mipmap-xhdpi/icon.png"
+    }
+]

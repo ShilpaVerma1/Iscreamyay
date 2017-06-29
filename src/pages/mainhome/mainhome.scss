@@ -1,0 +1,19 @@
+page-mainhome{
+    .center-img{text-align:center;}
+    .heading-under{    font-size: 16px;
+    color: #ababab;}
+    .para-under{    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    color: #828282}
+    .toolbar-background-md{background-color:#fff;}
+    .header-md::after{background-image:none;}
+    .toolbar-content-md img{border-bottom: 1px solid #b7b7b7;
+        padding-bottom: 12px;}
+        .scroll-content{ margin-top: 42px !important;}
+    .toolbar-content-md{margin:0em 1em;}
+    
+        @media(min-width:321px) and (max-width:360px){.center-img img{height:85px;}}
+    @media(min-width:300px) and (max-width:320px){.center-img img{height:70px;}}
+
+}

@@ -1,0 +1,75 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-crop": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "1120408081397468",
+            "APP_NAME": "iScreamYaY",
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        }
+    }
+}

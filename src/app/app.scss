@@ -1,0 +1,188 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.login-box {
+    height: 50px!important;
+    width: 85%;
+    margin: auto;
+    display: block;
+    border: 2px solid #bfbfbf!important;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.54);
+    text-align: center;
+}
+
+.popover-md .popover-content
+{ min-width:370px!important;
+border-radius: 50px!important;
+border:2px solid #7030a0;
+top:10%!important;
+left:5%!important;}
+
+.popover-md .popover-content .btn1{padding: 11px; font-size: 26px; background: #00b050; color: #fff;  width: 80%; margin: 0 auto;}
+.popover-md .popover-content .btn2{padding: 11px;font-size: 24px; background:transparent; color: #808080!important;  width: 80%; margin: 0 auto;margin-bottom: 1em;margin-top:14px; border: 1px solid #943634;}
+.popover-md .popover-content p{font-size:17px; line-height:30px!important;}
+@media(min-width:341px) and (max-width:360px){.popover-md .popover-content{   min-width:345px!important;  left: 2% !important;} .popover-md .popover-content .btn1{padding: 9px; font-size: 21px;} .popover-md .popover-content .btn2{padding: 9px; font-size: 21px;margin-bottom:1em;}}
+@media(min-width:320px) and (max-width:340px){.popover-md .popover-content{   min-width:312px!important;  left: 1% !important;} 
+.popover-md .popover-content p { font-size: 15px;line-height: 26px !important;}
+    .popover-md .popover-content >ion-row > button{padding: 9px;font-size: 22px;}
+    .popover-md .popover-content .btn2{padding: 6px; font-size: 20px;    margin-bottom: 10px;    margin-bottom: 10px;}
+        .popover-md .popover-content .btn1{padding: 6px; font-size: 20px;}}
+
+     @media(min-width:361px) and (max-width:380px){.popover-md .popover-content{   min-width:345px!important;  left: 4% !important;} .popover-md .popover-content .btn1{padding: 9px; font-size: 21px;} .popover-md .popover-content .btn2{padding: 9px; font-size: 21px;margin-bottom:1em;}}  
+      ion-loading.img-blank{
+background:#fff!important;
+    } 
+// .sidemenuemail {
+//     color: #fff;
+//     margin-left: -55px;
+//     font-size: 14px;
+//     line-height: 22px;
+//     text-align: center;
+//     -webkit-margin-before: 0px;
+//     -webkit-margin-after: 0px;
+//     text-overflow: ellipsis;
+//     word-wrap: break-word;
+//     overflow: hidden;
+//     white-space: nowrap;
+// }
+
+// img[src="http://148.72.251.239/ImageUpload/exchangeAppUploads/null"] {
+//     display: none;
+// }
+
+// img[src="http://148.72.251.239/ImageUpload/exchangeAppUploads/"] {
+//     display: none;
+// }
+
+// img[src="null"] {
+//     display: none;
+// }
+
+// .sclbtn {
+//     height: 50px;
+//     background: #3b5998;
+//     border-radius: 5px;
+// }
+
+// .iconcls {
+//     font-size: 30px;
+//     color: #fff;
+//     margin-left: -20px;
+// }
+
+// .custom {
+//     background: #9E86E2;
+//     font-size: 15px;
+// }
+
+// .list-md .item-block .item-inner {
+//     border-bottom: none;
+//     color: #fff;
+// }
+
+// .item-md ion-icon[item-left]+.item-inner,
+// .item-md ion-icon[item-left]+.item-input {
+//     margin-left: 0px;
+// }
+
+// .item-block {
+//     height: 2.5em;
+//     min-height: 1.5em;
+// }
+
+// .input-wrapper {
+//     height: 50px;
+// }
+
+// ion-menu[side=right]>.menu-inner {
+//     right: -65px;
+// }
+
+// .toolbar-md {
+//     padding: 4px;
+//     min-height: 97px;
+// }
+
+// .toolbar-background-md {
+//     background-color: #fff!important;
+// }
+
+// .header-md::after {
+//     background-image: none !important;
+// }
+
+// .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+//     border-width: 0px;
+// }
+
+// .alert-md .alert-title {
+//     font-size: 22px;
+//     color: #1a7ec6;
+//     font-weight: initial;
+//     text-align: center;
+//     font-family: Lucida Console;
+//     font-weight: 600;
+// }
+
+// .alert-md .alert-wrapper {
+//     border-radius: 10px;
+// }
+
+// ion-alert.alert-top {
+//     padding-top: 10em!important;
+// }
+
+// .alert-md .alert-head {
+//     padding: 24px 26px 15px 24px;
+//     background: #c2deaf;
+//     border-radius: 10px 10px 0px 0px;
+// }
+
+// .alert-md .alert-message,
+// .alert-md .alert-input-group {
+//     padding: 0 24px 3px 24px;
+// }
+
+// .alert-md .alert-input {
+//     font-size: 20px;
+//     margin: 5px -34px 7px 3px;
+//     border-bottom: 2px solid #9E86E2;
+//     color: #000;
+// }
+
+// .alert-md .alert-button .button-inner {
+//     -webkit-justify-content: flex-end;
+//     -ms-flex-pack: end;
+//     justify-content: flex-end;
+//     text-transform: none;
+//     font-size: 20px;
+//     color: #1a7ec6;
+// }
+
+// ion-alert.connectcss .alert-head {
+//     background: #fff;
+// }
+
+// ion-alert.connectcss .alert-button-group button.connectcssbtn {
+//     color: #000;
+//     margin: auto;
+//     display: block;
+//     //  border: 1px solid rgb(153, 144, 144);
+//     background: transparent;
+//     border-radius: 3px;
+// }

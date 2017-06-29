@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-v21/crop__selectable_background.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-v21/crop__selectable_background.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-v21/crop__selectable_background.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-v21/crop__selectable_background.xml"
+    }
+]

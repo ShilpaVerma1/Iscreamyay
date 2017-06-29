@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" color="custom-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img src="img/mainlogo.png" (click)="backpagee()"/>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!--<button ion-button style="background:transparent;border:none;" (click)="back()" >
+    <ion-icon name="ios-arrow-back" style="color:#538135!important;font-size:40px;font-weight:bolder;" > 
+    </ion-icon>
+</button>-->
+<ion-row class="margin-main"><button  ion-button full class="btn-profile" (click)="editprofile()">Edit your profile</button></ion-row>
+<ion-row class="img-center">
+<img class="img-profile "  src="img/icon_person_by_ninjavdesign-d8x96sl.png" />
+<img class="img-profile profile1" [src]="profile.img"/>
+</ion-row>
+<ion-row class="img-blank"><img  class="img-cemra" src="img/cemra.png" (click)="presentActionSheet()" /></ion-row>
+  <p class="profile-name">{{profile.firstname}} {{profile.lastname}}</p>
+  <p class="profile-phone">{{profile.phone_number}}</p>
+  <p class="profile-email">{{mail}}</p>
+
+</ion-content>

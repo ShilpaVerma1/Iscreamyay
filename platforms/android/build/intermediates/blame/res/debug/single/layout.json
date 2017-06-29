@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_login_fragment.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_login_fragment.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_device_auth_dialog_fragment.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_device_auth_dialog_fragment.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_tooltip_bubble.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_tooltip_bubble.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_round.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_round.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_round.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_round.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/crop__activity_crop.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/layout/crop__activity_crop.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_white_large.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_large.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/crop__layout_done_cancel.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/layout/crop__layout_done_cancel.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/crop__layout_done_cancel.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/layout/crop__layout_done_cancel.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_device_auth_dialog_fragment.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_device_auth_dialog_fragment.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_activity_layout.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/onesignal_bgimage_notif_layout.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/res/layout/onesignal_bgimage_notif_layout.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_white_small.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_small.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_tooltip_bubble.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_tooltip_bubble.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/crop__activity_crop.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/layout/crop__activity_crop.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_small.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_small.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_large.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_large.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_login_fragment.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_login_fragment.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_white_small.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_small.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/com_facebook_activity_layout.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_white_round.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_round.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_white_large.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_large.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_large.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_large.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_small.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_blue_small.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/onesignal_bgimage_notif_layout.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/res/layout/onesignal_bgimage_notif_layout.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/layout/messenger_button_send_white_round.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/layout/messenger_button_send_white_round.xml"
+    }
+]

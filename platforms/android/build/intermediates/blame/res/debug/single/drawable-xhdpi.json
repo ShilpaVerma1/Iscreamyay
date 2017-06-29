@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_previous_item.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-xhdpi/ic_action_previous_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_previous_item.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xhdpi/ic_action_previous_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__ic_done.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__ic_done.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__tile.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__tile.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__ic_done.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__ic_done.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__ic_cancel.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__ic_cancel.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/iscream.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-xhdpi/iscream.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__divider.9.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__divider.9.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__tile.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__tile.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_next_item.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-xhdpi/ic_action_next_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_remove.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-xhdpi/ic_action_remove.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/iscream.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xhdpi/iscream.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__divider.9.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__divider.9.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/crop__ic_cancel.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__ic_cancel.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_next_item.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xhdpi/ic_action_next_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_remove.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xhdpi/ic_action_remove.png"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/raw/gets_in_the_way.mp3",
+        "source": "/home/moc/Desktop/myApp/platforms/android/res/raw/gets_in_the_way.mp3"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/raw/consumer_onesignal_keep.xml",
+        "source": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/res/raw/consumer_onesignal_keep.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/raw/gets_in_the_way.mp3",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/raw/gets_in_the_way.mp3"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/raw/consumer_onesignal_keep.xml",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/res/raw/consumer_onesignal_keep.xml"
+    }
+]

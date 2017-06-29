@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="42a3ae86dd3ae2876d3e95c2e6e104ae57a50a65">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.14.1_c2ce209af17139d8e79831eaf1ac9285a592deb1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-10.0.1_aeb296bdff2553f6e7d5d3202f4768748639a84f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_723d821d36c1d6dd9ab1142a45c91438cddacac8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="db47fc2a83eb27b4e3d342765100637f8d385e51">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_0cff0943356cacbbb40e2f269d2aedfe635d2726.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="900a290779cdb4eb2e63b6f7806fd9f30ce4f60d">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.6_7102d435394291afbc9045502e718c60742ba13f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="69e74a8b1cbf5b8ee0fc0cca6bab1ac6c45efef8">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.6_54d7a515c1c5463ae8fc10a93b06e36ccbd384f1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/bolts-applinks-1.4.0_f75bb5cf682afd4d99ecaabaa473d1afcf3c91d6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.2.0_29ce7be29fccea03dd6bc8d6db6fda7b450a1da2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.2.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8a43729dd397e849f2a8bdc5d57a2f3170efb3ed">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-base-10.2.6_2d2e886e00b00e0ffad564a118e3d2a339dfcfdf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.2.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f1968b9614bc6851e99db64e356cf60063503e5d">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-identity-10.2.6_35b8c1916818a5fb1b5fc1f90238a4c91bb4669b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_f7cb62ae76b937e1a6777b9f6706dd77bd93f581.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="fc006a0e3cffa83bbf4d8157cda67bc4ce3e9ca4">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.onesignal-OneSignal-3.5.6_bc734e92b4bbd267832354226596d4328065b86c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.2.0_fdb629086ed03c1c12d3002dc0d528c741fcc968.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3f0a85e6000998ac322ddd50750e8cf91601a84b">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.6_9c7a05d04b71c5f5804db05349bf02aaeb8cbdf5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.4.0_6c7d86e9a5ba8bd5a155c5851fd0d1f4cf8e5543.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ec94bba6a9bbd3461d90830e0a0752a6487f5484">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-10.2.6_f9931df13e3ef82d9905192883c3416aad08cb79.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-10.0.1_0f0cab121bddb0a53306bc5965cd300531122d33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-10.0.1_176feac3fd4cdc765659d3d30bc82496a008adf8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7d59ba36bdb53bd81f4d16ed7e2abb47de5c53bd">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.soundcloud.android-android-crop-1.0.0_826dbd87c852324c3071c96fa6cba44e8d174143.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_c031a7c7187d693d551d477142f572a619a75eb9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_7815786dede5c24e0f9f617a58e35525198d118a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.2.0_077623660e3bf7d1185b90937d14e2a1a729c1b9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/libs/sqlite-connector.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="76169ab23a4f939925491c6fe186749da5a56ee9">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/sqlite-connector_748b4cc1723d930b6189886aee3098b72cac585e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_83df3bfdfe321aa03e7f634535b194041e5ddd98.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/customtabs/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b24e0a6d84a759f2094cbb27afd5ac9cb30275c9">
+        <dex dex="/home/moc/Desktop/myApp/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-customtabs-24.0.0_54040cdebfa96bc663976bc3b882dc776fc00f20.jar" />
+    </item>
+
+</items>

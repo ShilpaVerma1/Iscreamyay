@@ -1,0 +1,22 @@
+page-home {
+.scroll-content {background: url(../img/backVender.jpg)!important;
+    background-size: cover!important;}
+    .btn-main{ padding: 1.5em;
+    position: absolute;
+    top: 63% !important;
+    left: 3%;
+    width: 93%;
+    background-color: #a4c739;
+    font-size: 1.6em;
+    font-family: Century Gothic;
+     text-transform: capitalize;
+ }
+    .bottom-link{    text-align: center;
+    margin: 0px;
+    font-size: 17px;
+    padding-bottom: 1.5em;
+    color: #fff;}
+    .link{ border-bottom: 1px solid #fff;}
+@media(max-width:360px){.bottom-link{font-size: 14px;position: relative;top: 97%;}
+}
+}

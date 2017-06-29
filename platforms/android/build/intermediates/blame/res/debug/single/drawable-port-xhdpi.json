@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-port-xhdpi/screen.png",
+        "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-port-xhdpi/screen.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-port-xhdpi/screen.png",
+        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-port-xhdpi/screen.png"
+    }
+]

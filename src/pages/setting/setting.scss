@@ -1,0 +1,101 @@
+page-setting{
+    .btn-profile .button-effect{        justify-content: flex-start!important;
+    text-align: left !important;
+    float: left !important;}
+.sound-div{white-space:normal;padding-left: 1em;}
+.button-inner img.img-icon{width:35px;height:35px;margin-right: 12px;}
+ion-alert ion-backdrop{position:relative!important;}
+.btn-no .button-inner{ justify-content: center!important;}
+.btn-update .button-inner{ justify-content: center!important;}
+.button-inner{     justify-content: flex-start!important;
+    text-align: left!important;
+    float: left!important;
+    }
+.btn-profile{ background-color: #e7b622;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    padding: 31px;
+    margin: -8px 0px;
+    border-radius: 41px;
+    box-shadow: 0px 2px 2px 0px #717171;
+    z-index: 999;
+}
+
+.btn-profile:hover{background-color:#da333f;}
+
+.btn-update{ width: 43%;
+    display: block;
+    margin: 2em auto;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    border: 1.5px solid #9067af;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 200;
+    padding: 19px;
+    }
+
+    .btn-no{ 
+    width: 31%;
+    display: block;
+    margin: 2em auto;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1.5px solid #9067af;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: bold;
+}
+    
+.text-input-md{    margin: 5px 8px 5px 8px;}
+.list-md .item-input:last-child {
+    border-bottom: 1px solid #ffffff;
+}
+
+.radio-md .radio-checked {
+    border-color: #000;
+}
+.item-radio-checked.item-md ion-label {
+    color: #808080;
+}
+
+.radio-md .radio-icon{
+    width: 20px;
+    height: 20px;
+}
+
+
+.radio-md .radio-inner{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    background-color: #943634;
+}
+    .item-md.a{display: table-cell;width:0%;}
+ion-item.item.input-has-focus
+{border-bottom: 1px solid#fff!important;}
+.label-md-primary, .item-input .label-md-primary, .item-select .label-md-primary, .item-datetime .label-md-primary{margin-top: 27px;color:black;}
+ion-input.input-accordian{border:1px solid black;margin-top: 16px;}
+
+@media(max-width:350px){.label-md {
+    margin: 13px 0px 13px 0!important;} .item-md .radio-md{margin: 9px 0px 9px 0!important;}}
+
+@media(max-width:360px) { .btn-profile{font-size:17px;}
+.button-inner img.img-icon{ width: 30px; height: 30px;margin-right: 7px;}  }
+@media(min-width:360px) and (max-width:375px) { .btn-profile{font-size:20px;}
+.button-inner img.img-icon{ width: 30px; height: 30px;margin-right: 7px;}}
+
+}
+      @font-face {
+  font-family: "CenturyGothic";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url("../assets/fonts/CenturyGothic.woff2") format("woff2"), url("../assets/fonts/CenturyGothic.woff") format("woff"), url("../assets/fonts/CenturyGothic.ttf") format("truetype");
+
+
+}

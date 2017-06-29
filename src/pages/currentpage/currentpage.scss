@@ -1,0 +1,30 @@
+page-currentpage {
+ 
+.scroll {
+      height: 100%;
+  }
+ 
+  #map {
+      width: 100%;
+      height: 100%;
+  }
+  .bottom-text{ background: #d1ff8d;
+    padding: 14px;
+    margin: 0px;
+    text-align: center;
+    font-weight: 500;
+}
+.nav{
+        font-size: 42px;
+    color: cornflowerblue;
+    position: absolute;
+    top: 9%;
+    z-index: 999999;
+}
+.ion-md-navigate:before {
+    content: "\f334";
+    position: relative;
+    left: 21px;
+    top: 4px;
+}
+}

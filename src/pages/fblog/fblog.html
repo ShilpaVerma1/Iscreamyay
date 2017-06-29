@@ -1,0 +1,25 @@
+<ion-header>
+  <!--<ion-navbar hide-nav-bar="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>-->
+</ion-header>
+
+<ion-content padding>
+<ion-grid class="main-grid">
+<ion-row><img src="img/logoo.png" class="main-logo"/></ion-row> 
+<ion-row class="text-center"><h3 class="heading-ease">Easy Sign in</h3></ion-row>
+<ion-row><img src="img/face.png" class="fb-image" (click)="loginfb()" /> <img src="img/g.png" class="google-img" (click)="doGoogleLogin()"/></ion-row> 
+</ion-grid>
+
+<ion-grid class="Second-grid">
+  <ion-input type="text" name="email" [(ngModel)]="data.email" class="input-email" placeholder="username@gmail.com"></ion-input>
+   <ion-input type="password" class="input-pass" name="password" [(ngModel)]="data.pass" placeholder="........."></ion-input>
+<ion-row><button ion-button class="btn-sign" (click)="login()">SIGN IN</button></ion-row>
+<ion-row><p class="forget-pass">Forgot Password? <a class="click-me" >Click Here</a></p></ion-row>
+<ion-row><p class="forget-reg">New User? <a class="click-reg" (click)="register()"> Register Here</a></p></ion-row>
+
+</ion-grid>
+</ion-content>

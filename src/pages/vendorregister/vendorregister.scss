@@ -1,0 +1,67 @@
+page-vendorregister {
+    @font-face{
+         font-family:Century Gothic;
+    src:url(www/fonts/CenturyGothic.ttf);
+    }
+
+    font-size:18px;
+.hidden {
+  display: none!important;
+}
+.register1{padding-top:20px;}
+.registerlist .login-box{margin-bottom:10px;}
+.checkbox{padding:0px 25px;}
+.checkbox label:after{content: '';display: table;clear: both;}
+.checkbox .cr{position: relative;display: inline-block;border: 3px solid #bfbfbf;border-radius: .25em;width: 1.5em;height: 1.5em;float: left;margin-right: .5em;background:#fff;font-size:0.9em;}
+.checkbox .cr .cr-icon{position: absolute;font-size: 1.5em;line-height: 0px;top: -20%;left: 20%;}
+.checkbox label input[type="checkbox"] {display: none;}
+.checkbox label input[type="checkbox"] + .cr > .cr-icon{opacity: 0;}
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon{opacity: 1;}
+.checkbox label input[type="checkbox"]:disabled + .cr  {opacity: .5;}
+
+.tabs-striped.tabs-color-dark .tab-item.active, .tabs-striped.tabs-color-dark .tab-item.activated{border-top-width: 0px;border:none;}
+.bar{height:58px;}
+.has-subheader {
+    top: 110px;
+}
+/*.btn-bg{
+background:#79b350;
+width:85%;
+margin:auto;
+display:block;
+border-radius: 5px;
+padding:2px;}*/
+.login-btn {
+background-color: #92d050;
+width:100%;
+color:#fff; 
+border:1px solid #79b350;
+font-weight:400;
+
+}
+.button.disabled, .button[disabled]{opacity:0.4!important;}
+.btn-bg p{font-size:11px;text-align:center;}
+
+.select-alertless{
+    .alert-button-group{
+        display:none;
+        }
+    }
+    .item.item-md .checkbox-md {
+    position: static;
+    display: block;
+    margin: 9px 12px 24px -9px;
+}
+.item-inner
+{font-size:14px;
+text-align:justify;}
+.item-md
+{  width: 96%;}
+.button-md {box-shadow:none;}
+
+.reg-img img{
+        margin: 0 auto;
+    display: block;
+}
+.item-md.item-block .item-inner{border-bottom:0px;}
+}

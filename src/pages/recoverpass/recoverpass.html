@@ -1,0 +1,23 @@
+
+<ion-header>
+</ion-header>
+<ion-content padding>
+<ion-grid class="main-grid">
+<ion-row><img src="img/logoo.png" class="main-logo" (click)="backview()"/></ion-row> 
+<ion-row class="text-forgot">
+<h4 class="heading-forgot">Recover your password</h4>
+<p  class="txt-head" >Fill OTP sent to your email and reset your Password here</p>
+</ion-row>
+</ion-grid>
+<form (ngSubmit)="recoverform()">
+      <ion-grid class="-gridSecond">
+            <ion-input  style="margin-bottom:9px;" type="text" name="OTP" placeholder="OTP" [(ngModel)]="recover.otp" class="input-otp"></ion-input>   
+            <ion-input  style="margin-bottom:9px;"  type="password" name="New password" placeholder="New Password" [(ngModel)]="recover.password" class="input-otp"></ion-input> 
+            <ion-input style="margin-bottom:15px;" type="password" name="confirm password" placeholder="Confirm new Password" [(ngModel)]="recover.conf_pass" class="input-otp"></ion-input>      
+            <!--<ion-row class="errortxt"><p>{{errorMsg}}</p></ion-row>-->
+
+            <ion-row ><button ion-button  class="btn-forget" type="submit">Submit</button></ion-row>
+      </ion-grid>
+</form>      
+
+</ion-content>

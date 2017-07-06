@@ -4,10 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FbPage } from '../pages/fblog/fblog';
-import { FbRegPage } from '../pages/fbreg/fbreg';
 import { CurrentPage } from '../pages/currentpage/currentpage';
 import { EditProfilepage } from '../pages/editprofile/editprofile';
-import { GoogleRegPage } from '../pages/googlereg/googlereg';
 import { MainHomePage } from '../pages/mainhome/mainhome';
 import { SettingPage } from '../pages/setting/setting';
 import { UserProfilePage } from '../pages/userprofile/userprofile';
@@ -20,9 +18,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from 'ionic-native';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule} from 'angularfire2';
-import { EventPage,PopPage} from '../pages/event/event';
-import { Markers } from '../providers/markers';
-
+import * as GeoFire from "geofire";
+import {ForgotpassPage } from '../pages/forgotpass/forgotpass';
+import {RecoverpassPage } from '../pages/recoverpass/recoverpass';
+import {MainscreenPage } from '../pages/mainscreen/mainscreen';
 
 var firebaseConfig = {
     apiKey: "AIzaSyAOHcD8KwzFRtdnnK9obtKGARTwMrBXW_M",
@@ -40,9 +39,7 @@ var firebaseConfig = {
     MyApp,
     HomePage,
     FbPage,
-    FbRegPage,
     EditProfilepage,
-    GoogleRegPage,
     MainHomePage,
     SettingPage,
     UserProfilePage,
@@ -51,16 +48,16 @@ var firebaseConfig = {
     PopoverPage,
     HowitworksPage,
     CurrentPage,
-    EventPage,
-    PopPage
-    
+    ForgotpassPage,
+    RecoverpassPage,
+    MainscreenPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { animate: false }),
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   
  exports: [IonicModule],  
@@ -69,9 +66,7 @@ var firebaseConfig = {
     MyApp,
     HomePage,
     FbPage,
-    FbRegPage,
   EditProfilepage,
-  GoogleRegPage,
   MainHomePage,
   SettingPage,
   UserProfilePage,
@@ -80,15 +75,14 @@ var firebaseConfig = {
   PopoverPage,
   HowitworksPage,
   CurrentPage,
-  EventPage,
-  PopPage
- 
+  ForgotpassPage,
+  RecoverpassPage,
+  MainscreenPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
-    Markers,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

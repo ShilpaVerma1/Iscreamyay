@@ -1,0 +1,19 @@
+<ion-header>
+</ion-header>
+<ion-content padding>
+<ion-grid class="main-grid">
+<ion-row><img src="img/logoo.png" class="main-logo" (click)="backview()"/></ion-row> 
+<ion-row class="text-forgot">
+<h4 class="heading-forgot">Forgot your password?</h4>
+<p  class="txt-head" >Enter your email address here for recovering your password</p>
+</ion-row>
+</ion-grid>
+ <form [formGroup]="ForgetForm" (ngSubmit)="submit(Email)">
+      <ion-grid class="-gridSecond">
+            <ion-input formControlName="email"  type="text" name="email"  [(ngModel)]="Email" class="input-email" placeholder="username@gmail.com"></ion-input>   
+            <ion-row class="errortxt"><p>{{errorMsg}}</p></ion-row>    
+            <ion-row style="margin-top: 32px;"><button ion-button  class="btn-forget" type="submit">Next</button></ion-row>
+      </ion-grid>
+      
+ </form>
+</ion-content>

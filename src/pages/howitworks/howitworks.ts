@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, Platform,MenuController } from 'ionic-angular';
 import { Network } from 'ionic-native';
 import { MainHomePage} from '../mainhome/mainhome';
-//import { FbPage} from '../fblog/fblog';
-//import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {MainscreenPage } from '../mainscreen/mainscreen';
 
 declare var window: any;
 
@@ -29,7 +28,7 @@ export class HowitworksPage {
      });
  }
  back(){
-   this.navCtrl.push(MainHomePage);
+   this.navCtrl.push(MainscreenPage);
  }
 ionViewDidEnter() {
     //to disable menu, or

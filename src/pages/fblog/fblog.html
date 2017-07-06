@@ -14,11 +14,11 @@
 <ion-row><img src="img/face.png" class="fb-image" (click)="loginfb()" /> <img src="img/g.png" class="google-img" (click)="doGoogleLogin()"/></ion-row> 
 </ion-grid>
 
-<ion-grid class="Second-grid">
+<ion-grid class="-gridSecond">
   <ion-input type="text" name="email" [(ngModel)]="data.email" class="input-email" placeholder="username@gmail.com"></ion-input>
    <ion-input type="password" class="input-pass" name="password" [(ngModel)]="data.pass" placeholder="........."></ion-input>
 <ion-row><button ion-button class="btn-sign" (click)="login()">SIGN IN</button></ion-row>
-<ion-row><p class="forget-pass">Forgot Password? <a class="click-me" >Click Here</a></p></ion-row>
+<ion-row><p class="forget-pass">Forgot Password? <a class="click-me" (click)="forgotpass()">Click Here</a></p></ion-row>
 <ion-row><p class="forget-reg">New User? <a class="click-reg" (click)="register()"> Register Here</a></p></ion-row>
 
 </ion-grid>

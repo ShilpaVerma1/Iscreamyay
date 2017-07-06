@@ -1,0 +1,44 @@
+<ion-header>
+</ion-header>
+<ion-content padding class="contentimg">
+<ion-grid class="maingrid">
+<ion-row>
+<ion-col col-60>Hi
+    <p style="Text-transform:Uppercase;margin-top: initial;font-size: 20px;font-weight: bold;">{{usrname}}</p>
+    <p class="great-p">Great day to make good money</p>
+</ion-col>
+<ion-col col-40>
+<img [src]="weathericon" class="weathericon" />
+<span style="font-weight:bold;">{{temperature}}°C</span>
+</ion-col>
+</ion-row> 
+</ion-grid>
+  <ion-col>
+       <div class="main-image-section">
+        <ion-row class="center-img">
+            <ion-col col-40 class="colicon"><img src="img/iicon-1.png" (click)="goomap()"/>
+            <br/><a  class="heading-under">High Sale Point</a></ion-col>
+            <ion-col col-40 class="colicon"><img src="img/iicon-2.png"  (click)="works()"/>
+            <br/><a  class="heading-under">How It works</a></ion-col>
+        </ion-row>
+            <ion-row class="center-img">
+            <ion-col col-40 class="colicon"><img src="img/iicon-3.png"/>
+            <br/><a  class="heading-under">Become A Vendor</a></ion-col>
+            <ion-col col-40 class="colicon"><img src="img/iicon-4.png" (click)="profile()"/>
+            <br/><a  class="heading-under">User Profile</a></ion-col>
+        
+        </ion-row>
+            <ion-row class="center-img">
+            <ion-col col-40 class="colicon"><img src="img/iicon-5.png" (click)="setting()"/>
+            <br/><a  class="heading-under">App Settings</a></ion-col>
+            <ion-col col-40 class="colicon"><img src="img/iicon-6.png" />
+            <br/><a  class="heading-under">FAQ's</a></ion-col>    
+
+        </ion-row>
+       </div>
+        </ion-col>
+       <ion-grid class="footerpara" >
+         Powered by
+        <ion-row><p class="para-under">PYDARO TECHNOLOGIES. COPYRIGHT @2017</p></ion-row>
+       </ion-grid>
+</ion-content>

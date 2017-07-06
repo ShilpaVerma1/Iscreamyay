@@ -11,6 +11,7 @@ import { Network } from 'ionic-native';
 import { Crop } from 'ionic-native';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
+import {MainscreenPage } from '../mainscreen/mainscreen';
 
 declare var cordova: any;
 declare var window: any;
@@ -202,7 +203,7 @@ editprofile(){
 }
 
 backpagee(){
-  this.navCtrl.push(MainHomePage);
+  this.navCtrl.push(MainscreenPage);
 }
 ionViewDidEnter() {
     //to disable menu, or

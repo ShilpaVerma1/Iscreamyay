@@ -22,29 +22,5 @@
                 }
             }
         ]
-    },
-    {
-        "outputFile": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 56,
-                    "endOffset": 107
-                },
-                "from": {
-                    "file": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/values-v21/values-v21.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 170,
-                        "endColumn": 56,
-                        "endOffset": 222
-                    }
-                }
-            }
-        ]
     }
 ]

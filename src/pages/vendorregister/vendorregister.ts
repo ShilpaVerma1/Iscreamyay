@@ -76,20 +76,6 @@ register(){
   
   if(this.regsterform.status != "Failed"){
   //alert("Check your email for completing registeration.");
-                 navigator.geolocation.getCurrentPosition(position => {
-                    var lat = position.coords.latitude;
-                    var lng = position.coords.longitude;
-                    this.userref = this.af.database.list('/Drivers/'+  this.regsterform.uid); 
-                      this.userref.push({
-                          latitude:lat,
-                          longitude:lng,
-                      });
-                        
-
-                },error=>{
-                    window.plugins.toast.show("Please turn on your location","long","center");
-
-                })
     window.plugins.toast.show("You are successfully registered","long","center");
     this.navCtrl.push(FbPage);
   }else{

@@ -22,7 +22,12 @@ ion-alert ion-backdrop{position:relative!important;}
     box-shadow: 0px 2px 2px 0px #717171;
     z-index: 999;
 }
-
+.logoimgicon{
+    width: 100%;
+    height: 56px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
 .btn-profile:hover{background-color:#da333f;}
 
 .btn-update{ width: 43%;

@@ -1,14 +1,12 @@
 <ion-header>
-  <!--<ion-navbar>
+  <ion-navbar hideBackButton="true" color="custom-color">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>-->
+    <img src="img/logoo.png" (click)="back()" class="logoimgicon" />
+  </ion-navbar>
 </ion-header>
-
 <ion-content padding>
- <ion-row style=" margin: auto;width: 95%;border-bottom:3px solid #c5c5c5;">  <img src="img/mainlogo.png" (click)="back()" style="width:100%;" /></ion-row>
 				<h1>How it works</h1>
         <p style="font-size:18px;text-align:justify;"> iScreamYaY! is a simple app that allows Ice Cream vendors to increase their sales by tracking high-crowd-volume events around town. </p>
 				<ion-list class="round">

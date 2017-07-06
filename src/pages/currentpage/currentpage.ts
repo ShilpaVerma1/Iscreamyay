@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, Platform, NavParams,MenuController, AlertController } from 'ionic-angular';
-import {EventPage } from '../event/event';
+import {GoogleMapPage } from '../googlemap/googlemap';
 import { Geolocation } from 'ionic-native';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
@@ -71,7 +71,7 @@ this.storage.get('userid').then((userid) => {
       this.latLng = new google.maps.LatLng(this.tlat, this.tlong);
       let mapOptions = {
         center: this.latLng,
-        zoom: 15,
+        zoom: 20,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         views: google.maps.traffic,
         disableDefaultUI: true
@@ -197,7 +197,7 @@ this.storage.get('userid').then((userid) => {
   }
 
   backpage() {
-    this.navCtrl.push(EventPage);
+    this.navCtrl.push(GoogleMapPage);
   }
 
   movetogoogle() {

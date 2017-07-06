@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController,MenuController, Platform,NavParams} from 'ionic-angular';
-import { FbRegPage } from '../fbreg/fbreg';
 import { HomePage } from '../home/home';
 import { VendorregisterPage } from '../vendorregister/vendorregister';
 import { MainHomePage } from '../mainhome/mainhome';
-import { GoogleRegPage } from '../googlereg/googlereg';
 import { Facebook, NativeStorage } from 'ionic-native';
 import { GooglePlus } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 import { Network } from 'ionic-native';
 import { Http } from '@angular/http';
+import { ForgotpassPage } from '../forgotpass/forgotpass';
+import {MainscreenPage } from '../mainscreen/mainscreen';
+
 declare var window: any;
 
 @Component({
@@ -17,12 +18,9 @@ declare var window: any;
   templateUrl: 'fblog.html'
 })
 export class FbPage {
-HomePage = HomePage;
 MainHomePage = MainHomePage;
-GoogleRegPage = GoogleRegPage;
 FB_APP_ID: number =1295611150530130;
 data:any;
-FbRegPage = FbRegPage;
 response:any;
 usrid:any;
 dvcid:any;
@@ -60,15 +58,17 @@ this.storage.set("logintype",'default');
             this.storage.set("user_detail",this.response);
             this.storage.set("sound_status",this.response.sound_status);
             this.storage.set("noti_status",this.response.noti_status);
-
+            this.storage.set("usrname",this.response.firstname);
             this.storage.get('userid').then((userid) => {
               this.usrid = userid;  
                 this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.notideviceid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
 
                 })
-               //alert("You have login successfully");
+                 // alert("You have login successfully");
                     window.plugins.toast.show("You have logged in successfully","short","center");
-                    this.navCtrl.push(MainHomePage);  
+                     this.navCtrl.push(MainscreenPage,{
+                       type:'default'
+                     });  
             })
           }
           else{
@@ -85,8 +85,8 @@ register(){
   this.navCtrl.push(VendorregisterPage);
 }
 
-forgetpass(){
-  
+forgotpass(){
+  this.navCtrl.push(ForgotpassPage);
 }
 
 //facebook login.........
@@ -116,8 +116,7 @@ loginfb(){
           usrid:userId
         })
         .then(function(){
-          //alert(user.email);
-          nav.push(MainHomePage,{
+          nav.push(MainscreenPage,{
             type:'facebook',
             name: user.name,
             picture: user.picture,
@@ -142,7 +141,7 @@ loginfb(){
   loading.present();
   GooglePlus.login({
     'scopes': '', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-    'webClientId': '684030846136-247tbdfl7mdl3f5np0blcudturfdamls.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+    'webClientId': '680639023257-gnjjs3epp9cg72f76ddtgt3arh2fe3ja.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
     'offline': true
   })
   .then(function (user) {
@@ -154,7 +153,7 @@ loginfb(){
       picture: user.imageUrl
     })
     .then(function(){
-      nav.push(GoogleRegPage,{
+      nav.push(MainscreenPage,{
         type:'google',
         name: user.displayName,
         email: user.email,
@@ -167,6 +166,7 @@ loginfb(){
     loading.dismiss();
   });
 }
+
 ionViewDidEnter() {
     //to disable menu, or
     this.menu.enable(false);

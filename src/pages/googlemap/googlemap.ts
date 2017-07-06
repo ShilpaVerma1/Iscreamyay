@@ -9,7 +9,9 @@ import { Network } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import firebase from 'firebase';
-import{AngularFire,FirebaseListObservable} from 'angularfire2';
+import{AngularFire} from 'angularfire2';
+import * as GeoFire from "geofire";
+import {MainscreenPage } from '../mainscreen/mainscreen';
 
 declare var google;
 declare var window: any;
@@ -19,9 +21,7 @@ declare var window: any;
 })
 
 export class GoogleMapPage {
-  @ViewChild('map') mapElement: ElementRef;
   map: any;
-  MainHomePage: any;
   CurrentPage: any;
   response: any;
   lat: any;
@@ -31,12 +31,13 @@ export class GoogleMapPage {
   time: any;
   miles: any;
   usrid:any;
+  userref:any;
+  watchId:any;
   marker:any;
   af:any;
-  userref:any;
   constructor(af:AngularFire,public navCtrl: NavController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
+    var that=this;
     this.af=af;
-
     Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
 
@@ -54,142 +55,122 @@ export class GoogleMapPage {
   }
 
 loadMap() {
-this.marker=null; 
+
 this.storage.get('userid').then((userid) => {
  this.usrid = userid;
     this.http.get("http://192.169.146.6/ogo/iceCreamApi/getEvent?userid="+this.usrid).map(res => res.json()).subscribe(data => {
       this.response = data;
-     
-      if (this.response.status == "Failed") {
-      
-        navigator.geolocation.getCurrentPosition(position => {
-          var lat = position.coords.latitude;
-          var lng = position.coords.longitude;
-
-          let latLng = new google.maps.LatLng(lat, lng);
-
-          let mapOptions = {
-            center: latLng,
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          }
-
-          this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-          this.marker = new google.maps.Marker({
-            position: latLng,
-            map: this.map,
-            icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
-          });
-            const watch = Geolocation.watchPosition().subscribe(pos => {
-                      var lat = pos.coords.latitude;
-                      var lng = pos.coords.longitude;
-
-    /*******Remove existing marker*******/
-                      let latLng = new google.maps.LatLng(lat, lng);
-                       if (this.marker) {
-                           this.marker.setMap(null);
-                             this.marker = new google.maps.Marker({
-                                    position: latLng,
-                                    map: this.map,
-                                    icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
-                            });
-                       }
-   /*******Remove existing marker*******/
-                                 
-        })
-
-       }, error => {
-           window.plugins.toast.show("Please turn on your location","long","center");
-        });
-      }
-
-      else { 
- 
-          this.length = data.length;
-          navigator.geolocation.getCurrentPosition(position => {
-          var lat = position.coords.latitude;
-          var lng = position.coords.longitude;
-          // var lat=9.0765;
-          // var lng=7.3986;
-    
+      var options={enableHighAccuracy: true};
+      this.length = data.length;
+      Geolocation.getCurrentPosition(options).then((resp) => {
+           var lat = resp.coords.latitude;
+           var lng = resp.coords.longitude;
+          
               let latLng = new google.maps.LatLng(lat, lng);
               let mapOptions = {
                 center: latLng,
-                zoom: 12,
+                zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 disableDefaultUI: true
               }
-              this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions); 
- 
-             this.marker= new google.maps.Marker({
-                  position: latLng,
-                  map: this.map,
-                  icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png'}
+  let map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+  var geoFire = new GeoFire(firebaseRef);
+  var geoQuery = geoFire.query({
+      center: [lat,lng],
+      radius:16.0934,
+    })
+/********Adding markers on Drivers position *********/
+geoQuery.on("key_entered", function(key, location, distance) {  
+        addDriversToMap(location);
+});
+/****Moves vehicles markers on the map when their location within the query changes****/
+geoQuery.on("key_moved", function(key, location, distance) {
+    if(that.marker){
+      that.marker.setMap(null);
+      addDriversToMap(location);
+    }
+});
+geoQuery.on("key_exited", function(location) {
+
+      if (location !== true) {
+        geoQuery.cancel();
+        that.marker.setMap(null);
+      }
+ });
+var center=geoQuery.center();
+
+/********Create a circle centered on the map************/
+  var circle = new google.maps.Circle({
+    strokeColor: "#D8D8D8",
+    fillColor: "#B650FF",
+    map: map,
+    center:center,
+    radius:16093,
+  });
+/**********Funtion for Creating multiple markers for drivers ***********/
+function addDriversToMap(location){
+    var LatLng = new google.maps.LatLng(location[0],location[1]);       
+          that.marker = new google.maps.Marker({
+            position: LatLng,
+            map: map,
+            icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
+          }); 
+        circle.bindTo('center',that.marker, 'position');
+
+}
+
+ /**********Updating current location and save it to realtime DB***********/
+         
+          this.watchId = Geolocation.watchPosition();
+          this.storage.set('watch',this.watchId);
+            this.watchId.subscribe((data) => {
+              var latt=data.coords.latitude;
+              var long=data.coords.longitude;
+              var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+              var geoFire = new GeoFire(firebaseRef);
+              geoFire.set(this.usrid, [latt,long]).then(function() {
+                  
+              }, function(error) {
+              
               });
-              var circle = new google.maps.Circle({
-                map: this.map,
-                radius: 16093,  // 10 miles in metres
-                fillColor: '#D8D8D8',
-                strokeColor: '#D8D8D8'
-            });
-            circle.bindTo('center', this.marker, 'position');
-   
-        Geolocation.watchPosition().subscribe(pos => {
-                      var lat = pos.coords.latitude;
-                      var lng = pos.coords.longitude;
-                  /*******Remove existing marker*******/
-                      let latLng = new google.maps.LatLng(lat, lng);
-                       if (this.marker) {
-                           this.marker.setMap(null);
-                             this.marker = new google.maps.Marker({
-                                    position: latLng,
-                                    map: this.map,
-                                    icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
-                            });
-                       }
-                 /*******Remove existing marker*******/
-      
-                },error=>{
-                 window.plugins.toast.show("Please turn on your location","long","center");
-              })
-
-
-        
+          }) 
+/*********Placing multiple markers for events************/ 
+ 
+          if (this.response.status != "Failed") {
+ 
             for (var i = 0; i < this.length; i++) {
 
                     var data = this.response[i];
-
                     let latLng = new google.maps.LatLng(data.lat, data.longt);
                     // Creating a marker and putting it on the map
-                    var marker = new google.maps.Marker({
+                    var markerr = new google.maps.Marker({
                       position: latLng,
-                      map: this.map,
+                      map: map,
                       title: data.id,
                       icon: { url: 'http://2.mediaoncloud.com/Shilpa/desticon.png' }
                     });
 
                     var that = this;
-                    google.maps.event.addListener(marker, 'click', (function (marker, data) {
+                    google.maps.event.addListener(markerr, 'click', (function (markerr, data) {
                       return function () {
                         that.showdata(data);
 
                       }
-                    })(marker, data));
+                    })(markerr, data));
             }
-         },error=>{
-           window.plugins.toast.show("Please turn on your location","long","center");
-         })
-      }   
+          } 
+       })
     })
-  })   
-}
-  showdata(eventdata) {
-    navigator.geolocation.getCurrentPosition(position => {
-      var lat = position.coords.latitude;
-      var lng = position.coords.longitude;
+  })  
+} 
+ showdata(eventdata) {
+ 
+    Geolocation.getCurrentPosition().then((resp) => {
+      var lat = resp.coords.latitude;
+      var lng = resp.coords.longitude;
       // var lat=9.0765;
       // var lng=7.3986;
-
       this.http.get("http://maps.googleapis.com/maps/api/distancematrix/json?origins=" + lat + "," + lng + "&destinations=" + eventdata.lat + "," + eventdata.longt + "&language=en-EN&sensor=false").map(res => res.json()).subscribe(data => {
         var dis = data.rows[0].elements[0].distance.value;
         this.miles = dis * 1.60934;
@@ -200,12 +181,11 @@ this.storage.get('userid').then((userid) => {
           ev: PopoverPage
         });
       })
-    }, error => {
-      console.log(error);
-    });
+    })
   }
+
   backpage() {
-    this.navCtrl.push(MainHomePage);
+    this.navCtrl.push(MainscreenPage);
   }
   ionViewDidEnter() {
     //to disable menu, or

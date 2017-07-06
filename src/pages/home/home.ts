@@ -63,6 +63,7 @@ welcome(){
             });
         }
     })
+  //  this.navCtrl.push(FbPage);
  }
 ionViewDidEnter() {
     //to disable menu, or

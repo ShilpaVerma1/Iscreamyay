@@ -4,6 +4,7 @@ import { MainHomePage } from '../mainhome/mainhome';
 import { HomePage } from '../home/home';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import {MainscreenPage } from '../mainscreen/mainscreen';
 
 declare var window: any;
 @Component({
@@ -12,7 +13,6 @@ declare var window: any;
 
 })
 export class SettingPage {
-  MainHomePage: any;
   HomePage: any;
   changepass: any;
   dataa: any = {};
@@ -23,10 +23,15 @@ export class SettingPage {
   data: Array<{ title: string, id: number, details: string, img: string, cssClass: string,showDetails: boolean }> = [];
 
 constructor(public navCtrl: NavController,public menu:MenuController, private storage: Storage, private http: Http) {
-  this.sound_status='';
-  this.noti_status='';
+   this.storage.get('soundstatus').then((soundstatus) => {
+      this.sound_status=soundstatus; 
+   })
+  this.storage.get('notificstatus').then((notificstatus) => {
+        this.noti_status=notificstatus; 
+   })
   this.storage.get('user_detail').then((user_detail) => {
     this.usrid= user_detail.id;
+    
   })
     
     for (let i = 0; i < 4; i++) {
@@ -80,12 +85,19 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
   notify_music(a){
       this.http.get("http://192.169.146.6/ogo/iceCreamApi/changeNotiSound?user_id="+this.usrid+"&sound_status="+a).map(res => res.json()).subscribe(data => {
         this.sound_status=a;
+        if(data.status=='Success'){
+            this.storage.set('soundstatus',this.sound_status);
+        }
       })
   }
 
  notify(a){
      this.http.get("http://192.169.146.6/ogo/iceCreamApi/changeNotiStatus?user_id="+this.usrid+"&noti_status="+a).map(res => res.json()).subscribe(data => {
+        console.log(data);
          this.noti_status=a;
+         if(data.status=='Success'){
+           this.storage.set('notificstatus',this.noti_status)
+         }
     })
   }
 
@@ -139,7 +151,7 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
     })
   }
   backpage() {
-    this.navCtrl.push(MainHomePage);
+    this.navCtrl.push(MainscreenPage);
   }
   logout() {
     this.storage.clear();

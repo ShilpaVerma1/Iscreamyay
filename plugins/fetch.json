@@ -157,11 +157,19 @@
     "cordova-plugin-googleplus": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-googleplus"
+            "id": "cordova-plugin-googleplus@^5.1.1"
         },
         "is_top_level": true,
         "variables": {
-            "REVERSED_CLIENT_ID": "com.googleusercontent.apps.684030846136-dd9b50pqvke78kmqs0373ir2aj3smth4"
+            "REVERSED_CLIENT_ID": "com.googleusercontent.apps.680639023257-jnqjvhaiduga8sj9dhjiuu15p2igj82l"
         }
+    },
+    "cordova-plugin-crosswalk-webview": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-crosswalk-webview@2.3.0"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

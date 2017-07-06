@@ -10,8 +10,7 @@ import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import firebase from 'firebase';
 import{AngularFire,FirebaseListObservable} from 'angularfire2';
-import {Observable} from 'rxjs/Rx';
-import * as MarkerClusterer from 'node-js-marker-clusterer';
+
 declare var google;
 declare var window: any;
 @Component({
@@ -134,8 +133,9 @@ this.storage.get('userid').then((userid) => {
             for (var i = 0; i < this.length; i++) {
 
                     var data = this.response[i];
-
+                    console.log(data);
                     let latLng = new google.maps.LatLng(data.lat, data.longt);
+                    console.log(latLng);
                     // Creating a marker and putting it on the map
                     var marker = new google.maps.Marker({
                       position: latLng,

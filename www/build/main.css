@@ -24424,6 +24424,13 @@ page-currentpage .scroll {
   height: 100%;
 }
 
+page-currentpage .logoimgicon {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
 page-currentpage #map {
   width: 100%;
   height: 100%;
@@ -24462,6 +24469,13 @@ page-editprofile .btn-profile {
   padding: 22px;
   margin-top: -13px;
   height: 48px;
+}
+
+page-editprofile .logoimgicon {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
+  margin-bottom: 8px;
 }
 
 page-editprofile .dull-input {
@@ -24551,32 +24565,6 @@ page-editprofile .btn-update {
   page-editprofile .text-input-md {
     margin: 7px 3px 7px 9px;
   }
-}
-
-page-event .scroll {
-  height: 84%;
-}
-
-page-event #map {
-  width: 100%;
-  height: 84%;
-}
-
-page-event .image {
-  width: 353px;
-  height: 56px;
-}
-
-page-event .btn {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  background-color: white;
-  border: 1px solid black;
-}
-
-page-event ion-footer {
-  position: fixed;
 }
 
 page-fblog .main-logo {
@@ -24728,79 +24716,90 @@ page-fblog .forget-reg {
   src: local("Roboto Light"), local("Roboto-Light"), url("../assets/fonts/CenturyGothic.woff2") format("woff2"), url("../assets/fonts/CenturyGothic.woff") format("woff"), url("../assets/fonts/CenturyGothic.ttf") format("truetype");
 }
 
-page-fbreg .main-logo {
-  width: 47%;
-  height: 50%;
-  margin: 0 auto;
-  margin-top: 5em;
+page-forgotpass {
+  font-family: CenturyGothic;
 }
 
-page-fbreg .heading1 {
-  text-align: center;
-  margin-top: 3em;
-  font-family: Roboto;
-  font-size: 16px;
-  margin-bottom: 7px;
-}
-
-page-fbreg .heading2 {
-  font-family: Roboto Regular;
-  font-size: 24px;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 7px;
-}
-
-page-fbreg .heading3 {
-  text-align: center;
-  font-size: 15px;
-  margin-top: 0px;
-}
-
-page-fbreg .link {
-  text-align: center;
-}
-
-page-fbreg .link a {
+page-forgotpass .main-logo {
   width: 100%;
-  color: #f1be17;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-page-fbreg .btn-continue {
-  width: 80%;
-  border-radius: 50px;
   margin: 0 auto;
-  background-color: #cd1d20;
-  margin-top: 3em;
-  height: 44px;
-  font-size: 18px;
-  letter-spacing: 2px;
+  display: block;
 }
 
-page-fbreg .bottom-heading1 {
+page-forgotpass .main-grid {
+  width: 100%;
+  padding: 30px;
+}
+
+page-forgotpass .txt-head {
   text-align: center;
-  font-size: 16px;
-  font-family: Roboto;
-  margin-bottom: 0px;
-  font-weight: 500;
+  font-size: larger;
 }
 
-page-fbreg .bottom-heading2 {
+page-forgotpass .heading-forgot {
   text-align: center;
-  font-size: 14px;
-  font-family: Roboto Regular;
-  margin-top: 0px;
-  margin-bottom: 3em;
+  color: rgba(236, 14, 14, 0.87);
 }
 
-page-fbreg .footer-md::before {
-  background-image: none;
+page-forgotpass .text-forgot {
+  margin-top: 27px;
+  display: block;
+}
+
+page-forgotpass .input-email {
+  text-align: center;
+  background: #f8f8f8;
+  padding: 31px;
+  border-radius: 24px;
+  background-image: url(../img/email.png);
+  background-repeat: no-repeat;
+  background-position: 15px;
+  font-size: 17px;
+  font-family: CenturyGothic;
+}
+
+page-forgotpass .errortxt {
+  color: red;
+  font-size: initial;
+  font-family: CenturyGothic;
+}
+
+page-forgotpass .-gridSecond {
+  padding-bottom: 52px;
+  width: 100%;
+  padding: 0px;
+}
+
+page-forgotpass input-cover {
+  background: lavenderblush;
+}
+
+page-forgotpass .btn-forget {
+  width: 100%;
+  width: 60%;
+  height: 50px;
+  font-size: 17px;
+  border-radius: 26px;
+  margin-top: 20px;
+  background-color: #f1be17;
+  display: block;
+  margin: auto;
+}
+
+page-forgotpass .input-email .text-input-md, page-forgotpass .input-email .text-input-ios {
+  margin: 0px !important;
+  text-align: center;
 }
 
 page-googlemap .scroll {
   height: 84%;
+}
+
+page-googlemap .logoimgicon {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
+  margin-bottom: 2px;
 }
 
 page-googlemap #map {
@@ -24823,77 +24822,6 @@ page-googlemap .btn {
 
 page-googlemap ion-footer {
   position: fixed;
-}
-
-page-googlereg .main-logo {
-  width: 47%;
-  height: 50%;
-  margin: 0 auto;
-  margin-top: 5em;
-}
-
-page-googlereg .heading1 {
-  text-align: center;
-  margin-top: 3em;
-  font-family: Roboto;
-  font-size: 16px;
-  margin-bottom: 7px;
-}
-
-page-googlereg .heading2 {
-  font-family: Roboto Regular;
-  font-size: 24px;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 7px;
-}
-
-page-googlereg .heading3 {
-  text-align: center;
-  font-size: 15px;
-  margin-top: 0px;
-}
-
-page-googlereg .link {
-  text-align: center;
-}
-
-page-googlereg .link a {
-  width: 100%;
-  color: #f1be17;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-page-googlereg .btn-continue {
-  width: 80%;
-  border-radius: 50px;
-  margin: 0 auto;
-  background-color: #cd1d20;
-  margin-top: 3em;
-  height: 44px;
-  font-size: 18px;
-  letter-spacing: 2px;
-}
-
-page-googlereg .bottom-heading1 {
-  text-align: center;
-  font-size: 16px;
-  font-family: Roboto;
-  margin-bottom: 0px;
-  font-weight: 500;
-}
-
-page-googlereg .bottom-heading2 {
-  text-align: center;
-  font-size: 14px;
-  font-family: Roboto Regular;
-  margin-top: 0px;
-  margin-bottom: 3em;
-}
-
-page-googlereg .footer-md::before {
-  background-image: none;
 }
 
 page-home .scroll-content {
@@ -24931,6 +24859,12 @@ page-home .link {
     position: relative;
     top: 97%;
   }
+}
+
+page-howitworks .logoimgicon {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
 }
 
 page-mainhome .center-img {
@@ -24980,6 +24914,191 @@ page-mainhome .toolbar-content-md {
   page-mainhome .center-img img {
     height: 70px;
   }
+}
+
+page-mainscreen {
+  font-family: CenturyGothic;
+}
+
+page-mainscreen .contentimg {
+  background-image: url(../img/maincontent.png);
+  background-repeat: no-repeat;
+}
+
+page-mainscreen .colicon {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 4px;
+}
+
+page-mainscreen .footerpara {
+  text-align: center;
+  color: #828282;
+  margin-top: -15px;
+}
+
+page-mainscreen .weathericon {
+  max-width: 100%;
+  border: 0;
+  margin: 10px 0px 0px 42px;
+}
+
+page-mainscreen .center-img {
+  text-align: center;
+  margin: 4px 28px 0px 28px;
+}
+
+page-mainscreen .heading-under {
+  font-size: 13px;
+  color: #ababab;
+}
+
+page-mainscreen .para-under {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #828282;
+  margin: 4px 0 0 0;
+}
+
+page-mainscreen .toolbar-background-md {
+  background-color: #fff;
+}
+
+page-mainscreen .header-md::after {
+  background-image: none;
+}
+
+page-mainscreen .toolbar-content-md img {
+  border-bottom: 1px solid #b7b7b7;
+  padding-bottom: 12px;
+}
+
+page-mainscreen .scroll-content {
+  margin-top: 42px !important;
+}
+
+page-mainscreen .toolbar-content-md {
+  margin: 0em 1em;
+}
+
+page-mainscreen .maingrid {
+  margin-top: inherit;
+}
+
+page-mainscreen .great-p {
+  margin: 0;
+}
+
+page-mainscreen .main-image-section {
+  width: 100%;
+  float: left;
+  margin-top: -20px;
+}
+
+@media (min-width: 321px) and (max-width: 360px) {
+  page-mainscreen .center-img img {
+    height: 85px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 320px) {
+  page-mainscreen .center-img img {
+    height: 70px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 568px) {
+  page-mainscreen .center-img img {
+    height: 45px;
+  }
+  page-mainscreen .para-under {
+    font-size: 12px;
+    margin: 0;
+  }
+  page-mainscreen .weathericon {
+    margin: 40px 0px 0px 0px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 667px) {
+  page-mainscreen .center-img img {
+    height: 70px;
+  }
+}
+
+page-recoverpass {
+  font-family: CenturyGothic;
+}
+
+page-recoverpass .main-logo {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+page-recoverpass .main-grid {
+  width: 100%;
+  padding: 22px;
+}
+
+page-recoverpass .txt-head {
+  text-align: center;
+  font-size: larger;
+}
+
+page-recoverpass .heading-forgot {
+  text-align: center;
+  color: rgba(236, 14, 14, 0.87);
+}
+
+page-recoverpass .text-forgot {
+  margin-top: 27px;
+  display: block;
+}
+
+page-recoverpass .errortxt {
+  color: red;
+  font-size: small;
+  font-family: CenturyGothic;
+}
+
+page-recoverpass .-gridSecond {
+  padding-bottom: 52px;
+  width: 100%;
+  padding: 0px;
+}
+
+page-recoverpass input-cover {
+  background: lavenderblush;
+}
+
+page-recoverpass .btn-forget {
+  width: 100%;
+  width: 60%;
+  height: 50px;
+  font-size: 17px;
+  border-radius: 26px;
+  background-color: #f1be17;
+  display: block;
+  margin: auto;
+}
+
+page-recoverpass .input-otp {
+  text-align: center;
+  background: #f8f8f8;
+  padding: 25px;
+  border-radius: 24px;
+  background-repeat: no-repeat;
+  background-position: 15px;
+  font-size: 17px;
+  font-family: CenturyGothic;
+}
+
+page-recoverpass .input-otp .text-input-md, page-recoverpass .input-email .text-input-ios {
+  margin: 0px !important;
+  text-align: center;
 }
 
 page-setting .btn-profile .button-effect {
@@ -25036,6 +25155,13 @@ page-setting .btn-profile {
   border-radius: 41px;
   box-shadow: 0px 2px 2px 0px #717171;
   z-index: 999;
+}
+
+page-setting .logoimgicon {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
+  margin-bottom: 8px;
 }
 
 page-setting .btn-profile:hover {
@@ -25170,6 +25296,13 @@ page-userprofile .btn-profile {
   text-transform: capitalize;
   padding: 22px;
   margin-top: -9px;
+}
+
+page-userprofile .logoimgicon {
+  width: 100%;
+  height: 56px;
+  margin-top: 6px;
+  margin-bottom: 8px;
 }
 
 page-userprofile img[src="http://192.169.146.6/ogo/ImageUpload/iceCreamUploads/null"] {

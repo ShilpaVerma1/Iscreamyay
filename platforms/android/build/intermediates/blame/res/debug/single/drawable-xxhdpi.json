@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_remove.png",
-        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xxhdpi/ic_action_remove.png"
-    },
-    {
         "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_next_item.png",
         "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-xxhdpi/ic_action_next_item.png"
     },
@@ -12,20 +8,8 @@
         "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-xxhdpi/ic_action_previous_item.png"
     },
     {
-        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxhdpi/iscream.png",
-        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xxhdpi/iscream.png"
-    },
-    {
         "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_remove.png",
         "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-xxhdpi/ic_action_remove.png"
-    },
-    {
-        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_previous_item.png",
-        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xxhdpi/ic_action_previous_item.png"
-    },
-    {
-        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_next_item.png",
-        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-xxhdpi/ic_action_next_item.png"
     },
     {
         "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-xxhdpi/iscream.png",

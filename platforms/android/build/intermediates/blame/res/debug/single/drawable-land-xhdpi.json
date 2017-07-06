@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/home/moc/Desktop/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-land-xhdpi/screen.png",
-        "source": "/home/moc/Desktop/myApp/platforms/android/res/drawable-land-xhdpi/screen.png"
-    },
-    {
         "merged": "/home/moc/Desktop/All Projects/myApp/platforms/android/build/intermediates/res/merged/debug/drawable-land-xhdpi/screen.png",
         "source": "/home/moc/Desktop/All Projects/myApp/platforms/android/res/drawable-land-xhdpi/screen.png"
     }

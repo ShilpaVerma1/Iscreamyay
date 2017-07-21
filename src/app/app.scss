@@ -9,7 +9,33 @@
     box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.54);
     text-align: center;
 }
+.loading-md .spinner-ios line, .loading-md .spinner-ios-small line {
+    stroke: blueviolet;
+}
+.loading-md .loading-spinner + .loading-content {
+    margin-left: -31px;
+    margin-top: 46px;
+    font-size:medium;
+   
+}
+.loading-md .loading-wrapper {height:80px;}
+ion-spinner svg{
+    width: 167%;
+}
+.spinner-ios line, .spinner-ios-small line {
+    stroke-width: 8px;
+    stroke-linecap: round;
+}
 
+.loading-md .loading-wrapper {
+    padding: 24px;
+    max-width: 258px;
+    max-height: 90%;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.5);
+    background: #fafafa;
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+}
 .popover-md .popover-content
 { min-width:370px!important;
 border-radius: 50px!important;

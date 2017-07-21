@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Platform,MenuController, LoadingController, Loading, ActionSheetController, ToastController  } from 'ionic-angular';
 import { EditProfilepage } from '../editprofile/editprofile';
-import { MainHomePage } from '../mainhome/mainhome';
 import { File } from 'ionic-native';
 import { Transfer } from 'ionic-native';
 import { FilePath } from 'ionic-native';
@@ -11,7 +10,7 @@ import { Network } from 'ionic-native';
 import { Crop } from 'ionic-native';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
-import {MainscreenPage } from '../mainscreen/mainscreen';
+import {MainHomePage } from '../mainhome/mainhome';
 
 declare var cordova: any;
 declare var window: any;
@@ -21,7 +20,6 @@ declare var window: any;
 })
 export class UserProfilePage {
 EditProfilepage = EditProfilepage;
-MainHomePage = MainHomePage;
 lastImage: string = null;
   loading: Loading;
   usrid:any;
@@ -43,8 +41,9 @@ lastImage: string = null;
     this.storage.get('userid').then((userid) => {
       this.usrid = userid;
           let loadingPopup = this.loadingCtrl.create({
-            content: '',
-            cssClass: 'img-blank'
+            content: 'Loading...',
+            cssClass: 'img-blank',
+            spinner:'ios'
           });
           loadingPopup.present(); 
     
@@ -203,7 +202,7 @@ editprofile(){
 }
 
 backpagee(){
-  this.navCtrl.push(MainscreenPage);
+  this.navCtrl.push(MainHomePage);
 }
 ionViewDidEnter() {
     //to disable menu, or

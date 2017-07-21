@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, Platform, NavParams,MenuController, AlertController } from 'ionic-angular';
-import {GoogleMapPage } from '../googlemap/googlemap';
+import {MainHomePage } from '../mainhome/mainhome';
 import { Geolocation } from 'ionic-native';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
@@ -47,9 +47,6 @@ export class CurrentPage {
     this.lati = this.navParams.get("latt");
     this.longi = this.navParams.get("longg");
     this.eventid = this.navParams.get("evntid");
-    //  this.timee = this.navParams.get("time");
-    //  this.addresss = this.navParams.get("address");
-    //  this.miless = this.navParams.get("miles").toFixed(2);
 
   }
   ionViewDidLoad() {
@@ -184,7 +181,7 @@ this.storage.get('userid').then((userid) => {
        
         directionsDisplay.setDirections(response);
         var dis = legs.distance.value;
-        this.distance = dis * 0.00062137;
+        this.distance = (dis * 0.00062137).toFixed(2);
         this.time = legs.duration.value;
         x.miless = this.distance + ' ' + 'Miles and' + ' ';
         x.timee = legs.duration.text + ' ' + 'away';
@@ -197,7 +194,7 @@ this.storage.get('userid').then((userid) => {
   }
 
   backpage() {
-    this.navCtrl.push(GoogleMapPage);
+    this.navCtrl.push(MainHomePage);
   }
 
   movetogoogle() {

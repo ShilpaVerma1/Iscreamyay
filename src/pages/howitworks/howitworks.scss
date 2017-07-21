@@ -1,7 +1,115 @@
 page-howitworks {
-.logoimgicon{
-    width: 100%;
-    height: 56px;
-    margin-top: 6px;
+    font-family: Roboto-regular;
+    .footer-md::before{background-image: none;}
+.scroll-content{margin:0px!important;}
+.fixed-content{ background-image: url(../img/Becoming_Vendor.png)!important;background-size: cover!important;}
+
+// ion-content.main-back{background-image:url('/img/bgcopy.png');background-size:cover;}
+.main-heading{ font-family: Roboto;font-weight: 600;  margin: 0 auto; padding-top:1em;   color: #fff;  font-size: 25px;}
+.second-row{}
+.backicon{
+    font-size: 3.0em;
+    color: #ffffff;
+    font-weight: 500;
+  display: inline-block;
+      margin: 6px 0px 0px 17px;
 }
+.second-row p{    padding: 0em 3em;
+    text-align: center;
+    font-size: 14.5px;
+    color: #fff;
+   font-weight: 300;}
+.second-row span{font-weight:bold;}
+.third-row{ padding:0em 2em 0em 5em;     margin: 2em 0em 1em 0em; }
+.third-row span{font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    font-family: Rosario;
+    margin-left: -20px;
+    vertical-align: sub;
+        margin-right: 2px;}
+  .third-row p{font-weight:500;
+    font-family: Roboto-bold;  color: #fff;   margin:0px;} 
+  .forth-row  {padding:0em 2em 0em 5em;     margin: 0.9em 0em 0.9em 0em;}
+.forth-row p{color: #fff; margin:0px; 
+   font-weight:500; font-family: Roboto-bold;padding-top: 6px;}
+.forth-row span{font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    font-family: Rosario;
+    margin-left: -20px;
+    vertical-align: sub;     margin-right: 7px;
+}
+
+.footer-para1{
+       margin: 2.2em auto 1em;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+}
+.footer-para2{
+        color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.footer-img{float:right;}
+.footer-img img{    width: 98px;
+    height: 50%;}
+
+@media(max-width:320px){.second-row p {     padding: 0em 2.8em;font-size: 13px;}
+ .third-row p {color: #fff;font-size: 12px;
+    line-height: 18px;}
+     .third-row {  margin: 1em 0em 1em 0em;}
+     .forth-row{margin: 0.5em 0em 0.5em 0em;}
+     .forth-row p{font-size:12px;}
+     .footer-para1 {
+    margin: 1.8em auto 1em;
+    font-size: 13px;}
+     .footer-para2 {font-size: 13px;}
+ .footer-img img {
+    width: 85px;}
+
+}
+
+
+
+@media(min-width:375px){
+.second-row p {     padding: 0em 2.8em;font-size:14.5px;}
+ .third-row p {    font-size: 14.5px;
+    line-height: 19px;}
+     .third-row {     padding: 0em 3em 0em 5em;
+    margin: 2.8em 0em 1em 0em;}
+     .forth-row{margin: 1em 0em 1em 0em;}
+     .forth-row p{font-size:14.5px;}
+
+
+} 
+@media(min-width:412px){.second-row p{font-size:16.5px;} .third-row {
+    padding: 0em 3em 0em 5em;
+    margin: 2em 0em 1em 0em;}
+     .footer-para1 {
+    margin: 2.5em auto 1em;} .third-row p {
+    font-size: 16px;} .forth-row p{font-size: 16px;}
+ .forth-row { padding: 0em 3em 0em 5em;}
+ .footer-img img {
+    width: 105px;}}
+    
+    @media(min-width:414px){.second-row p{font-size:16.5px;} .third-row {
+    padding:0em 3.5em 0em 5.5em;
+    margin: 3.5em 0em 1em 0em;}
+     .footer-para1 {
+    margin: 2.5em auto 1em;} .third-row p {
+    font-size: 16px;} .forth-row p{font-size: 16px;}
+ .forth-row { padding: 0em 4em 0em 5.5em;     margin: 1.5em 0em 1.5em 0em;}
+ .footer-img img {
+    width: 125px;}
+         .footer-para1 {
+    margin: 3em auto 1.5em;
+    font-size: 15px;}
+     .footer-para2 {font-size: 15px;}
+    }
 }

@@ -1,7 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, Platform, ViewController,MenuController, NavParams, PopoverController } from 'ionic-angular';
+import { NavController, Platform, ViewController,MenuController,LoadingController, NavParams, PopoverController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
-import { MainHomePage } from '../mainhome/mainhome';
 import { CurrentPage } from '../currentpage/currentpage';
 import { HomePage } from '../home/home';
 import { Http } from '@angular/http';
@@ -11,8 +10,9 @@ import 'rxjs/add/operator/map';
 import firebase from 'firebase';
 import{AngularFire} from 'angularfire2';
 import * as GeoFire from "geofire";
-import {MainscreenPage } from '../mainscreen/mainscreen';
-
+import {MainHomePage } from '../mainhome/mainhome';
+import * as jQuery from 'jquery';
+import * as $ from 'jquery';
 declare var google;
 declare var window: any;
 @Component({
@@ -21,7 +21,7 @@ declare var window: any;
 })
 
 export class GoogleMapPage {
-  map: any;
+  @ViewChild('map') mapElement: ElementRef;
   CurrentPage: any;
   response: any;
   lat: any;
@@ -34,10 +34,9 @@ export class GoogleMapPage {
   userref:any;
   watchId:any;
   marker:any;
-  af:any;
-  constructor(af:AngularFire,public navCtrl: NavController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
-    var that=this;
-    this.af=af;
+  af:any;marker1:any;
+  constructor(af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
+
     Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
 
@@ -55,68 +54,144 @@ export class GoogleMapPage {
   }
 
 loadMap() {
+var that=this;
 
 this.storage.get('userid').then((userid) => {
  this.usrid = userid;
-    this.http.get("http://192.169.146.6/ogo/iceCreamApi/getEvent?userid="+this.usrid).map(res => res.json()).subscribe(data => {
-      this.response = data;
-      var options={enableHighAccuracy: true};
-      this.length = data.length;
+    this.storage.get('toggleid').then((toggleid)=>{
+     var eventtoogleid=toggleid;
+     this.storage.get('togglevnt').then((toggleevent)=>{
+       var toggleeventid=toggleevent;
+       var options={enableHighAccuracy: true};
+
       Geolocation.getCurrentPosition(options).then((resp) => {
            var lat = resp.coords.latitude;
            var lng = resp.coords.longitude;
-          
-              let latLng = new google.maps.LatLng(lat, lng);
-              let mapOptions = {
+        
+            let latLng = new google.maps.LatLng(lat, lng);    
+    this.http.get("http://192.169.146.6/ogo/iceCreamApi/getEvent?userid="+this.usrid+"&lat="+lat+"&lng="+lng).map(res => res.json()).subscribe(data => {
+      this.response = data;
+      this.length = data.length;
+
+/******For eventtoogle clicked or not ******/
+     if(toggleeventid=='1' && eventtoogleid<this.length){
+          var eventlatlng=new google.maps.LatLng(this.response[eventtoogleid].lat,this.response[eventtoogleid].longt);
+
+              var mapOptions = {
+                    center: eventlatlng,
+                    zoom: 15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true
+                }
+            
+     }else{
+            var mapOptions = {
                 center: latLng,
                 zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 disableDefaultUI: true
-              }
-  let map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            }
+     }    
+        let map = new google.maps.Map(this.mapElement.nativeElement, mapOptions); 
+           
+/*********Placing multiple markers for events************/ 
+ 
+          if (this.response.status != "Failed") {
+ 
+            for (var i = 0; i < this.length; i++) {
+
+                    var data = this.response[i];
+                    let latLng = new google.maps.LatLng(data.lat, data.longt);
+                    // Creating a marker and putting it on the map
+                    that.marker = new google.maps.Marker({
+                      position: latLng,
+                      map: map,
+                      title: data.id,
+                      icon: { url: 'http://2.mediaoncloud.com/Shilpa/desticon.png' }
+                    });
+
+                    // google.maps.event.addListener(that.marker, 'click', (function (markerr, data) {
+                    //   return function () {
+                    //     that.showdata(data);
+
+                    //   }
+                   // })(that.marker, data));
+                     var infoWindow = new google.maps.InfoWindow();
+ 
+                    google.maps.event.addListener(that.marker, 'click', (function (markerr, data) {
+                      return function () {
+                        var milesdis=Math.round(data.milesDistance);
+                        infoWindow.setContent("<p style='margin-bottom: -10px;'>" + data.event_name + "</p>"
+                        +"<p style='margin-bottom: -9px;'>"+data.num_people+" people expected"+"</p>"+"<p style='margin-bottom: -10px;'>"+data.city+"</p>"+"<p>"+milesdis+" miles away"+"</p>"
+                        + "<img id='btnnn' src='img/addnew.png'/>"); 
+                        infoWindow.open(map,markerr);
+                            google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+                            document.getElementById('btnnn').addEventListener('click', () => {                                 
+                                  that.showdata(data);
+                                  infoWindow.close();
+                            });
+                          });
+                      jQuery('.gm-style-iw').prev('div').remove(); 
+                    }
+                    
+                    })(that.marker, data));   
+             }
+    }  
+    
+
   var firebaseRef = firebase.database().ref('/Drivers/Profiles');
   var geoFire = new GeoFire(firebaseRef);
   var geoQuery = geoFire.query({
       center: [lat,lng],
       radius:16.0934,
     })
+this.storage.set('geoq',geoQuery);
+
 /********Adding markers on Drivers position *********/
-geoQuery.on("key_entered", function(key, location, distance) {  
+geoQuery.on("key_entered", function(key, location, distance) { 
         addDriversToMap(location);
 });
+
 /****Moves vehicles markers on the map when their location within the query changes****/
-geoQuery.on("key_moved", function(key, location, distance) {
-    if(that.marker){
-      that.marker.setMap(null);
+ geoQuery.on("key_moved", function(key, location, distance) {
+    if(that.marker1){
+      that.marker1.setMap(null);
       addDriversToMap(location);
     }
-});
+ });
 geoQuery.on("key_exited", function(location) {
-
       if (location !== true) {
-        geoQuery.cancel();
-        that.marker.setMap(null);
+      geoQuery.cancel();
+        that.marker1.setMap(null);
       }
  });
-var center=geoQuery.center();
 
-/********Create a circle centered on the map************/
+/********Create a circle centered on the map acoording to eventtoggle clicked or not************/
+ if(eventtoogleid!='1'){
   var circle = new google.maps.Circle({
     strokeColor: "#D8D8D8",
-    fillColor: "#B650FF",
+    fillColor: "#b8c4b4",
     map: map,
-    center:center,
+    center:latLng,
     radius:16093,
   });
+ }else{
+    var circle = new google.maps.Circle({
+    strokeColor: "#D8D8D8",
+    fillColor: "#b8c4b4",
+    map: map,
+    center:eventlatlng,
+    radius:16093,
+  });
+ }
 /**********Funtion for Creating multiple markers for drivers ***********/
 function addDriversToMap(location){
     var LatLng = new google.maps.LatLng(location[0],location[1]);       
-          that.marker = new google.maps.Marker({
+          that.marker1 = new google.maps.Marker({
             position: LatLng,
             map: map,
             icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
           }); 
-        circle.bindTo('center',that.marker, 'position');
 
 }
 
@@ -134,38 +209,65 @@ function addDriversToMap(location){
               }, function(error) {
               
               });
-          }) 
-/*********Placing multiple markers for events************/ 
- 
-          if (this.response.status != "Failed") {
- 
-            for (var i = 0; i < this.length; i++) {
-
-                    var data = this.response[i];
-                    let latLng = new google.maps.LatLng(data.lat, data.longt);
-                    // Creating a marker and putting it on the map
-                    var markerr = new google.maps.Marker({
-                      position: latLng,
-                      map: map,
-                      title: data.id,
-                      icon: { url: 'http://2.mediaoncloud.com/Shilpa/desticon.png' }
-                    });
-
-                    var that = this;
-                    google.maps.event.addListener(markerr, 'click', (function (markerr, data) {
-                      return function () {
-                        that.showdata(data);
-
-                      }
-                    })(markerr, data));
-            }
-          } 
-       })
-    })
-  })  
+          })
+         })
+      })
+    }) 
+  })
+}) 
 } 
+eventtoggle(togglevnt){
+
+  this.storage.set('togglevnt',togglevnt);
+  this.storage.get('toggleid').then((x)=>{
+    if(x==null && x==''){
+      this.storage.set('toggleid',0);
+    }else{
+      var toggleid=x+1;
+      this.storage.set('toggleid',toggleid);
+    }   
+  })
+    this.storage.get('geoq').then((geoq)=>{
+      geoq.cancel()
+    })
+
+    this.storage.get('watch').then((watch)=>{
+      watch.unsubscribe();
+    })
+  this.loadMap();
+  let loading = this.loadingCtrl.create({
+    cssClass:'spin',
+    spinner: 'ios',
+    content: 'Loading...'
+  });
+  loading.present(); 
+  setTimeout(() => {
+    loading.dismiss();
+  }, 4000);
+}
+eventtogglee(){
+    this.storage.set('toggleid',null);
+    this.storage.set('togglevnt','');
+    this.storage.get('geoq').then((geoq)=>{
+      geoq.cancel()
+    })
+
+    this.storage.get('watch').then((watch)=>{
+      watch.unsubscribe();
+    })
+  this.loadMap();
+  let loading = this.loadingCtrl.create({
+    cssClass:'spin',
+    spinner: 'ios',
+    content: 'Loading...'
+  });
+  loading.present(); 
+  setTimeout(() => {
+    loading.dismiss();
+  }, 4000);
+}
  showdata(eventdata) {
- 
+
     Geolocation.getCurrentPosition().then((resp) => {
       var lat = resp.coords.latitude;
       var lng = resp.coords.longitude;
@@ -176,16 +278,31 @@ function addDriversToMap(location){
         this.miles = dis * 1.60934;
         this.time = data.rows[0].elements[0].duration.text;
         let popover = this.popoverCtrl.create(PopoverPage, { eventid: eventdata, miles: this.miles, time: this.time });
-
+   let loading = this.loadingCtrl.create({
+                              cssClass:'spin',
+                              spinner: 'ios',
+                              content: 'Loading...'
+                            });
         popover.present({
           ev: PopoverPage
         });
+           loading.dismiss();
       })
     })
   }
 
   backpage() {
-    this.navCtrl.push(MainscreenPage);
+    this.storage.set('toggleid',null);
+    this.storage.set('togglevnt','');
+
+    this.storage.get('geoq').then((geoq)=>{
+      geoq.cancel()
+    })
+
+    this.storage.get('watch').then((watch)=>{
+      watch.unsubscribe();
+    })
+    this.navCtrl.push(MainHomePage);
   }
   ionViewDidEnter() {
     //to disable menu, or
@@ -216,9 +333,8 @@ function addDriversToMap(location){
   <p><b>Miles:</b><span>{{miles}} miles away</span></p>
    <ion-row><button class="btn1" (click)="getdirection(data.lat,data.longt,data.id)">Get Direction</button></ion-row>
    <ion-row><button  class="btn2" (click)="close()">Cancel</button></ion-row>
-   </ion-card-content> 
+ </ion-card-content> 
 </ion-card>`,
-
 })
 export class PopoverPage {
   data: any = {};
@@ -228,7 +344,8 @@ export class PopoverPage {
   longg: any = {};
   lat: any = {};
   adress: any;
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, private navParams: NavParams, public popoverCtrl: PopoverController, private geolocation: Geolocation, private platform: Platform, private http: Http) {
+  constructor(public navCtrl: NavController,public loadingCtrl:LoadingController,public storage:Storage, public viewCtrl: ViewController, private navParams: NavParams, public popoverCtrl: PopoverController, private geolocation: Geolocation, private platform: Platform, private http: Http) {
+
     this.data = this.navParams.get('eventid');
     this.miles = this.navParams.get('miles');
     this.time = this.navParams.get('time');
@@ -237,6 +354,14 @@ export class PopoverPage {
 
   }
   getdirection(a, b,c) {
+    this.storage.set('toggleid',null);
+    this.storage.set('togglevnt','');
+    this.storage.get('geoq').then((geoq)=>{
+        geoq.cancel()
+    })
+    this.storage.get('watch').then((watch)=>{
+      watch.unsubscribe();
+    })
     this.viewCtrl.dismiss();
     this.navCtrl.push(CurrentPage, {
       latt: a,
@@ -250,3 +375,7 @@ export class PopoverPage {
   }
 
 }
+
+
+
+

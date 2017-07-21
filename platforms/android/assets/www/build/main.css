@@ -24325,6 +24325,39 @@ ion-navbar.toolbar {
   text-align: center;
 }
 
+.loading-md .spinner-ios line, .loading-md .spinner-ios-small line {
+  stroke: blueviolet;
+}
+
+.loading-md .loading-spinner + .loading-content {
+  margin-left: -31px;
+  margin-top: 46px;
+  font-size: medium;
+}
+
+.loading-md .loading-wrapper {
+  height: 80px;
+}
+
+ion-spinner svg {
+  width: 167%;
+}
+
+.spinner-ios line, .spinner-ios-small line {
+  stroke-width: 8px;
+  stroke-linecap: round;
+}
+
+.loading-md .loading-wrapper {
+  padding: 24px;
+  max-width: 258px;
+  max-height: 90%;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.5);
+  background: #fafafa;
+  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+}
+
 .popover-md .popover-content {
   min-width: 370px !important;
   border-radius: 50px !important;
@@ -24420,15 +24453,57 @@ ion-loading.img-blank {
   background: #fff !important;
 }
 
+page-becomevendor .fixed-content {
+  background-image: url(../img/Becoming_Vendor.png) !important;
+  background-size: cover !important;
+}
+
+page-becomevendor .backicon {
+  display: inline-block;
+  font-size: 3.0em;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+page-becomevendor h1 {
+  display: block;
+  margin: auto;
+  color: #fff;
+  font-weight: bold;
+  font-family: Roboto;
+}
+
+page-becomevendor .grid {
+  padding: 4px;
+}
+
+page-becomevendor .para-main p {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 14px;
+  word-spacing: 3px;
+  line-height: 19px;
+  text-align: justify;
+}
+
 page-currentpage .scroll {
   height: 100%;
 }
 
 page-currentpage .logoimgicon {
-  width: 100%;
+  width: 80%;
   height: 56px;
   margin-top: 6px;
   margin-bottom: 2px;
+}
+
+page-currentpage .homeicon {
+  height: 44px;
+  margin: 9px 6px 0px 8px;
+}
+
+page-currentpage .headerrow {
+  border-bottom: 1px solid #b7b7b7;
 }
 
 page-currentpage #map {
@@ -24437,26 +24512,39 @@ page-currentpage #map {
 }
 
 page-currentpage .bottom-text {
-  background: #d1ff8d;
+  background: #626262;
   padding: 14px;
   margin: 0px;
-  text-align: center;
+  text-align: left;
   font-weight: 500;
+  height: 50px;
+  color: #ffffff;
 }
 
 page-currentpage .nav {
-  font-size: 42px;
-  color: cornflowerblue;
-  position: absolute;
-  top: 9%;
-  z-index: 999999;
+  width: 76px;
+  height: 76px;
+  padding: 8px;
+  position: relative;
+  left: 23em;
+  bottom: 1em;
 }
 
-page-currentpage .ion-md-navigate:before {
-  content: "\f334";
-  position: relative;
-  left: 21px;
-  top: 4px;
+page-currentpage .footer-md::before {
+  background-image: none;
+}
+
+@media (max-width: 360px) {
+  page-currentpage .nav {
+    left: 19em;
+  }
+}
+
+@media (max-width: 320px) {
+  page-currentpage .nav {
+    left: 17em;
+    bottom: 0.5px;
+  }
 }
 
 page-editprofile .btn-profile {
@@ -24471,8 +24559,17 @@ page-editprofile .btn-profile {
   height: 48px;
 }
 
+page-editprofile .headerrow {
+  border-bottom: 1px solid #b7b7b7;
+}
+
+page-editprofile .homeicon {
+  height: 44px;
+  margin: 9px 6px 0px 8px;
+}
+
 page-editprofile .logoimgicon {
-  width: 100%;
+  width: 80%;
   height: 56px;
   margin-top: 6px;
   margin-bottom: 8px;
@@ -24508,7 +24605,6 @@ page-editprofile .header-md::after {
 }
 
 page-editprofile .toolbar-content-md img {
-  border-bottom: 1px solid #b7b7b7;
   padding-bottom: 12px;
 }
 
@@ -24564,6 +24660,123 @@ page-editprofile .btn-update {
   }
   page-editprofile .text-input-md {
     margin: 7px 3px 7px 9px;
+  }
+}
+
+page-faq {
+  font-family: Roboto;
+}
+
+page-faq .fixed-content {
+  background-image: url(../img/Becoming_Vendor.png) !important;
+  background-size: cover !important;
+}
+
+page-faq .backicon {
+  display: inline-block;
+  font-size: 3.0em;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+page-faq .main-heading {
+  margin: 0 auto;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  font-family: Roboto;
+  font-weight: 600;
+}
+
+page-faq .question {
+  padding: 2em 1.4em 0em 2.3em;
+}
+
+page-faq .question p {
+  margin: 0px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+page-faq .question span {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: -15px;
+}
+
+page-faq .question .second-para {
+  font-weight: 300;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.26);
+  width: 95%;
+  padding-bottom: 1em;
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+page-faq .question-another {
+  padding: 1em 1.4em 0em 2.3em;
+}
+
+page-faq .question-another p {
+  margin: 0px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+page-faq .question-another span {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: -15px;
+}
+
+page-faq .question-another .second-para {
+  font-weight: 300;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.26);
+  width: 95%;
+  padding-bottom: 1em;
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+@media (max-width: 320px) {
+  page-faq .question p {
+    font-size: 12px;
+  }
+  page-faq .question-another p {
+    font-size: 12px;
+  }
+  page-faq .question span {
+    font-size: 14px;
+  }
+  page-faq .question-another span {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 412px) {
+  page-faq .question p {
+    font-size: 14px;
+  }
+  page-faq .question-another p {
+    font-size: 14px;
+  }
+  page-faq .question span {
+    font-size: 15px;
+  }
+  page-faq .question-another span {
+    font-size: 15px;
+  }
+  page-faq .question {
+    padding: 2em 2em 0em 3em;
+  }
+  page-faq .question-another {
+    padding: 2em 2em 0em 3em;
+  }
+  page-faq .question-another .second-para {
+    font-size: 13px;
+    word-spacing: 1px;
   }
 }
 
@@ -24791,15 +25004,66 @@ page-forgotpass .input-email .text-input-md, page-forgotpass .input-email .text-
   text-align: center;
 }
 
+page-googlemap ion-icon {
+  display: inline-block;
+  font-size: 4em;
+  color: #4f81bd;
+}
+
+page-googlemap .gm-style .gm-style-iw {
+  background-color: #AA0043;
+  font-weight: 500;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 3px 6px;
+  color: #fff;
+  margin: -4px 9px;
+}
+
 page-googlemap .scroll {
   height: 84%;
 }
 
 page-googlemap .logoimgicon {
-  width: 100%;
+  width: 80%;
   height: 56px;
   margin-top: 6px;
   margin-bottom: 2px;
+}
+
+page-googlemap #btnnn {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+}
+
+page-googlemap .nav {
+  max-width: 100%;
+  border: 0;
+  width: 54px;
+  height: 54px;
+  position: relative;
+  left: 9px;
+  bottom: 20px;
+}
+
+page-googlemap .eventpos {
+  width: 70px;
+  height: 60px;
+  position: relative;
+  right: 0px;
+  bottom: 1.4em;
+}
+
+page-googlemap .homeicon {
+  height: 44px;
+  margin: 9px 6px 0px 8px;
+}
+
+page-googlemap .headerrow {
+  border-bottom: 1px solid #b7b7b7;
 }
 
 page-googlemap #map {
@@ -24822,6 +25086,10 @@ page-googlemap .btn {
 
 page-googlemap ion-footer {
   position: fixed;
+}
+
+page-googlemap .footer-md::before {
+  background-image: none;
 }
 
 page-home .scroll-content {
@@ -24861,58 +25129,358 @@ page-home .link {
   }
 }
 
-page-howitworks .logoimgicon {
-  width: 100%;
-  height: 56px;
-  margin-top: 6px;
+page-howitworks {
+  font-family: Roboto-regular;
 }
 
-page-mainhome .center-img {
-  text-align: center;
-}
-
-page-mainhome .heading-under {
-  font-size: 16px;
-  color: #ababab;
-}
-
-page-mainhome .para-under {
-  width: 100%;
-  text-align: center;
-  font-size: 15px;
-  color: #828282;
-}
-
-page-mainhome .toolbar-background-md {
-  background-color: #fff;
-}
-
-page-mainhome .header-md::after {
+page-howitworks .footer-md::before {
   background-image: none;
 }
 
-page-mainhome .toolbar-content-md img {
-  border-bottom: 1px solid #b7b7b7;
-  padding-bottom: 12px;
+page-howitworks .scroll-content {
+  margin: 0px !important;
 }
 
-page-mainhome .scroll-content {
-  margin-top: 42px !important;
+page-howitworks .fixed-content {
+  background-image: url(../img/Becoming_Vendor.png) !important;
+  background-size: cover !important;
 }
 
-page-mainhome .toolbar-content-md {
-  margin: 0em 1em;
+page-howitworks .main-heading {
+  font-family: Roboto;
+  font-weight: 600;
+  margin: 0 auto;
+  padding-top: 1em;
+  color: #fff;
+  font-size: 25px;
 }
 
-@media (min-width: 321px) and (max-width: 360px) {
-  page-mainhome .center-img img {
-    height: 85px;
+page-howitworks .backicon {
+  font-size: 3.0em;
+  color: #ffffff;
+  font-weight: 500;
+  display: inline-block;
+  margin: 6px 0px 0px 17px;
+}
+
+page-howitworks .second-row p {
+  padding: 0em 3em;
+  text-align: center;
+  font-size: 14.5px;
+  color: #fff;
+  font-weight: 300;
+}
+
+page-howitworks .second-row span {
+  font-weight: bold;
+}
+
+page-howitworks .third-row {
+  padding: 0em 2em 0em 5em;
+  margin: 2em 0em 1em 0em;
+}
+
+page-howitworks .third-row span {
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  font-family: Rosario;
+  margin-left: -20px;
+  vertical-align: sub;
+  margin-right: 2px;
+}
+
+page-howitworks .third-row p {
+  font-weight: 500;
+  font-family: Roboto-bold;
+  color: #fff;
+  margin: 0px;
+}
+
+page-howitworks .forth-row {
+  padding: 0em 2em 0em 5em;
+  margin: 0.9em 0em 0.9em 0em;
+}
+
+page-howitworks .forth-row p {
+  color: #fff;
+  margin: 0px;
+  font-weight: 500;
+  font-family: Roboto-bold;
+  padding-top: 6px;
+}
+
+page-howitworks .forth-row span {
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  font-family: Rosario;
+  margin-left: -20px;
+  vertical-align: sub;
+  margin-right: 7px;
+}
+
+page-howitworks .footer-para1 {
+  margin: 2.2em auto 1em;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+page-howitworks .footer-para2 {
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+page-howitworks .footer-img {
+  float: right;
+}
+
+page-howitworks .footer-img img {
+  width: 98px;
+  height: 50%;
+}
+
+@media (max-width: 320px) {
+  page-howitworks .second-row p {
+    padding: 0em 2.8em;
+    font-size: 13px;
+  }
+  page-howitworks .third-row p {
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  page-howitworks .third-row {
+    margin: 1em 0em 1em 0em;
+  }
+  page-howitworks .forth-row {
+    margin: 0.5em 0em 0.5em 0em;
+  }
+  page-howitworks .forth-row p {
+    font-size: 12px;
+  }
+  page-howitworks .footer-para1 {
+    margin: 1.8em auto 1em;
+    font-size: 13px;
+  }
+  page-howitworks .footer-para2 {
+    font-size: 13px;
+  }
+  page-howitworks .footer-img img {
+    width: 85px;
   }
 }
 
-@media (min-width: 300px) and (max-width: 320px) {
-  page-mainhome .center-img img {
-    height: 70px;
+@media (min-width: 375px) {
+  page-howitworks .second-row p {
+    padding: 0em 2.8em;
+    font-size: 14.5px;
+  }
+  page-howitworks .third-row p {
+    font-size: 14.5px;
+    line-height: 19px;
+  }
+  page-howitworks .third-row {
+    padding: 0em 3em 0em 5em;
+    margin: 2.8em 0em 1em 0em;
+  }
+  page-howitworks .forth-row {
+    margin: 1em 0em 1em 0em;
+  }
+  page-howitworks .forth-row p {
+    font-size: 14.5px;
+  }
+}
+
+@media (min-width: 412px) {
+  page-howitworks .second-row p {
+    font-size: 16.5px;
+  }
+  page-howitworks .third-row {
+    padding: 0em 3em 0em 5em;
+    margin: 2em 0em 1em 0em;
+  }
+  page-howitworks .footer-para1 {
+    margin: 2.5em auto 1em;
+  }
+  page-howitworks .third-row p {
+    font-size: 16px;
+  }
+  page-howitworks .forth-row p {
+    font-size: 16px;
+  }
+  page-howitworks .forth-row {
+    padding: 0em 3em 0em 5em;
+  }
+  page-howitworks .footer-img img {
+    width: 105px;
+  }
+}
+
+@media (min-width: 414px) {
+  page-howitworks .second-row p {
+    font-size: 16.5px;
+  }
+  page-howitworks .third-row {
+    padding: 0em 3.5em 0em 5.5em;
+    margin: 3.5em 0em 1em 0em;
+  }
+  page-howitworks .footer-para1 {
+    margin: 2.5em auto 1em;
+  }
+  page-howitworks .third-row p {
+    font-size: 16px;
+  }
+  page-howitworks .forth-row p {
+    font-size: 16px;
+  }
+  page-howitworks .forth-row {
+    padding: 0em 4em 0em 5.5em;
+    margin: 1.5em 0em 1.5em 0em;
+  }
+  page-howitworks .footer-img img {
+    width: 125px;
+  }
+  page-howitworks .footer-para1 {
+    margin: 3em auto 1.5em;
+    font-size: 15px;
+  }
+  page-howitworks .footer-para2 {
+    font-size: 15px;
+  }
+}
+
+page-mainhome .fixed-content {
+  background-image: url(../img/Becoming_Vendor.png) !important;
+  background-size: cover !important;
+}
+
+page-mainhome img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+page-mainhome .weathericon {
+  vertical-align: middle;
+  max-width: 40px;
+  border: 0;
+  position: fixed;
+  right: 10px;
+  top: 20px;
+}
+
+page-mainhome .temp {
+  color: #fff;
+  font-weight: bold;
+  position: fixed;
+  right: 7px;
+  top: 40px;
+}
+
+page-mainhome .top-row .logoicon {
+  width: 50%;
+  height: 30%;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+page-mainhome .para1 {
+  text-align: center;
+  width: 100%;
+  margin: 0px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 4px 0px 2px 0px;
+}
+
+page-mainhome .para2 {
+  text-align: center;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 16px;
+  font-family: Roboto-regular;
+}
+
+page-mainhome .col-first {
+  width: 100%;
+  display: -ms-inline-grid;
+  display: inline-grid;
+}
+
+page-mainhome .col-first img {
+  width: 110px;
+  margin: 0 auto;
+}
+
+page-mainhome .para-col {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.839);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  line-height: 15px;
+  font-family: Roboto;
+}
+
+page-mainhome .first-row {
+  margin: 3em 0em 1.9em 0em;
+}
+
+page-mainhome .second-row {
+  margin: 0em 0em 1.9em 0em;
+}
+
+@media (max-width: 320px) {
+  page-mainhome .first-row {
+    margin: 1em 0em 1.2em 0em;
+  }
+  page-mainhome .second-row {
+    margin: 0em 0em 1.2em 0em;
+  }
+  page-mainhome .col-first img {
+    width: 90px;
+  }
+}
+
+@media (max-width: 375px) {
+  page-mainhome col-first img {
+    width: 120px;
+  }
+}
+
+@media (min-width: 412px) {
+  page-mainhome .col-first img {
+    width: 125px;
+  }
+  page-mainhome .para-col {
+    font-size: 13px;
+  }
+  page-mainhome .top-row img {
+    width: 53%;
+  }
+  page-mainhome .para1 {
+    font-size: 19px;
+  }
+  page-mainhome .para2 {
+    font-size: 12px;
+  }
+  page-mainhome .first-row {
+    margin: 3em 0em 2.5em 0em;
+  }
+  page-mainhome .second-row {
+    margin: 0em 0em 2.5em 0em;
   }
 }
 
@@ -24920,27 +25488,59 @@ page-mainscreen {
   font-family: CenturyGothic;
 }
 
-page-mainscreen .contentimg {
-  background-image: url(../img/maincontent.png);
-  background-repeat: no-repeat;
+page-mainscreen .para-head {
+  text-transform: Uppercase;
+  margin-top: initial;
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+page-mainscreen .col-temp {
+  display: inline-block;
+  text-align: right;
+  max-width: 120px !important;
+}
+
+page-mainscreen .fixed-content {
+  background-image: url(../img/icecreamback.jpg) !important;
+  background-size: cover;
+}
+
+page-mainscreen .main-top {
+  margin-top: 40px;
+}
+
+page-mainscreen .main-top img {
+  width: 54%;
+  height: 20%;
+}
+
+page-mainscreen .footer-md::before {
+  background-image: none !important;
+}
+
+page-mainscreen .colicon img {
+  width: 58%;
 }
 
 page-mainscreen .colicon {
   background-color: #fff;
   border-radius: 10px;
-  margin: 4px;
+  margin: 0px 0px 4px 7px;
+  box-shadow: 1px 1px 7px 1px #c8c8c8;
 }
 
 page-mainscreen .footerpara {
   text-align: center;
   color: #828282;
-  margin-top: -15px;
+  margin-top: 10px;
 }
 
 page-mainscreen .weathericon {
-  max-width: 100%;
+  vertical-align: middle;
+  max-width: 40px;
   border: 0;
-  margin: 10px 0px 0px 42px;
 }
 
 page-mainscreen .center-img {
@@ -24956,9 +25556,9 @@ page-mainscreen .heading-under {
 page-mainscreen .para-under {
   width: 100%;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
-  color: #828282;
+  color: #8a8a8a;
   margin: 4px 0 0 0;
 }
 
@@ -24976,7 +25576,7 @@ page-mainscreen .toolbar-content-md img {
 }
 
 page-mainscreen .scroll-content {
-  margin-top: 42px !important;
+  top: 0px !important;
 }
 
 page-mainscreen .toolbar-content-md {
@@ -24985,10 +25585,17 @@ page-mainscreen .toolbar-content-md {
 
 page-mainscreen .maingrid {
   margin-top: inherit;
+  padding: 15px 20px 0px 20px;
+}
+
+page-mainscreen .maingrid ion-col {
+  padding: 0px;
 }
 
 page-mainscreen .great-p {
-  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-size: 14px;
 }
 
 page-mainscreen .main-image-section {
@@ -24997,34 +25604,36 @@ page-mainscreen .main-image-section {
   margin-top: -20px;
 }
 
-@media (min-width: 321px) and (max-width: 360px) {
-  page-mainscreen .center-img img {
-    height: 85px;
+@media (max-width: 360px) {
+  page-mainscreen .great-p {
+    font-size: 13px;
+  }
+  page-mainscreen .colicon img {
+    width: 50%;
+  }
+  page-mainscreen .heading-under {
+    font-size: 11px;
+  }
+  page-mainscreen .colicon {
+    margin: 0px 0px 0px 7px;
+  }
+  page-mainscreen .maingrid {
+    padding: 5px 20px 0px 20px;
+  }
+  page-mainscreen .para-head {
+    font-size: 16px;
   }
 }
 
-@media (min-width: 300px) and (max-width: 320px) {
-  page-mainscreen .center-img img {
-    height: 70px;
+@media (max-width: 375px) {
+  page-mainscreen .great-p {
+    font-size: 13px;
   }
-}
-
-@media (min-width: 320px) and (max-width: 568px) {
-  page-mainscreen .center-img img {
-    height: 45px;
+  page-mainscreen .colicon img {
+    width: 50%;
   }
-  page-mainscreen .para-under {
-    font-size: 12px;
-    margin: 0;
-  }
-  page-mainscreen .weathericon {
-    margin: 40px 0px 0px 0px;
-  }
-}
-
-@media (min-width: 375px) and (max-width: 667px) {
-  page-mainscreen .center-img img {
-    height: 70px;
+  page-mainscreen .heading-under {
+    font-size: 11px;
   }
 }
 
@@ -25158,10 +25767,15 @@ page-setting .btn-profile {
 }
 
 page-setting .logoimgicon {
-  width: 100%;
+  width: 80%;
   height: 56px;
   margin-top: 6px;
   margin-bottom: 8px;
+}
+
+page-setting .homeicon {
+  height: 44px;
+  margin: 9px 6px 0px 8px;
 }
 
 page-setting .btn-profile:hover {
@@ -25298,8 +25912,17 @@ page-userprofile .btn-profile {
   margin-top: -9px;
 }
 
+page-userprofile .headerrow {
+  border-bottom: 1px solid #b7b7b7;
+}
+
+page-userprofile .homeicon {
+  height: 44px;
+  margin: 9px 6px 0px 8px;
+}
+
 page-userprofile .logoimgicon {
-  width: 100%;
+  width: 80%;
   height: 56px;
   margin-top: 6px;
   margin-bottom: 8px;

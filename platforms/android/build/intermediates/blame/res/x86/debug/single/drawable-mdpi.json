@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-mdpi/crop__ic_done.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-mdpi/crop__ic_done.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-mdpi/crop__divider.9.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-mdpi/crop__divider.9.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-mdpi/crop__ic_cancel.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-mdpi/crop__ic_cancel.png"
+    }
+]

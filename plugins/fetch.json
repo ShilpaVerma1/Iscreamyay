@@ -167,9 +167,20 @@
     "cordova-plugin-crosswalk-webview": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-crosswalk-webview@2.3.0"
+            "id": "cordova-plugin-crosswalk-webview@^2.3.0"
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-googlemaps": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-googlemaps"
+        },
+        "is_top_level": true,
+        "variables": {
+            "API_KEY_FOR_ANDROID": "AIzaSyA18BVeneMpRBj1PB4G1OY68IQFS6W6DyQ",
+            "API_KEY_FOR_IOS": "AIzaSyAJd4VrhlXPQjEGKYae3ONMstOzCbuUODo"
+        }
     }
 }

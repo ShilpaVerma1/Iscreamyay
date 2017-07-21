@@ -3,8 +3,10 @@ import { Nav, Platform,MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
-import { MainHomePage } from '../pages/mainhome/mainhome';
 import { Storage } from '@ionic/storage';
+import {MainscreenPage } from '../pages/mainscreen/mainscreen';
+import {MainHomePage } from '../pages/mainhome/mainhome';
+
 @Component({
   templateUrl: 'app.html'
 })

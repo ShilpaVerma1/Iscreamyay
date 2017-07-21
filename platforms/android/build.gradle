@@ -88,6 +88,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "cordova-plugin-crosswalk-webview/com-xwalk.gradle"
 apply from: "onesignal-cordova-plugin/com-build-extras-onesignal.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
@@ -256,6 +257,8 @@ dependencies {
     compile "com.google.android.gms:play-services-auth:+"
     compile "com.google.android.gms:play-services-identity:+"
     compile "com.onesignal:OneSignal:3.5.6"
+    compile "com.google.android.gms:play-services-maps:+"
+    compile "com.google.android.gms:play-services-location:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

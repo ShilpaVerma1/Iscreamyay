@@ -1,0 +1,57 @@
+page-faq {
+    font-family: Roboto;
+.fixed-content{ background-image: url(../img/Becoming_Vendor.png)!important;background-size: cover!important;}
+.backicon{
+    display: inline-block;
+    font-size: 3.0em;
+    color: #ffffff;
+    font-weight: 500;
+}
+.main-heading{       margin: 0 auto;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 600;}
+    .question{      padding: 2em 1.4em 0em 2.3em;}
+.question p{margin:0px ;color:#fff;      font-size: 14px;
+    font-weight: 500;}
+.question span{font-size: 16px;
+    font-weight: 500;     margin-left: -15px;}
+     
+.question .second-para{      font-weight: 300;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.26);
+    width: 95%;
+    padding-bottom: 1em;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+   .question-another{      padding: 1em 1.4em 0em 2.3em;}
+.question-another p{margin:0px ;color:#fff;      font-size: 14px;
+    font-weight: 500;}
+.question-another span{font-size: 16px;
+    font-weight: 500;     margin-left: -15px;}
+.question-another .second-para{      font-weight: 300;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.26);
+    width: 95%;
+    padding-bottom: 1em;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+
+
+@media(max-width:320px){.question p{font-size: 12px;}  .question-another p{font-size: 12px;} .question span {  font-size: 14px;} 
+.question-another span { font-size: 14px;}   }
+
+@media(min-width:375px){}
+
+
+@media(min-width:412px){.question p{font-size: 14px;}  .question-another p{font-size: 14px;} .question span {  font-size: 15px;} 
+.question-another span { font-size: 15px;} .question { padding: 2em 2em 0em 3em;}  .question-another {  padding: 2em 2em 0em 3em;} 
+.question-another .second-para{font-size:13px;    word-spacing: 1px;} }
+
+@media(min-width:414px){}
+
+}

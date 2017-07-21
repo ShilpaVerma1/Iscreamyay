@@ -26,7 +26,7 @@ constructor(public navCtrl: NavController,public menu:MenuController, public pla
     Network.onConnect().subscribe(()=> {
     });
      this.platform.ready().then(() => {
-          window.plugins.toast.show("Always remember to turn on your location", "long", "center");
+          window.plugins.toast.show("Always remember to turn on your location", "short", "center");
       });
     this.platform.ready().then(() => {
         OneSignal.startInit('862a0842-e625-439f-a3af-5a41c6a2ac1c', '115973810805'); // import APP ID and Project Number

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams,MenuController,Platform,AlertController,IonicPage} from 'ionic-angular';
+import {  NavController,LoadingController, NavParams,MenuController,Platform,AlertController,IonicPage} from 'ionic-angular';
 import { FbPage } from '../fblog/fblog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
@@ -18,7 +18,7 @@ export class ForgotpassPage {
  ForgetForm: FormGroup;
  errorMsg:any;
  response:any;
-  constructor(public navCtrl: NavController,public platform:Platform,private storage: Storage,public http:Http,public alert:AlertController, public formBuilder: FormBuilder,public menu:MenuController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,public loadingCtrl:LoadingController,public platform:Platform,private storage: Storage,public http:Http,public alert:AlertController, public formBuilder: FormBuilder,public menu:MenuController, public navParams: NavParams) {
      Observable.interval(30000).subscribe(x => {
         this.errorMsg='';
      })
@@ -46,10 +46,16 @@ validate(): boolean {
  submit(Email) {
     if (this.validate()) {
     this.http.get("http://192.169.146.6/ogo/iceCreamApi/verifyEmail?email="+Email).map(res =>res.json()).subscribe(data =>{
+     let loading = this.loadingCtrl.create({
+          cssClass:'spin',
+          spinner: 'ios',
+          content: 'Loading...'
+        });
+        loading.present(); 
     this.response=data;
     this.storage.set("otp",this.response.otp);
           if(this.response.success == "Sucess"){
-
+            loading.dismiss();
             this.platform.ready().then(() => {
               window.plugins.toast.show("Check your email id", "long", 'center');
             });
@@ -57,6 +63,7 @@ validate(): boolean {
            //alert("Check your email id");
             this.navCtrl.push(RecoverpassPage);
           }else{
+             loading.dismiss();
              this.platform.ready().then(() => {
               window.plugins.toast.show("Enter valid email id", "long", 'center');
             });

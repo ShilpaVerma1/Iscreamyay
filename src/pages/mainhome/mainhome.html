@@ -1,43 +1,31 @@
 <ion-header>
-  <ion-navbar hideBackButton="true" color="custom-color">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <img src="img/logoo.png" style="width:100%;height:63px;"/>
-  </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-    <ion-col>
-       
-        <ion-row class="center-img">
-            <ion-col><img src="img/icon9.png" (click)="goomap()"/>
-            <br/><a  class="heading-under">High Sales Point</a></ion-col>
-            <ion-col><img src="img/icon3.png" (click)="works()"/>
-            <br/><a  class="heading-under">How it works</a></ion-col>
-            <!--<ion-col><img src="img/icon4.png"/>
-            <br/><a  class="heading-under">Become a Vendor</a></ion-col>
-        -->
-        </ion-row>
-            <ion-row class="center-img">
-            <ion-col><img src="img/icon4.png"/>
-            <br/><a  class="heading-under">Become a Vendor</a></ion-col>
-            <!--<ion-col><img src="img/icon5.png"/>
-            <br/><a  class="heading-under">Setting</a></ion-col>-->
-            <ion-col><img src="img/icon6.png" (click)="profile()" />
-            <br/><a  class="heading-under">Profile</a></ion-col>
-        
-        </ion-row>
-            <ion-row class="center-img">
-            <ion-col><img src="img/icon5.png" (click)="setting()"/>
-            <br/><a  class="heading-under">Setting</a></ion-col>
-            <ion-col><img src="img/icon7.png" (click)="hometst()"/>
-            <br/><a  class="heading-under">FAQ</a></ion-col>
-            <!--<ion-col><img src="img/icon8.png"/>
-            <br/><a  class="heading-under">Vend</a></ion-col>-->       
-        </ion-row>
-        </ion-col>
-        <ion-footer>
-        <ion-row><p class="para-under">Powered by © Pydaro Technologies 2017</p></ion-row>
-        </ion-footer>
+<ion-content class="main-back" >
+<ion-row class="top-row">
+  <img class="logoicon" src="img/newicecreamlogo.png" />
+   <img [src]="weathericon" class="weathericon" />
+          <p class="temp">{{temperature}}°F</p>
+
+  </ion-row>
+
+  <ion-row>
+    <p class="para1">Hi {{usrname}},</p>
+      <p class="para2">Today is a good day to make money.</p>
+    </ion-row>
+    <ion-row class="first-row">
+     <ion-col class="col-first"><img  src="img/logonew1.png" (click)="goomap()"/> <p class="para-col"> High Sales Point</p>  </ion-col>
+     <ion-col class="col-first"><img  src="img/logonew2.png" (click)="works()"/> <p class="para-col"> How it works</p></ion-col>
+    </ion-row>
+
+    <ion-row class="second-row">
+     <ion-col class="col-first"><img  src="img/logonew3.png" (click)="becomevendor()"/> <p class="para-col"> Become a Vendor</p>  </ion-col>
+     <ion-col class="col-first"><img  src="img/logonew4.png"  (click)="profile()"/> <p class="para-col"> User Profile</p></ion-col>
+    </ion-row>
+
+    <ion-row>
+     <ion-col class="col-first"><img  src="img/logonew5.png"  (click)="setting()"/> <p class="para-col"> App settings</p>  </ion-col>
+     <ion-col class="col-first"><img  src="img/logonew6.png" (click)="faq()" /> <p class="para-col"> FAQ</p></ion-col>
+    </ion-row>
 </ion-content>

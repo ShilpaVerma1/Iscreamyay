@@ -8,7 +8,11 @@ import { Network } from 'ionic-native';
 import { Http } from '@angular/http';
 import { Geolocation } from 'ionic-native';
 import { GoogleMapPage} from '../googlemap/googlemap';
-import {MainscreenPage } from '../mainscreen/mainscreen';
+import {BecomevendorPage } from '../becomevendor/becomevendor';
+import firebase from 'firebase';
+import{AngularFire} from 'angularfire2';
+import * as GeoFire from "geofire";
+import {FaqPage } from '../faq/faq';
 
 declare var window: any;
 @Component({
@@ -20,6 +24,7 @@ export class MainHomePage {
 UserProfilePage = UserProfilePage;
 SettingPage = SettingPage;
 HowitworksPage: any;
+BecomevendorPage:any;
 usrid:any;
 Name:any;
 Email:any;
@@ -29,8 +34,12 @@ fbt:any;
 af:any;
 userref:any;
 devicenotid:any;
-
+temperature:any;
+weathericon:any;
+usrname:any;
+weather:any;
 ngOnInit(){
+
      this.fbt=this.navParams.get('type');
      if(this.fbt == 'facebook' ){
           this.storage.set("logintype",'facebook');
@@ -38,27 +47,59 @@ ngOnInit(){
           this.img = this.navParams.get('picture');
           this.Email=this.navParams.get('email');  
           var uid = this.navParams.get('usrid');
+          this.storage.set("usrname",this.Name);
+          this.storage.get('usrname').then((usrname) => {
+              this.usrname = usrname;  
+          })
           this.http.get("http://192.169.146.6/ogo/iceCreamApi/fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
                 this.response = data;
-                   this.storage.set("userid",this.response.id);  
-                    this.storage.get('userid').then((userid) => {
-                      this.usrid = userid;   
-                       this.storage.get('deviceid').then((deviceid) => {
-                        this.devicenotid = deviceid;
-                          this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
-                        })  
-                      })
+                   this.storage.set("userid",this.response.id); 
+              this.storage.get('currlat').then((currlat)=>{
+              this.storage.get('currlng').then((currlng)=>{
+
+                    var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+                    var geoFire = new GeoFire(firebaseRef);
+                    geoFire.set(this.response.id, [currlat,currlng]).then(function() {
+                        
+                    }, function(error) {
+                    
+                    });
+                })
+              })      
+              this.storage.get('userid').then((userid) => {
+                this.usrid = userid;   
+                  this.storage.get('deviceid').then((deviceid) => {
+                    this.devicenotid = deviceid;
+                      this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+                      })  
+                  })
               })          
-      });   
-    }
+          });   
+      }
     if(this.fbt=='google'){
       this.storage.set("logintype",'google');
       this.Name=this.navParams.get('name');
       this.Email=this.navParams.get('email');
       this.img=this.navParams.get('picture');
+      this.storage.set("usrname",this.Name);
+      this.storage.get('usrname').then((usrname) => {
+              this.usrname = usrname;  
+      })
       this.http.get("http://192.169.146.6/ogo/iceCreamApi/googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
         this.response = data;
-           this.storage.set("userid",this.response.id);  
+           this.storage.set("userid",this.response.id); 
+            this.storage.get('currlat').then((currlat)=>{
+              this.storage.get('currlng').then((currlng)=>{
+
+                    var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+                    var geoFire = new GeoFire(firebaseRef);
+                    geoFire.set(this.response.id, [currlat,currlng]).then(function() {
+                        
+                    }, function(error) {
+                    
+                    });
+                })
+              })    
            this.storage.get('userid').then((userid) => {
               this.usrid = userid;  
                 this.storage.get('deviceid').then((deviceid) => {
@@ -70,10 +111,31 @@ ngOnInit(){
              })         
        }) 
     }
+    if(this.fbt=='default'){
+          this.storage.get('usrname').then((usrname) => {
+              this.usrname = usrname;  
+          })
+    }
+    this.storage.get('currlat').then((currlat)=>{
+        this.storage.get('currlng').then((currlng)=>{
+
+          this.http.get("http://api.openweathermap.org/data/2.5/weather?lat="+currlat+"&lon="+currlng+"&APPID=c39cf4533471f7937f1bf78089d724ba&units=imperial").map(res =>res.json()).subscribe(data =>{
+            this.temperature=data.main.temp;
+            this.weathericon="http://openweathermap.org/img/w/"+data.weather[0].icon+'.png';
+            this.weather=data.weather[0].description;
+            
+          }) 
+          // this.http.get("https://api.darksky.net/forecast/b7e21615671aa0b82e317ff42f70aa27/"+lat+","+lng).map(res =>res.json()).subscribe(data =>{
+          //   // this.temperature=data.main.temp;
+          //   // this.weathericon="http://openweathermap.org/img/w/"+data.weather[0].icon+'.png';
+          //   console.log(data);
+          //   this.temperature=data.currently.temperature;
+          //   }) 
+        })
+    })   
 }
-constructor(public navCtrl: NavController, private http:Http,public menu:MenuController, private storage: Storage, public platform:Platform, private navParams:NavParams) {
-   
-    Network.onDisconnect().subscribe(() => {
+constructor(public navCtrl: NavController,private http:Http,public menu:MenuController, private storage: Storage, public platform:Platform, private navParams:NavParams) {
+   Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
           window.plugins.toast.show("You are offline", "long", "center");
         });
@@ -82,14 +144,15 @@ constructor(public navCtrl: NavController, private http:Http,public menu:MenuCon
      Network.onConnect().subscribe(()=> {
      
      });
-//  this.http.get("http://api.openweathermap.org/data/2.5/weather?q=Mohali&APPID=c39cf4533471f7937f1bf78089d724ba").map(res =>res.json()).subscribe(data =>{
-//    console.log(data);
-//   })  
-  //http://api.openweathermap.org/data/2.5/weather?lat=30.7046&lon=76.7179&APPID=c39cf4533471f7937f1bf78089d724ba&units=metric
+    this.storage.get('userid').then((userid) => {
+      this.usrid = userid;
+        this.http.get("http://192.169.146.6/ogo/iceCreamApi/getProfile?userid="+ this.usrid).map(res =>res.json()).subscribe(data =>{
+          this.usrname=data.firstname;
+      })
+     })
+ 
 }
-hometst(){
-  this.navCtrl.push(MainscreenPage);
-} 
+
 profile(){
   this.navCtrl.push(UserProfilePage);
 }
@@ -102,16 +165,20 @@ goomap(){
 works(){
   this.navCtrl.push(HowitworksPage);
 }
-
+becomevendor(){
+  this.navCtrl.push(BecomevendorPage);
+}
+faq(){
+  this.navCtrl.push(FaqPage)
+}
 ionViewDidEnter() {
     //to disable menu, or
     this.menu.enable(false);
    
-  }
+}
 
-  ionViewWillLeave() {
+ionViewWillLeave() {
     // to enable menu.
     this.menu.enable(true);
-  }
-
+}
 }

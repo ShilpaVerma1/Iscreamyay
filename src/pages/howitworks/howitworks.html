@@ -1,20 +1,16 @@
 <ion-header>
-  <ion-navbar hideBackButton="true" color="custom-color">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <img src="img/logoo.png" (click)="back()" class="logoimgicon" />
-  </ion-navbar>
+
 </ion-header>
-<ion-content padding>
-				<h1>How it works</h1>
-        <p style="font-size:18px;text-align:justify;"> iScreamYaY! is a simple app that allows Ice Cream vendors to increase their sales by tracking high-crowd-volume events around town. </p>
-				<ion-list class="round">
-    			<p style="font-size:16px;text-align:justify;"> Simply download the app. </p>
-    			<p style="font-size:16px;text-align:justify;">Create an account or Log in with your Social Media account.</p>
-    			<p style="font-size:16px;text-align:justify;"> When ready to vend, click High Sales Point button and all the events will be displayed on your map. </p>
-    			<p style="font-size:16px;text-align:justify;"> Click each event for more info. </p>
-					<p style="font-size:16px;text-align:justify;"> Select an event of your choice and drive to the location. </p>
-					<p style="font-size:16px;text-align:justify;"> Yes, it’s that simple. And it’s free of charge. </p>
-				</ion-list> 
+
+<ion-content class="main-back" >
+	<ion-row>  <ion-icon class="backicon" name="ios-arrow-back-outline"(click)="Backtohome()"></ion-icon></ion-row>
+<ion-row><p class="main-heading">How its Works</p></ion-row>
+<ion-row class="second-row">
+  <p><span>Scream Yey! </span>allows ice cream vendors to     increase their sales by tracking crowded   outdoor events around town. </p></ion-row>
+<ion-row class="third-row"><p> <span>1</span> When ready to vend, click High Sales Point button and all the events (with  important info) will be displayed on your map.</p></ion-row>
+<ion-row class="forth-row"><p> <span>2</span>Click the marker for more information.</p></ion-row>
+<ion-row class="forth-row"><p> <span>3</span>Select an event of your choice and rive to the location.</p></ion-row>
+<p class="footer-para1">Yes, it’s that simple.</p>
+<p class="footer-para2"> And it is free of charge. You welcome! :]</p>
+<ion-footer><ion-row class="footer-img"><img src="img/icecreamlogonew.png"/></ion-row></ion-footer>
 </ion-content>

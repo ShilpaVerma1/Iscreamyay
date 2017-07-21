@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, Platform, ViewController,MenuController, NavParams, PopoverController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
-import { MainHomePage } from '../mainhome/mainhome';
+import {MainscreenPage } from '../mainscreen/mainscreen';
 import { CurrentPage } from '../currentpage/currentpage';
 import { HomePage } from '../home/home';
 import { Http } from '@angular/http';
@@ -10,6 +10,7 @@ import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import firebase from 'firebase';
 import{AngularFire,FirebaseListObservable} from 'angularfire2';
+import * as GeoFire from "geofire";
 
 declare var google;
 declare var window: any;
@@ -19,9 +20,7 @@ declare var window: any;
 })
 
 export class EventPage {
-  @ViewChild('map') mapElement: ElementRef;
-  map: any;
-  MainHomePage: any;
+@ViewChild('map') mapElement: ElementRef;
   CurrentPage: any;
   response: any;
   lat: any;
@@ -31,11 +30,10 @@ export class EventPage {
   time: any;
   miles: any;
   usrid:any;
-  marker:any;
-  af:any;
   userref:any;
- watchId:any;
- rawlist:any=[];
+  watchId:any;
+  marker:any;
+  af:any;marker1:any;
   constructor(af:AngularFire,public navCtrl: NavController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
     this.af=af;
 
@@ -56,109 +54,94 @@ export class EventPage {
   }
 
 loadMap() {
-  this.marker=null;
+var that=this;
+
 this.storage.get('userid').then((userid) => {
  this.usrid = userid;
     this.http.get("http://192.169.146.6/ogo/iceCreamApi/getEvent?userid="+this.usrid).map(res => res.json()).subscribe(data => {
       this.response = data;
-    var options={enableHighAccuracy: true};
+      
+      var options={enableHighAccuracy: true};
       this.length = data.length;
       Geolocation.getCurrentPosition(options).then((resp) => {
            var lat = resp.coords.latitude;
            var lng = resp.coords.longitude;
-          
-              let latLng = new google.maps.LatLng(lat, lng);
+          let latLng = new google.maps.LatLng(lat, lng);
               let mapOptions = {
                 center: latLng,
                 zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 disableDefaultUI: true
               }
-              this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions); 
- /**********Updating current location and save it to realtime DB***********/
-         
-        this.watchId = Geolocation.watchPosition();
-        this.storage.set('watch',this.watchId);
-           this.watchId.subscribe((data) => {
-            var latt=data.coords.latitude;
-            var long=data.coords.longitude;
-              var reff = this.af.database.list('/Drivers/'+ this.usrid);
-                    reff.subscribe((data) => {
-                        data.forEach(spanshot =>{
-                          if(spanshot.latitude!=latt && spanshot.longitude !=long && this.marker )
-                          {
-                            this.marker.setMap(null);
-                            reff.update(spanshot.$key,{
-                                latitude:latt,
-                                longitude:long
-                            });
-                             var LatLng = new google.maps.LatLng(latt,long);
-                                 this.marker = new google.maps.Marker({
-                                    position: LatLng,
-                                    map: this.map,
-                                    icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
-                              });
-                             //this.marker.setPosition( new google.maps.LatLng(latt,long) );
-                            // this.map.panTo( new google.maps.LatLng(latt,long) );
-                          }
-                          this.watchId.unsubscribe();
-           })
-          })
-        })
+              
+        let map = new google.maps.Map(this.mapElement.nativeElement, mapOptions); 
+           
 
-    /*********Placing multiple markers************/    
-
-                  var ref=this.af.database.list('/Drivers/');
-                  ref.subscribe((data)=>{
-                    data.forEach(minispanshot =>{
-                    var keys = minispanshot.$key;   
-                    var reff = this.af.database.list('/Drivers/'+keys);
-                              reff.subscribe((data) => {
-                                var LatLng = new google.maps.LatLng(data[0].latitude,data[0].longitude);       
-                                    this.marker = new google.maps.Marker({
-                                    position: LatLng,
-                                    map: this.map,
-                                    icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
-                                });                              
-                        });     
-                    })
-                  })
-
-
-
-       /*********Placing multiple markers for events************/ 
- 
-          if (this.response.status != "Failed") {
- 
-            for (var i = 0; i < this.length; i++) {
-
-                    var data = this.response[i];
-                    console.log(data);
-                    let latLng = new google.maps.LatLng(data.lat, data.longt);
-                    console.log(latLng);
-                    // Creating a marker and putting it on the map
-                    var marker = new google.maps.Marker({
-                      position: latLng,
-                      map: this.map,
-                      title: data.id,
-                      icon: { url: 'http://2.mediaoncloud.com/Shilpa/desticon.png' }
-                    });
-
-                    var that = this;
-                    google.maps.event.addListener(marker, 'click', (function (marker, data) {
-                      return function () {
-                        that.showdata(data);
-
-                      }
-                    })(marker, data));
-            }
-          }
-       })
+  var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+  var geoFire = new GeoFire(firebaseRef);
+  var geoQuery = geoFire.query({
+      center: [lat,lng],
+      radius:16.0934,
     })
-  })  
+this.storage.set('geoq',geoQuery);
+/********Adding markers on Drivers position *********/
+geoQuery.on("key_entered", function(key, location, distance) {  
+ // console.log(location);
+   var LatLng = new google.maps.LatLng(location[0],location[1]);       
+          that.marker1 = new google.maps.Marker({
+            position: LatLng,
+            map: map,
+            icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
+          }); 
+          
+});
+/****Moves vehicles markers on the map when their location within the query changes****/
+ geoQuery.on("key_moved", function(key, location, distance) {
+  //   alert(key);
+    if(that.marker1){
+      that.marker1.setMap(null);
+       var LatLng = new google.maps.LatLng(location[0],location[1]);       
+          that.marker1 = new google.maps.Marker({
+            position: LatLng,
+            map: map,
+            icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
+          }); 
+    }
+ });
+// geoQuery.on("key_exited", function(location) {
+//       if (location !== true) {
+//         geoQuery.cancel();
+//         that.marker1.setMap(null);
+        
+//       }
+//  });
+var center=geoQuery.center();
+
+/********Create a circle centered on the map************/
+  var circle = new google.maps.Circle({
+    strokeColor: "#D8D8D8",
+    fillColor: "#B650FF",
+    map: map,
+    center:center,
+    radius:16093,
+  });
+/**********Funtion for Creating multiple markers for drivers ***********/
+// function addDriversToMap(location){
+//   console.log(location);
+//     var LatLng = new google.maps.LatLng(location[0],location[1]);       
+//           that.marker1 = new google.maps.Marker({
+//             position: LatLng,
+//             map: map,
+//             icon: { url: 'http://2.mediaoncloud.com/Richa/icon7.png' },
+//           }); 
+//         circle.bindTo('center',that.marker1, 'position');
+
+// }
+    })
+  }) 
+}) 
 }
   showdata(eventdata) {
- 
     Geolocation.getCurrentPosition().then((resp) => {
       var lat = resp.coords.latitude;
       var lng = resp.coords.longitude;
@@ -177,10 +160,14 @@ this.storage.get('userid').then((userid) => {
     })
   }
   backpage() {
-      this.storage.get('watch').then((watch) => {
+    this.storage.get('watch').then((watch) => {
            watch.unsubscribe();
-      })
-    this.navCtrl.push(MainHomePage);
+    })
+    this.storage.get('geoq').then((geoq)=>{
+      geoq.cancel()
+    })
+
+    this.navCtrl.push(MainscreenPage);
   }
   ionViewDidEnter() {
     //to disable menu, or

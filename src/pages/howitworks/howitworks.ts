@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, Platform,MenuController } from 'ionic-angular';
 import { Network } from 'ionic-native';
-import { MainHomePage} from '../mainhome/mainhome';
 import 'rxjs/add/operator/map';
-import {MainscreenPage } from '../mainscreen/mainscreen';
+import {MainHomePage } from '../mainhome/mainhome';
 
 declare var window: any;
 
@@ -12,23 +11,21 @@ declare var window: any;
   templateUrl: 'howitworks.html'
 })
 export class HowitworksPage {
-  MainHomePage: any;
 
-  constructor(public navCtrl: NavController,public menu:MenuController, public platform:Platform) {
- Network.onDisconnect().subscribe(() => {
+constructor(public navCtrl: NavController,public menu:MenuController, public platform:Platform) {
+  Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
           window.plugins.toast.show("You are offline", "long", "center");
         });
 
     });
-     Network.onConnect().subscribe(()=> {
-      // this.platform.ready().then(() => {
-      //    window.plugins.toast.show("You are online", "long", "center");
-      //   });
-     });
- }
- back(){
-   this.navCtrl.push(MainscreenPage);
+  Network.onConnect().subscribe(()=> {
+
+  });
+
+}
+ Backtohome(){
+   this.navCtrl.push(MainHomePage);
  }
 ionViewDidEnter() {
     //to disable menu, or

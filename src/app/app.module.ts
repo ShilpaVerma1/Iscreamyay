@@ -6,12 +6,16 @@ import { HomePage } from '../pages/home/home';
 import { FbPage } from '../pages/fblog/fblog';
 import { CurrentPage } from '../pages/currentpage/currentpage';
 import { EditProfilepage } from '../pages/editprofile/editprofile';
-import { MainHomePage } from '../pages/mainhome/mainhome';
 import { SettingPage } from '../pages/setting/setting';
 import { UserProfilePage } from '../pages/userprofile/userprofile';
 import { VendorregisterPage } from '../pages/vendorregister/vendorregister';
 import { HowitworksPage } from '../pages/howitworks/howitworks';
 import { GoogleMapPage, PopoverPage} from '../pages/googlemap/googlemap';
+import {ForgotpassPage } from '../pages/forgotpass/forgotpass';
+import {RecoverpassPage } from '../pages/recoverpass/recoverpass';
+import {BecomevendorPage } from '../pages/becomevendor/becomevendor';
+import {MainscreenPage } from '../pages/mainscreen/mainscreen';
+import {MainHomePage } from '../pages/mainhome/mainhome';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
@@ -19,9 +23,7 @@ import { Geolocation } from 'ionic-native';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule} from 'angularfire2';
 import * as GeoFire from "geofire";
-import {ForgotpassPage } from '../pages/forgotpass/forgotpass';
-import {RecoverpassPage } from '../pages/recoverpass/recoverpass';
-import {MainscreenPage } from '../pages/mainscreen/mainscreen';
+import {FaqPage } from '../pages/faq/faq';
 
 var firebaseConfig = {
     apiKey: "AIzaSyAOHcD8KwzFRtdnnK9obtKGARTwMrBXW_M",
@@ -40,7 +42,6 @@ var firebaseConfig = {
     HomePage,
     FbPage,
     EditProfilepage,
-    MainHomePage,
     SettingPage,
     UserProfilePage,
     VendorregisterPage,
@@ -50,12 +51,15 @@ var firebaseConfig = {
     CurrentPage,
     ForgotpassPage,
     RecoverpassPage,
-    MainscreenPage
+    MainscreenPage,
+    BecomevendorPage,
+    FaqPage,
+    MainHomePage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp, { animate: false }),
+    IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
   ],
@@ -67,7 +71,6 @@ var firebaseConfig = {
     HomePage,
     FbPage,
   EditProfilepage,
-  MainHomePage,
   SettingPage,
   UserProfilePage,
   VendorregisterPage,
@@ -77,7 +80,10 @@ var firebaseConfig = {
   CurrentPage,
   ForgotpassPage,
   RecoverpassPage,
-  MainscreenPage
+  MainscreenPage,
+  BecomevendorPage,
+  FaqPage,
+  MainHomePage
   ],
   providers: [
     StatusBar,

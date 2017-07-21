@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/incremental/mergeX86DebugResources/merged.dir/values-land/values-land.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 47,
+                    "endOffset": 98
+                },
+                "from": {
+                    "file": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/values-land/values-land.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 171,
+                        "endColumn": 47,
+                        "endOffset": 214
+                    }
+                }
+            }
+        ]
+    }
+]

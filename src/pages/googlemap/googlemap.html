@@ -1,17 +1,22 @@
 <ion-header>
-  <!--<ion-navbar hideBackButton="true" color="custom-color">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    
-  </ion-navbar>-->
+
 </ion-header>
 
 <ion-content>
-  <img src="img/logoo.png" (click)="backpage()" class="logoimgicon"/>
-  <div #map id="map" style="width:100%; height:84%;"></div>  
- 
+ 		<ion-row class="headerrow">
+		<img src="img/homeicon.png" class="homeicon" (click)="backpage()"/>
+    <img src="img/logoo.png" (click)="backpage()" class="logoimgicon" />
+		</ion-row>
+  <div #map id="map" style="width:100%; height:90%;">
+  </div>
   <ion-footer>
+      <!--<ion-icon ios="ios-add-circle" md="md-add-circle" (click)="eventtoggle(1)"></ion-icon>  -->
+      <ion-row>
+       <img src="img/eventpos.png" class="eventpos" (click)="eventtoggle(1)"/>
+      </ion-row>
+      <ion-row>
+      <img src="img/position.png" class="nav" (click)="eventtogglee()"/>
+      </ion-row>
    <ion-row><button class="btn">Click each point to see more</button></ion-row>
   </ion-footer>
 </ion-content>

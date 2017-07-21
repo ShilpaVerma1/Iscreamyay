@@ -2,13 +2,18 @@
 
 </ion-header>
 <ion-content>
-   <img src="img/logoo.png" (click)="backpage()" class="logoimgicon"/>
-      <ion-icon ios="ios-navigate" md="md-navigate"  (click)="movetogoogle(this.address)" class="nav"></ion-icon>
-
+   	<ion-row class="headerrow">
+		<img src="img/homeicon.png" class="homeicon" (click)="backpage()" />
+    <img src="img/logoo.png" (click)="backpage()" class="logoimgicon" />
+		</ion-row>
   <div #map id="map" style="width:100%;height:84%;"></div> 
   <ion-footer>
-  <div><p class="bottom-text" >{{miless}} {{timee}}</p></div>
-   <!--<div><p style="background:white;padding:14px;margin:0px;">{{Distance}}</p></div>-->
+  <img src="img/navi.png" (click)="movetogoogle(this.address)" class="nav"/>
+
+  <div>
+    <p class="bottom-text" >{{miless}} {{timee}}</p>
+  </div>
+    <!--<ion-icon ios="ios-navigate" md="md-navigate"  (click)="movetogoogle(this.address)" class="nav"></ion-icon>-->
  </ion-footer>
 </ion-content>
 

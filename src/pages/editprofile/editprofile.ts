@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, Platform,MenuController, LoadingController} from 'ionic-angular';
-import { MainHomePage } from '../mainhome/mainhome';
 import { UserProfilePage } from '../userprofile/userprofile';
 import { Http } from '@angular/http';
 import { Network } from 'ionic-native';
 import { Storage } from '@ionic/storage';
+import {MainHomePage } from '../mainhome/mainhome';
 
 declare var window: any;
 @Component({
@@ -12,7 +12,6 @@ declare var window: any;
   templateUrl: 'editprofile.html'
 })
 export class EditProfilepage {
-MainHomePage = MainHomePage;
 data:any;
 upImage:any;
 usrrid:any;
@@ -47,7 +46,8 @@ update(fname,lname,ph_no,email){
       this.storage.get('userid').then((userid) => {
       this.usrrid = userid;
         let loadingPopup = this.loadingCtrl.create({
-          content: ''
+          content: 'Loading...',
+          spinner:'ios'
         });
     loadingPopup.present(); 
     this.http.get("http://192.169.146.6/ogo/iceCreamApi/editProfile?userid="+this.usrrid+"&fname="+fname+"&lname="+lname+"&email=" +email+"&phone="+ph_no+"&type="+this.typeuser).map(res =>res.json()).subscribe(data =>{
@@ -57,7 +57,7 @@ update(fname,lname,ph_no,email){
           if(this.upImage.status == "Success"){
               //alert("Your profile has been successfully updated");
               window.plugins.toast.show("Your profile has been successfully updated", "long", "center");
-              this.navCtrl.push(UserProfilePage);
+              this.navCtrl.push(MainHomePage);
           }else{
              //alert("This email id already registered");
             window.plugins.toast.show("This email id already registered", "long", "center");
@@ -69,8 +69,8 @@ update(fname,lname,ph_no,email){
    })
 }
 
-backpage(){
-  this.navCtrl.push(UserProfilePage);
+back(){
+  this.navCtrl.push(MainHomePage);
 }
 ionViewDidEnter() {
     //to disable menu, or

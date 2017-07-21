@@ -1,67 +1,61 @@
 page-mainscreen {
+.para-head{text-transform:Uppercase;margin-top: initial;font-size: 21px;font-weight: bold; margin-bottom: 0px;}
+    .col-temp{display:inline-block;    text-align: right; max-width:120px!important;}
+.fixed-content{background-image: url(../img/icecreamback.jpg)!important;
+    background-size: cover;}
+    .main-top{margin-top: 40px;}
+    .main-top img{    width: 54%;
+    height: 20%;}
+
+    .footer-md::before{background-image:none!important;}
     font-family: CenturyGothic;
-.contentimg{
-    background-image: url(../img/maincontent.png);
-    background-repeat: no-repeat;
-    
-    
-}
+
+.colicon img{width:58%;}
 .colicon{
     background-color:#fff;
     border-radius: 10px;
-    margin:4px;
+    margin:0px 0px 4px 7px;
+        box-shadow: 1px 1px 7px 1px #c8c8c8;
 }
-.footerpara{text-align: center;color:#828282;
-margin-top:-15px;
-}
+.footerpara{    text-align: center;
+    color: #828282;
+    margin-top: 10px;}
 .weathericon{
-    max-width: 100%;
-    border: 0;
-    margin: 10px 0px 0px 42px;}
+    vertical-align: middle;
+    max-width:40px;
+    border: 0;}
     .center-img{text-align:center;margin: 4px 28px 0px 28px;}
     .heading-under{    font-size: 13px;
     color: #ababab;}
-    .para-under{    width: 100%;
+    .para-under{      width: 100%;
     text-align: center;
-    font-size: 15px;
-    font-weight:bold;
-    color: #828282;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8a8a8a;
     margin: 4px 0 0 0;
     }
+  
     .toolbar-background-md{background-color:#fff;}
     .header-md::after{background-image:none;}
     .toolbar-content-md img{border-bottom: 1px solid #b7b7b7;
         padding-bottom: 12px;}
-        .scroll-content{ margin-top: 42px !important;}
+        .scroll-content{     top: 0px!important;}
     .toolbar-content-md{margin:0em 1em;}
-.maingrid{margin-top:inherit;}
-.great-p{margin: 0;}
+.maingrid{margin-top:inherit;padding: 15px 20px 0px 20px;}
+.maingrid ion-col{padding:0px;}
+.great-p{margin-top: 20px;margin-bottom: 0px; font-size:14px;}
 .main-image-section{
     width: 100%;
     float:left;
     margin-top: -20px;
 }
    
-    
-    @media(min-width:321px) and (max-width:360px){.center-img img{height:85px;}
-    }
+@media(max-width:360px){.great-p{font-size:13px;} .colicon img { width: 50%;}  .heading-under {
+    font-size: 11px;} .colicon{margin: 0px 0px 0px 7px; } .maingrid{padding: 5px 20px 0px 20px;} .para-head{font-size: 16px;}}
+@media(max-width:375px){.great-p{font-size:13px;} .colicon img {
+    width: 50%;}  .heading-under {
+    font-size: 11px;}   }
 
-
-    @media(min-width:300px) and (max-width:320px){.center-img img{height:70px;}
-    }
-
- @media(min-width:320px) and (max-width:568px){
-        .center-img img{height:45px;}
-        .para-under{font-size: 12px; margin:0;}
-      .weathericon {margin: 40px 0px 0px 0px;}
-
-  }
-
-   @media(min-width:375px) and (max-width:667px){
-   .center-img img {
-    height: 70px;
-}
-   }
 
 }
 

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController,MenuController } from 'ionic-angular';
-import { MainHomePage } from '../mainhome/mainhome';
 import { HomePage } from '../home/home';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
-import {MainscreenPage } from '../mainscreen/mainscreen';
+import {MainHomePage } from '../mainhome/mainhome';
+import {BecomevendorPage } from '../becomevendor/becomevendor';
 
 declare var window: any;
 @Component({
@@ -117,6 +117,9 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
       data.showDetails = true;
       data.img = data.img;
     }
+    if(data.details=='vendor'){
+      this.navCtrl.push(BecomevendorPage);
+    }
   }
 
   updatepass(curntpass, newpass, confnewpass) {
@@ -138,7 +141,9 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
                 window.plugins.toast.show("Your current password is invalid","long","center");
             }
             else{
-              alert("invalid");
+              //alert("invalid");
+              window.plugins.toast.show("invalid","long","center");
+
             }            
           }
         })
@@ -151,8 +156,11 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
     })
   }
   backpage() {
-    this.navCtrl.push(MainscreenPage);
+    this.navCtrl.push(MainHomePage);
   }
+ notlogout(){
+   this.navCtrl.push(MainHomePage);
+ }
   logout() {
     this.storage.clear();
     this.storage.set("userid",'');

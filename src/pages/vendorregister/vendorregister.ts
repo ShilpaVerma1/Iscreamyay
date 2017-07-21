@@ -67,7 +67,12 @@ Change(SelectedValue){
 }
 
 register(){
-  
+  let loading = this.loadingCtrl.create({
+    cssClass:'spin',
+    spinner: 'ios',
+    content: 'Loading...'
+  });
+  loading.present(); 
   if(this.regsterform.firstname != "" && this.regsterform.lastname != "" && this.regsterform.email !="" && this.regsterform.password != "" && this.regsterform.confirmPassword != "" && this.regsterform.phone != "" && this.regsterform.countrycode != "" && this.regsterform.stats != ""){
     if(this.regsterform.password == this.regsterform.confirmPassword){
 
@@ -76,16 +81,19 @@ register(){
   
   if(this.regsterform.status != "Failed"){
   //alert("Check your email for completing registeration.");
+    loading.dismiss();
     window.plugins.toast.show("You are successfully registered","long","center");
     this.navCtrl.push(FbPage);
   }else{
 //alert("You have already registered");
+loading.dismiss();
 window.plugins.toast.show("You have already registered","long","center");
 this.navCtrl.setRoot(this.navCtrl.getActive().component);
   }
  
 })
   }else{
+ loading.dismiss();
  window.plugins.toast.show("Password doesn't match","long","center");
   //alert("Password doesn't match");
     this.regsterform.password="";
@@ -93,6 +101,7 @@ this.navCtrl.setRoot(this.navCtrl.getActive().component);
   }
   }
   else{
+    loading.dismiss();
     //alert("All fields are mendatory to fill");
     window.plugins.toast.show("All fields are mendatory to fill","long","center");
   }

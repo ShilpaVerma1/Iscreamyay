@@ -35,6 +35,13 @@ export class GoogleMapPage {
   watchId:any;
   marker:any;
   af:any;marker1:any;
+devicenotid:any;
+temperature:any;
+weathericon:any;
+usrname:any;
+weather:any;
+fbt:any;Name:any;Email:any;img:any;
+
   constructor(af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
 
     Network.onDisconnect().subscribe(() => {
@@ -48,9 +55,49 @@ export class GoogleMapPage {
     
     });
 
-  }
-  ionViewDidLoad() {
-    this.loadMap();
+     this.fbt=this.navParams.get('type');
+     this.storage.set("logintype",this.fbt);
+     if(this.fbt == 'facebook' ){
+          this.storage.set("logintype",'facebook');
+          this.Name=this.navParams.get('name');
+          this.img = this.navParams.get('picture');
+          this.Email=this.navParams.get('email');  
+          var uid = this.navParams.get('usrid');
+          this.storage.set("usrname",this.Name);
+          this.http.get("http://192.169.146.6/ogo/iceCreamApi/fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
+                this.response = data;
+              this.storage.set("userid",this.response.id);      
+              this.storage.get('userid').then((userid) => {
+                this.usrid = userid;  
+                  this.storage.get('deviceid').then((deviceid) => {
+                    this.devicenotid = deviceid;
+                      this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+                      })  
+                  })
+              })          
+          });   
+      }
+    if(this.fbt=='google'){
+      this.storage.set("logintype",'google');
+      this.Name=this.navParams.get('name');
+      this.Email=this.navParams.get('email');
+      this.img=this.navParams.get('picture');
+      this.storage.set("usrname",this.Name);
+      this.http.get("http://192.169.146.6/ogo/iceCreamApi/googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
+        this.response = data;
+         this.storage.set("userid",this.response.id);   
+           this.storage.get('userid').then((userid) => {
+              this.usrid = userid;  
+                this.storage.get('deviceid').then((deviceid) => {
+                  this.devicenotid = deviceid;
+                    this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+
+                    })  
+                 })
+             })         
+       }) 
+    }  
+       this.loadMap();
   }
 
 loadMap() {
@@ -67,12 +114,12 @@ this.storage.get('userid').then((userid) => {
       Geolocation.getCurrentPosition(options).then((resp) => {
            var lat = resp.coords.latitude;
            var lng = resp.coords.longitude;
-        
+    
             let latLng = new google.maps.LatLng(lat, lng);    
     this.http.get("http://192.169.146.6/ogo/iceCreamApi/getEvent?userid="+this.usrid+"&lat="+lat+"&lng="+lng).map(res => res.json()).subscribe(data => {
       this.response = data;
       this.length = data.length;
-
+     
 /******For eventtoogle clicked or not ******/
      if(toggleeventid=='1' && eventtoogleid<this.length){
           var eventlatlng=new google.maps.LatLng(this.response[eventtoogleid].lat,this.response[eventtoogleid].longt);
@@ -302,7 +349,12 @@ eventtogglee(){
     this.storage.get('watch').then((watch)=>{
       watch.unsubscribe();
     })
-    this.navCtrl.push(MainHomePage);
+    this.storage.get("logintype").then((logintype)=>{   
+          this.navCtrl.push(MainHomePage,{
+            type:logintype
+          });
+    })
+
   }
   ionViewDidEnter() {
     //to disable menu, or

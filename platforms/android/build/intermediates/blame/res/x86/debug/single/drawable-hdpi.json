@@ -44,16 +44,16 @@
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-hdpi/ic_warning.png"
     },
     {
-        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi/iscream.png",
-        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/res/drawable-hdpi/iscream.png"
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi/verify_checkmark.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-hdpi/verify_checkmark.png"
     },
     {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi/ic_action_remove.png",
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/res/drawable-hdpi/ic_action_remove.png"
     },
     {
-        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi/verify_checkmark.png",
-        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-hdpi/verify_checkmark.png"
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi/iscream.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/res/drawable-hdpi/iscream.png"
     },
     {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi/ondemand_overlay.9.png",

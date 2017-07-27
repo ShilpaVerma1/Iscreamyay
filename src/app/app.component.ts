@@ -6,6 +6,7 @@ import { HomePage } from '../pages/home/home';
 import { Storage } from '@ionic/storage';
 import {MainscreenPage } from '../pages/mainscreen/mainscreen';
 import {MainHomePage } from '../pages/mainhome/mainhome';
+import { GoogleMapPage} from '../pages/googlemap/googlemap';
 
 @Component({
   templateUrl: 'app.html'
@@ -34,7 +35,7 @@ export class MyApp {
               this.rootPage = HomePage ;
           }
           else if(this.usrid ) {
-              this.rootPage = MainHomePage;
+              this.rootPage = GoogleMapPage;
           }
     });
 

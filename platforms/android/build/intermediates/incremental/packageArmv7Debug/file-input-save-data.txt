@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jul 21 15:10:02 IST 2017
+#Thu Jul 27 13:00:36 IST 2017
 20.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 143.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 493.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
@@ -34,9 +34,9 @@
 60.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/build/main.js
 217.set=ASSET
 192.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/com_facebook_tooltip_blue_background.9.png
-363.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_icon_white.png
+363.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/common_full_open_on_phone.png
 76.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-396.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/com_facebook_tooltip_bubble.xml
+396.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/common_google_signin_btn_text_light_focused.xml
 259.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/plugins/cordova-sqlite-storage/www/SQLitePlugin.js
 97.set=ANDROID_RESOURCE
 348.set=ANDROID_RESOURCE
@@ -79,7 +79,7 @@
 51.set=ASSET
 302.set=ASSET
 179.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-73.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/com_facebook_button_icon_white.png
+73.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-port-mdpi-v4/screen.png
 225.set=ANDROID_RESOURCE
 103.set=ANDROID_RESOURCE
 411.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
@@ -99,7 +99,7 @@
 157.set=ASSET
 63.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/com_facebook_button_icon_white.png
 186.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/plugins/cordova-plugin-googlemaps/www/HtmlInfoWindow.js
-96.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-port-hdpi-v4/screen.png
+96.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/ic_warning.png
 455.set=ANDROID_RESOURCE
 82.set=ASSET
 221.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
@@ -173,7 +173,7 @@
 384.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 3.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 231.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/onesignal_bgimage_notif_layout.xml
-402.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_send_icon_white.png
+402.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/com_facebook_favicon_white.png
 264.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/transforms/mergeJavaRes/armv7/debug/jars/2/1f/main.jar/build-data.properties
 418.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 471.set=ASSET
@@ -207,7 +207,7 @@
 78.set=ANDROID_RESOURCE
 312.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 329.set=ANDROID_RESOURCE
-191.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/validation_message_bubble.xml
+191.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/messenger_button_white_bg_selector.xml
 174.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 345.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 280.set=NATIVE_RESOURCE
@@ -229,7 +229,7 @@
 197.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 91.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/plugins/cordova-plugin-file/www/FileUploadOptions.js
 368.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-215.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_background.9.png
+215.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_tooltip_blue_topnub.png
 405.set=ASSET
 32.set=ANDROID_RESOURCE
 248.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/img/i4.png
@@ -269,7 +269,7 @@
 365.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout-land-v21/date_time_picker_dialog.xml
 115.set=ASSET
 78.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-398.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png
+398.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/common_google_signin_btn_text_dark.xml
 228.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-land-mdpi-v4/screen.png
 413.set=ANDROID_RESOURCE
 400.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
@@ -305,7 +305,7 @@
 303.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/noto-sans-regular.woff
 16.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 444.set=ASSET
-165.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxxhdpi-v4/ic_search.png
+165.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_icon_blue.png
 148.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 42.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/common_google_signin_btn_icon_light_focused.xml
 399.set=ANDROID_RESOURCE
@@ -332,7 +332,7 @@
 222.set=ANDROID_RESOURCE
 39.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 188.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/plugins/cordova-plugin-googlemaps/www/encoding.js
-65.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/mipmap-xhdpi-v4/icon.png
+65.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png
 100.set=ASSET
 98.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/autofill_keyboard_accessory_item.xml
 475.set=ANDROID_RESOURCE
@@ -345,7 +345,7 @@
 276.set=ASSET
 154.set=ANDROID_RESOURCE
 119.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-13.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/dropdown_popup_background_up.9.png
+13.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/com_facebook_send_button_icon.xml
 469.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 8.set=ASSET
 316.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/Rosario-Regular.ttf
@@ -364,7 +364,7 @@
 443.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/index.html
 176.set=ANDROID_RESOURCE
 109.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-476.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-land-xhdpi-v4/screen.png
+476.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/messenger_button_send_white_round.xml
 384.set=ANDROID_RESOURCE
 36.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/img/logo2.png
 19.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/transforms/mergeJniLibs/armv7/debug/folders/2000/1f/main
@@ -374,7 +374,7 @@
 230.set=ANDROID_RESOURCE
 373.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 203.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-220.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/messenger_button_blue_bg_selector.xml
+220.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-port-xxxhdpi-v4/screen.png
 236.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 483.set=ASSET
 407.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
@@ -415,7 +415,7 @@
 83.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 386.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/transforms/mergeJniLibs/armv7/debug/folders/2000/1f/main
 5.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-233.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/bubble.9.png
+233.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/verify_checkmark.png
 404.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_profile_picture_blank_square.png
 266.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png
 491.set=ASSET
@@ -473,7 +473,7 @@
 474.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 150.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/build/polyfills.js
 249.set=ANDROID_RESOURCE
-321.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/com_facebook_button_icon.xml
+321.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/ic_action_next_item.png
 34.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 127.set=ASSET
 183.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/img/iicon-2.png
@@ -577,7 +577,7 @@
 157.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/plugins/cordova-plugin-file/www/Entry.js
 328.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/Rosario-Regular/rosario/Rosario-Bold.ttf
 242.set=ASSET
-67.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_send_icon_blue.png
+67.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/messenger_button_send_white_small.xml
 120.set=ANDROID_RESOURCE
 191.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 495.set=ANDROID_RESOURCE
@@ -664,9 +664,9 @@
 42.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 165.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 207.set=ANDROID_RESOURCE
-362.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/common_full_open_on_phone.png
+362.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_icon_white.png
 75.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-395.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/common_google_signin_btn_text_light_focused.xml
+395.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/com_facebook_tooltip_bubble.xml
 258.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/common_google_signin_btn_icon_light_normal.xml
 429.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/AndroidManifest.xml
 87.set=ANDROID_RESOURCE
@@ -701,7 +701,7 @@
 316.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 41.set=ANDROID_RESOURCE
 178.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-72.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-port-mdpi-v4/screen.png
+72.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/com_facebook_button_icon_white.png
 349.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 215.set=ANDROID_RESOURCE
 410.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/transforms/mergeJniLibs/armv7/debug/folders/2000/1f/main
@@ -718,8 +718,8 @@
 62.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/roboto-regular.ttf
 185.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/plugins/ionic-plugin-keyboard/www/android/keyboard.js
 339.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-95.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/ic_warning.png
-219.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-port-xxxhdpi-v4/screen.png
+95.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-port-hdpi-v4/screen.png
+219.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/messenger_button_blue_bg_selector.xml
 445.set=ASSET
 72.set=ANDROID_RESOURCE
 220.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
@@ -808,7 +808,7 @@
 163.set=ANDROID_RESOURCE
 230.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/verify_checkmark.png
 2.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-401.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/com_facebook_favicon_white.png
+401.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_send_icon_white.png
 263.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout-v17/color_picker_dialog_title.xml
 434.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/Rosario-Regular/rosario/src/Rosario-Italic.otf
 417.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
@@ -848,7 +848,7 @@
 68.set=ASSET
 319.set=ASSET
 311.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-190.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/messenger_button_white_bg_selector.xml
+190.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/validation_message_bubble.xml
 173.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 344.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 270.set=ANDROID_RESOURCE
@@ -908,11 +908,11 @@
 167.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 61.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout-v17/dropdown_item.xml
 227.set=ANDROID_RESOURCE
-193.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png
+193.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout-v17/color_picker_advanced_component.xml
 364.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/plugins/cordova-plugin-file/www/resolveLocalFileSystemURI.js
 105.set=ANDROID_RESOURCE
 77.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-397.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/common_google_signin_btn_text_dark.xml
+397.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png
 403.set=ANDROID_RESOURCE
 358.set=ANDROID_RESOURCE
 30.set=ASSET
@@ -971,7 +971,7 @@
 212.set=ASSET
 38.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 167.set=ASSET
-64.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png
+64.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/mipmap-xhdpi-v4/icon.png
 187.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/messenger_bubble_large_blue.png
 97.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/messenger_button_send_round_shadow.png
 465.set=ANDROID_RESOURCE
@@ -1001,7 +1001,7 @@
 442.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/crop__tile.png
 108.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 496.set=ANDROID_RESOURCE
-475.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/messenger_button_send_white_round.xml
+475.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-land-xhdpi-v4/screen.png
 374.set=ASSET
 18.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 35.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/com_facebook_button_like_background.xml
@@ -1044,7 +1044,7 @@
 82.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 385.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 4.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-232.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/verify_checkmark.png
+232.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/bubble.9.png
 403.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/ic_menu_share_holo_light.png
 265.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/com_facebook_button_background.xml
 419.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
@@ -1098,7 +1098,7 @@
 440.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 316.set=ASSET
 473.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
-320.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/ic_action_next_item.png
+320.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/com_facebook_button_icon.xml
 239.set=ANDROID_RESOURCE
 33.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 117.set=ANDROID_RESOURCE
@@ -1109,7 +1109,7 @@
 198.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
 92.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/noto-sans.scss
 369.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug
-216.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_tooltip_blue_topnub.png
+216.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_background.9.png
 415.set=ANDROID_RESOURCE
 42.set=ANDROID_RESOURCE
 249.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_topnub.png
@@ -1147,7 +1147,7 @@
 169.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 46.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 247.set=ANDROID_RESOURCE
-195.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout-v17/color_picker_advanced_component.xml
+195.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png
 366.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/messenger_bubble_small_blue.png
 125.set=ANDROID_RESOURCE
 79.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
@@ -1195,7 +1195,7 @@
 483.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/ionicons.ttf
 304.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-hdpi-v4/ic_action_previous_item.png
 454.set=ASSET
-166.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_icon_blue.png
+166.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxxhdpi-v4/ic_search.png
 149.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 43.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/messenger_button_send_round_shadow.png
 81.set=ANDROID_RESOURCE
@@ -1218,7 +1218,7 @@
 327.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/assets/fonts/noto-sans-regular.ttf
 232.set=ANDROID_RESOURCE
 189.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xxhdpi-v4/ic_menu_share_holo_light.png
-66.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout/messenger_button_send_white_small.xml
+66.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-mdpi-v4/com_facebook_button_send_icon_blue.png
 110.set=ANDROID_RESOURCE
 190.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 99.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/layout-land/date_time_picker_dialog.xml
@@ -1232,7 +1232,7 @@
 437.base=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_
 286.set=ASSET
 164.set=ANDROID_RESOURCE
-14.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable/com_facebook_send_button_icon.xml
+14.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/resources-armv7-debug.ap_/res/drawable-xhdpi-v4/dropdown_popup_background_up.9.png
 317.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/cordova-js-src/android/promptbasednativeapi.js
 179.file=/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/assets/armv7/debug/www/img/i3.png
 462.set=ASSET

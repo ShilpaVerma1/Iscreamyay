@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/dropdown_popup_background_down.9.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/dropdown_popup_background_down.9.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/ondemand_overlay.9.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/ondemand_overlay.9.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/ic_action_next_item.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/res/drawable-xhdpi/ic_action_next_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/bubble.9.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/bubble.9.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/bubble_arrow_up.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/bubble_arrow_up.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/crop__ic_cancel.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__ic_cancel.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/ic_action_remove.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/res/drawable-xhdpi/ic_action_remove.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/ic_warning.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/ic_warning.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/crop__ic_done.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__ic_done.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/crop__tile.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__tile.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/ic_search.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/ic_search.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/color_picker_advanced_select_handle.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/color_picker_advanced_select_handle.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/dropdown_popup_background_up.9.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/dropdown_popup_background_up.9.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/ic_menu_share_holo_light.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/ic_menu_share_holo_light.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/verify_checkmark.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable-xhdpi/verify_checkmark.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/iscream.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/res/drawable-xhdpi/iscream.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/ic_action_previous_item.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/res/drawable-xhdpi/ic_action_previous_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/release/drawable-xhdpi/crop__divider.9.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-xhdpi/crop__divider.9.png"
+    }
+]

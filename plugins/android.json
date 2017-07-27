@@ -44,6 +44,10 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.iscreamyay.com"
         },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_ANDROID": "AIzaSyA18BVeneMpRBj1PB4G1OY68IQFS6W6DyQ",
+            "PACKAGE_NAME": "com.iscreamyay.com"
+        },
         "cordova-plugin-googleplus": {
             "PACKAGE_NAME": "com.iscreamyay.com"
         },
@@ -72,10 +76,6 @@
             "PACKAGE_NAME": "com.iscreamyay.com"
         },
         "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.iscreamyay.com"
-        },
-        "cordova-plugin-googlemaps": {
-            "API_KEY_FOR_ANDROID": "AIzaSyA18BVeneMpRBj1PB4G1OY68IQFS6W6DyQ",
             "PACKAGE_NAME": "com.iscreamyay.com"
         }
     },

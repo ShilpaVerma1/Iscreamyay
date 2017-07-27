@@ -20,12 +20,12 @@
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable/verify_checkmark.png"
     },
     {
-        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/ic_menu_share_holo_light.png",
-        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable/ic_menu_share_holo_light.png"
-    },
-    {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/common_google_signin_btn_icon_light_normal.xml",
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.6/res/drawable/common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/ic_menu_share_holo_light.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable/ic_menu_share_holo_light.png"
     },
     {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/com_facebook_button_login_silver_background.xml",
@@ -168,15 +168,15 @@
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.6/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/messenger_button_white_bg_selector.xml",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable/messenger_button_white_bg_selector.xml"
+    },
+    {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/crop__texture.xml",
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable/crop__texture.xml"
     },
     {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/ic_search.png",
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/res/drawable/ic_search.png"
-    },
-    {
-        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable/messenger_button_white_bg_selector.xml",
-        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable/messenger_button_white_bg_selector.xml"
     }
 ]

@@ -104,11 +104,11 @@
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable-hdpi-v4/com_facebook_close.png"
     },
     {
-        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/debug/drawable-hdpi-v4/messenger_bubble_large_blue.png",
-        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable-hdpi-v4/messenger_bubble_large_blue.png"
-    },
-    {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/debug/drawable-hdpi-v4/com_facebook_button_send_icon_blue.png",
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable-hdpi-v4/com_facebook_button_send_icon_blue.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/armv7/debug/drawable-hdpi-v4/messenger_bubble_large_blue.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable-hdpi-v4/messenger_bubble_large_blue.png"
     }
 ]

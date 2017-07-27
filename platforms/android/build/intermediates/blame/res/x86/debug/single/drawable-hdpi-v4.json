@@ -20,12 +20,12 @@
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable-hdpi-v4/com_facebook_tooltip_black_xout.png"
     },
     {
-        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi-v4/com_facebook_favicon_white.png",
-        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable-hdpi-v4/com_facebook_favicon_white.png"
-    },
-    {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi-v4/googleg_standard_color_18.png",
         "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.6/res/drawable-hdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi-v4/com_facebook_favicon_white.png",
+        "source": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/res/drawable-hdpi-v4/com_facebook_favicon_white.png"
     },
     {
         "merged": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/res/merged/x86/debug/drawable-hdpi-v4/com_facebook_button_like_icon_selected.png",

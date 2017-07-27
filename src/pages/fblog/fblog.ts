@@ -14,6 +14,7 @@ import firebase from 'firebase';
 import{AngularFire} from 'angularfire2';
 import * as GeoFire from "geofire";
 import { Geolocation } from 'ionic-native';
+import { GoogleMapPage} from '../googlemap/googlemap';
 
 declare var window: any;
 
@@ -97,16 +98,19 @@ this.storage.set("logintype",'default');
             loading.dismiss();              
              //alert("You have login successfully");
              window.plugins.toast.show("You have logged in successfully","short","center");
-                     this.navCtrl.push(MainHomePage,{
+                     this.navCtrl.push(GoogleMapPage,{
                        type:'default'
                      });  
             })
           }
           else{
-                loading.dismiss();  
-                 //alert("Please enter appropriate details");
+                setTimeout(() => {
+                  loading.dismiss();
+                }, 2000);
+                //alert("Please enter appropriate details");
                 window.plugins.toast.show("Please enter appropriate details","long","center");
-              }          
+                
+             }          
     }) 
 }
 
@@ -146,7 +150,7 @@ loginfb(){
           usrid:userId
         })
         .then(function(){
-          nav.push(MainHomePage,{
+          nav.push(GoogleMapPage,{
             type:'facebook',
             name: user.name,
             picture: user.picture,
@@ -185,7 +189,7 @@ loginfb(){
       picture: user.imageUrl
     })
     .then(function(){
-      nav.push(MainHomePage,{
+      nav.push(GoogleMapPage,{
         type:'google',
         name: user.displayName,
         email: user.email,

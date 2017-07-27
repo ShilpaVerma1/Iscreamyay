@@ -42,74 +42,74 @@ ngOnInit(){
 
      this.fbt=this.navParams.get('type');
      if(this.fbt == 'facebook' ){
-          this.storage.set("logintype",'facebook');
-          this.Name=this.navParams.get('name');
-          this.img = this.navParams.get('picture');
-          this.Email=this.navParams.get('email');  
-          var uid = this.navParams.get('usrid');
-          this.storage.set("usrname",this.Name);
+          // this.storage.set("logintype",'facebook');
+          // this.Name=this.navParams.get('name');
+          // this.img = this.navParams.get('picture');
+          // this.Email=this.navParams.get('email');  
+          // var uid = this.navParams.get('usrid');
+          // this.storage.set("usrname",this.Name);
           this.storage.get('usrname').then((usrname) => {
               this.usrname = usrname;  
           })
-          this.http.get("http://192.169.146.6/ogo/iceCreamApi/fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
-                this.response = data;
-                   this.storage.set("userid",this.response.id); 
-              this.storage.get('currlat').then((currlat)=>{
-              this.storage.get('currlng').then((currlng)=>{
+          // this.http.get("http://192.169.146.6/ogo/iceCreamApi/fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
+          //       this.response = data;
+          //          this.storage.set("userid",this.response.id); 
+          //     this.storage.get('currlat').then((currlat)=>{
+          //     this.storage.get('currlng').then((currlng)=>{
 
-                    var firebaseRef = firebase.database().ref('/Drivers/Profiles');
-                    var geoFire = new GeoFire(firebaseRef);
-                    geoFire.set(this.response.id, [currlat,currlng]).then(function() {
+          //           var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+          //           var geoFire = new GeoFire(firebaseRef);
+          //           geoFire.set(this.response.id, [currlat,currlng]).then(function() {
                         
-                    }, function(error) {
+          //           }, function(error) {
                     
-                    });
-                })
-              })      
-              this.storage.get('userid').then((userid) => {
-                this.usrid = userid;   
-                  this.storage.get('deviceid').then((deviceid) => {
-                    this.devicenotid = deviceid;
-                      this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
-                      })  
-                  })
-              })          
-          });   
+          //           });
+          //       })
+          //     })      
+          //     this.storage.get('userid').then((userid) => {
+          //       this.usrid = userid;   
+          //         this.storage.get('deviceid').then((deviceid) => {
+          //           this.devicenotid = deviceid;
+          //             this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+          //             })  
+          //         })
+          //     })          
+          // });   
       }
     if(this.fbt=='google'){
-      this.storage.set("logintype",'google');
-      this.Name=this.navParams.get('name');
-      this.Email=this.navParams.get('email');
-      this.img=this.navParams.get('picture');
-      this.storage.set("usrname",this.Name);
+      // this.storage.set("logintype",'google');
+      // this.Name=this.navParams.get('name');
+      // this.Email=this.navParams.get('email');
+      // this.img=this.navParams.get('picture');
+      // this.storage.set("usrname",this.Name);
       this.storage.get('usrname').then((usrname) => {
               this.usrname = usrname;  
       })
-      this.http.get("http://192.169.146.6/ogo/iceCreamApi/googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
-        this.response = data;
-           this.storage.set("userid",this.response.id); 
-            this.storage.get('currlat').then((currlat)=>{
-              this.storage.get('currlng').then((currlng)=>{
+      // this.http.get("http://192.169.146.6/ogo/iceCreamApi/googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
+      //   this.response = data;
+      //      this.storage.set("userid",this.response.id); 
+      //       this.storage.get('currlat').then((currlat)=>{
+      //         this.storage.get('currlng').then((currlng)=>{
 
-                    var firebaseRef = firebase.database().ref('/Drivers/Profiles');
-                    var geoFire = new GeoFire(firebaseRef);
-                    geoFire.set(this.response.id, [currlat,currlng]).then(function() {
+      //               var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+      //               var geoFire = new GeoFire(firebaseRef);
+      //               geoFire.set(this.response.id, [currlat,currlng]).then(function() {
                         
-                    }, function(error) {
+      //               }, function(error) {
                     
-                    });
-                })
-              })    
-           this.storage.get('userid').then((userid) => {
-              this.usrid = userid;  
-                this.storage.get('deviceid').then((deviceid) => {
-                  this.devicenotid = deviceid;
-                    this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+      //               });
+      //           })
+      //         })    
+          //  this.storage.get('userid').then((userid) => {
+          //     this.usrid = userid;  
+          //       this.storage.get('deviceid').then((deviceid) => {
+          //         this.devicenotid = deviceid;
+          //           this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
 
-                    })  
-                 })
-             })         
-       }) 
+          //           })  
+          //        })
+          //    })         
+      // }) 
     }
     if(this.fbt=='default'){
           this.storage.get('usrname').then((usrname) => {

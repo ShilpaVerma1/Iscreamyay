@@ -170,7 +170,7 @@ this.storage.get('userid').then((userid) => {
       this.usrid = userid;
       //alert(this.usrid);
 this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveImage?userid="+ this.usrid+"&image="+filename).map(res =>res.json()).subscribe(data =>{
-      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+
 }),
 err => this.presentToast(err);
 })

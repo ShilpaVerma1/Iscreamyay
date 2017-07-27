@@ -33,27 +33,27 @@ ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/
 		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
 ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:4:5-67
+MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:20:5-66
 MERGED from [com.onesignal:OneSignal:3.5.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/AndroidManifest.xml:17:5-67
 MERGED from [com.google.android.gms:play-services-gcm:10.0.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/AndroidManifest.xml:21:5-66
 MERGED from [com.google.android.gms:play-services-iid:10.0.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/AndroidManifest.xml:21:5-66
-MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:20:5-66
 	android:name
 		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:4:22-64
 application
 ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:5:5-30:19
 MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/AndroidManifest.xml:28:5-37:19
 MERGED from [com.android.support:cardview-v7:23.4.0] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:24:5-19
 MERGED from [com.google.android.gms:play-services-auth:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.6/AndroidManifest.xml:19:5-25:19
 MERGED from [com.google.android.gms:play-services-identity:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.2.6/AndroidManifest.xml:18:5-19
 MERGED from [com.onesignal:OneSignal:3.5.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/AndroidManifest.xml:49:5-91:19
 MERGED from [com.google.android.gms:play-services-gcm:10.0.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/AndroidManifest.xml:23:5-19
 MERGED from [com.google.android.gms:play-services-iid:10.0.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/AndroidManifest.xml:23:5-19
-MERGED from [com.android.support:customtabs:24.0.0] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/customtabs/24.0.0/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:24:5-19
 MERGED from [com.google.android.gms:play-services-location:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.2.6/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-base:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.6/AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.android.gms:play-services-tasks:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.6/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.6/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:customtabs:24.0.0] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/customtabs/24.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/26.0.0-alpha1/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.0.0-alpha1/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-fragment/26.0.0-alpha1/AndroidManifest.xml:29:5-20
@@ -138,70 +138,70 @@ MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/moc/Desktop
 		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:18:184-243
 	android:name
 		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:18:139-183
-amazon:enable-feature
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:19:9-159
-	xmlns:amazon
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:19:100-156
-	android:required
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:19:75-99
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:19:32-74
-service#com.onesignal.ADMMessageHandler
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:20:9-92
-	android:exported
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:20:18-42
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:20:43-89
-receiver#com.onesignal.ADMMessageHandler$Receiver
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:21:9-27:20
-	android:permission
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:21:75-139
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:21:19-74
-intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+com.iscreamyay.com
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:22:13-26:29
-action#com.amazon.device.messaging.intent.REGISTRATION
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:23:17-90
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:23:25-87
-action#com.amazon.device.messaging.intent.RECEIVE
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:24:17-85
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:24:25-82
-category#com.iscreamyay.com
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:25:17-63
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:25:27-60
 meta-data#com.google.android.geo.API_KEY
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:28:9-124
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:19:9-124
 	android:value
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:28:66-121
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:19:66-121
 	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:28:20-65
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:19:20-65
 meta-data#com.google.android.gms.version
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:29:9-122
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:20:9-122
 MERGED from [com.google.android.gms:play-services-basement:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.6/AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:29:66-119
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:20:66-119
 	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:29:20-65
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:20:20-65
+amazon:enable-feature
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:21:9-159
+	xmlns:amazon
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:21:100-156
+	android:required
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:21:75-99
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:21:32-74
+service#com.onesignal.ADMMessageHandler
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:22:9-92
+	android:exported
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:22:18-42
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:22:43-89
+receiver#com.onesignal.ADMMessageHandler$Receiver
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:23:9-29:20
+	android:permission
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:23:75-139
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:23:19-74
+intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+com.iscreamyay.com
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:24:13-28:29
+action#com.amazon.device.messaging.intent.REGISTRATION
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:25:17-90
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:25:25-87
+action#com.amazon.device.messaging.intent.RECEIVE
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:26:17-85
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:26:25-82
+category#com.iscreamyay.com
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:27:17-63
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:27:27-60
 uses-sdk
 ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:31:5-74
 MERGED from [com.soundcloud.android:android-crop:1.0.0] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/AndroidManifest.xml:24:5-26:41
 MERGED from [com.android.support:cardview-v7:23.4.0] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:23:5-43
 MERGED from [com.google.android.gms:play-services-auth:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.6/AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-auth-base:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.2.6/AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-identity:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/10.2.6/AndroidManifest.xml:17:5-43
 MERGED from [com.onesignal:OneSignal:3.5.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/AndroidManifest.xml:5:5-7:62
 MERGED from [com.google.android.gms:play-services-gcm:10.0.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/10.0.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-iid:10.0.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/10.0.1/AndroidManifest.xml:17:5-42
-MERGED from [com.android.support:customtabs:24.0.0] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/customtabs/24.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:23:5-43
 MERGED from [com.google.android.gms:play-services-location:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.2.6/AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-base:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.6/AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-tasks:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.6/AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-basement:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.6/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:customtabs:24.0.0] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/customtabs/24.0.0/AndroidManifest.xml:20:5-44
 MERGED from [org.xwalk:xwalk_core_library:23.53.589.4] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/23.53.589.4/AndroidManifest.xml:6:5-8:41
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/26.0.0-alpha1/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.0.0-alpha1/AndroidManifest.xml:21:5-23:63
@@ -224,8 +224,8 @@ ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/
 		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:32:22-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:33:5-79
-MERGED from [com.onesignal:OneSignal:3.5.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/AndroidManifest.xml:25:5-79
 MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:19:5-78
+MERGED from [com.onesignal:OneSignal:3.5.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.5.6/AndroidManifest.xml:25:5-79
 	android:name
 		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:33:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
@@ -248,39 +248,39 @@ uses-feature#android.hardware.location.gps
 ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:38:5-66
 	android:name
 		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:38:19-63
-uses-permission#android.permission.GET_ACCOUNTS
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:39:5-71
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:39:22-68
-uses-permission#android.permission.USE_CREDENTIALS
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:40:5-74
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:40:22-71
-uses-permission#com.amazon.device.messaging.permission.RECEIVE
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:41:5-86
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:41:22-83
-permission#com.iscreamyay.com.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:42:5-120
-	android:protectionLevel
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:42:82-117
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:42:17-81
-uses-permission#com.iscreamyay.com.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:43:5-89
-	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:43:22-86
 uses-feature#0x00020000
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:44:5-78
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:39:5-78
 MERGED from [com.google.android.gms:play-services-maps:10.2.6] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.6/AndroidManifest.xml:21:5-77
 	android:glEsVersion
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:44:19-51
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:39:19-51
 	android:required
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:44:52-75
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:39:52-75
 uses-feature#android.hardware.location
-ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:45:5-62
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:40:5-62
 	android:name
-		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:45:19-59
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:40:19-59
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:41:5-71
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:41:22-68
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:42:5-74
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:42:22-71
+uses-permission#com.amazon.device.messaging.permission.RECEIVE
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:43:5-86
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:43:22-83
+permission#com.iscreamyay.com.permission.RECEIVE_ADM_MESSAGE
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:44:5-120
+	android:protectionLevel
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:44:82-117
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:44:17-81
+uses-permission#com.iscreamyay.com.permission.RECEIVE_ADM_MESSAGE
+ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:45:5-89
+	android:name
+		ADDED from /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/AndroidManifest.xml:45:22-86
 activity#com.facebook.CustomTabActivity
 ADDED from [com.facebook.android:facebook-android-sdk:4.14.1] /home/moc/Desktop/All Projects/IscreamYayapp/myApp/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/AndroidManifest.xml:33:9-36:20
 	android:exported

@@ -24329,10 +24329,68 @@ ion-navbar.toolbar {
   stroke: blueviolet;
 }
 
+/********Actionsheet*******/
+.action-sheet-group button.upload {
+  background-color: #9BBB59;
+  padding: 0px 3.4em;
+  border: 2px solid #76923c;
+}
+
+.action-sheet-group button.camera {
+  background-color: #D8D8D8;
+  padding: 0px 4.1em;
+  border: 2px solid #6b6b6b;
+}
+
+.action-sheet-group button.cancel {
+  background-color: #e5b8b7;
+  padding: 0px 5.1em;
+  border: 2px solid #d99695;
+  color: #a46e6d;
+}
+
+.action-sheet-md .action-sheet-button {
+  position: relative;
+  overflow: hidden;
+  min-height: 5.8rem;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: bold;
+  margin: auto;
+  display: block;
+  margin-bottom: 14px;
+  width: 231px;
+  border-radius: 10px;
+}
+
+.action-sheet-md .action-sheet-container {
+  padding: 2.5rem 0;
+  background: #e5dfec;
+  border-radius: 20px;
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+
+ion-spinner {
+  width: 41px;
+  height: 41px;
+}
+
+ion-loading.img-blank {
+  background: transparent;
+}
+
+.loading-md .loading-content img {
+  height: 97px;
+  width: 95px;
+}
+
 .loading-md .loading-spinner + .loading-content {
-  margin-left: -31px;
-  margin-top: 46px;
-  font-size: medium;
+  margin-left: -43px;
+  margin-top: 60px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .loading-md .loading-wrapper {
@@ -24354,8 +24412,8 @@ ion-spinner svg {
   max-height: 90%;
   border-radius: 2px;
   color: rgba(0, 0, 0, 0.5);
-  background: #fafafa;
-  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+  background: transparent;
+  box-shadow: none;
 }
 
 .popover-md .popover-content {
@@ -24447,10 +24505,6 @@ ion-spinner svg {
     font-size: 21px;
     margin-bottom: 1em;
   }
-}
-
-ion-loading.img-blank {
-  background: #fff !important;
 }
 
 page-becomevendor .fixed-content {
@@ -24545,6 +24599,15 @@ page-currentpage .footer-md::before {
     left: 17em;
     bottom: 0.5px;
   }
+}
+
+page-editprofile .selcountry {
+  height: 33px !important;
+  width: 100%;
+  border: 1px solid #7f7f7f !important;
+  background-color: white;
+  box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.54);
+  text-align: center;
 }
 
 page-editprofile .btn-profile {
@@ -24792,7 +24855,7 @@ page-fblog .text-center {
 
 page-fblog .text-center h3.heading-ease {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 600;
 }
 
 page-fblog .heading-ease {
@@ -24802,9 +24865,23 @@ page-fblog .heading-ease {
 }
 
 page-fblog .fb-image {
-  height: 48%;
-  width: 48%;
+  height: 54px;
+  text-align: center;
   margin-right: 1px;
+}
+
+page-fblog .loginrow {
+  padding: 1px 14px;
+}
+
+page-fblog .fbcls {
+  background: #3c5a9a;
+  border-radius: 25px;
+  text-align: center;
+  width: 100%;
+  float: left;
+  margin: auto;
+  padding: 0 24%;
 }
 
 page-fblog .google-img {
@@ -24832,7 +24909,7 @@ page-fblog .Second-grid {
 
 page-fblog .input-email {
   text-align: center;
-  background: #fff;
+  background: #fbfbee;
   padding: 18px;
   border-radius: 29px;
   background-image: url(../img/email.png);
@@ -24853,7 +24930,7 @@ page-fblog .input-pass .text-input-md, page-fblog .input-pass .text-input-ios {
 
 page-fblog .input-pass {
   text-align: center;
-  background: #fff;
+  background: #fbfbee;
   padding: 18px;
   border-radius: 29px;
   background-image: url(../img/kicn.png);
@@ -25050,10 +25127,10 @@ page-googlemap .nav {
 }
 
 page-googlemap .eventpos {
-  width: 70px;
-  height: 60px;
+  width: 49px;
+  height: 47px;
   position: relative;
-  right: 0px;
+  right: -6px;
   bottom: 1.4em;
 }
 
@@ -25928,11 +26005,19 @@ page-userprofile .logoimgicon {
   margin-bottom: 8px;
 }
 
-page-userprofile img[src="http://192.169.146.6/ogo/ImageUpload/iceCreamUploads/null"] {
+page-userprofile img[src="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/ImageUpload/iceCreamUploads/null"] {
   display: none;
 }
 
-page-userprofile img[src="http://192.169.146.6/ogo/ImageUpload/iceCreamUploads/"] {
+page-userprofile img[src="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/ImageUpload/iceCreamUploads/"] {
+  display: none;
+}
+
+page-userprofile img[src="http://iscreamyay.com/ogo/ImageUpload/iceCreamUploads/"] {
+  display: none;
+}
+
+page-userprofile img[src="http://iscreamyay.com/ogo/ImageUpload/iceCreamUploads/null"] {
   display: none;
 }
 
@@ -25978,16 +26063,16 @@ page-userprofile .img-cemra {
 page-userprofile .profile-name {
   font-size: 30px;
   margin-bottom: 0px;
-  color: #959595;
+  color: #000;
   margin-left: 16px;
   letter-spacing: 1px;
   margin-top: 0px;
 }
 
 page-userprofile .profile-phone {
-  font-size: 24px;
+  font-size: 21px;
   margin-bottom: 0px;
-  color: #959595;
+  color: #2d2828;
   margin-left: 17px;
   letter-spacing: 1px;
   margin-top: 7px;
@@ -25995,9 +26080,9 @@ page-userprofile .profile-phone {
 }
 
 page-userprofile .profile-email {
-  font-size: 24px;
+  font-size: 21px;
   margin-bottom: 0px;
-  color: #959595;
+  color: #2d2828;
   margin-left: 17px;
   letter-spacing: 1px;
   margin-top: 0px;
@@ -26041,13 +26126,7 @@ page-userprofile .profile-email {
 
 page-vendorregister {
   font-size: 18px;
-  /*.btn-bg{
-background:#79b350;
-width:85%;
-margin:auto;
-display:block;
-border-radius: 5px;
-padding:2px;}*/
+  /*************NewCSS************/
 }
 
 @font-face {
@@ -26129,12 +26208,20 @@ page-vendorregister .has-subheader {
   top: 110px;
 }
 
+page-vendorregister .main-grid {
+  margin-bottom: 25px;
+  width: 100%;
+  padding: 22px;
+}
+
 page-vendorregister .login-btn {
-  background-color: #92d050;
+  background-color: #f1be17;
   width: 100%;
   color: #fff;
-  border: 1px solid #79b350;
+  border: 1px solid #f1be17;
   font-weight: 400;
+  margin: auto;
+  display: block;
 }
 
 page-vendorregister .button.disabled, page-vendorregister .button[disabled] {
@@ -26176,4 +26263,117 @@ page-vendorregister .reg-img img {
 
 page-vendorregister .item-md.item-block .item-inner {
   border-bottom: 0px;
+}
+
+page-vendorregister .main-logo {
+  width: 66%;
+  height: 50%;
+  margin: 0 auto;
+}
+
+page-vendorregister .text-center {
+  text-align: center;
+}
+
+page-vendorregister .text-center h3.heading-ease {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+}
+
+page-vendorregister .heading-ease {
+  width: 100%;
+  margin-top: 30px !important;
+  margin-bottom: 18px;
+}
+
+page-vendorregister .fb-image {
+  height: 48%;
+  width: 48%;
+  margin-right: 1px;
+}
+
+page-vendorregister .google-img {
+  width: 48%;
+  height: 48%;
+  margin-left: 1px;
+}
+
+page-vendorregister .main-grid {
+  margin-bottom: 31px;
+  width: 100%;
+  padding: 22px;
+}
+
+page-vendorregister .scroll-content {
+  padding: 0px !important;
+}
+
+page-vendorregister .Second-grid {
+  background-color: #f7f7f7;
+  padding-bottom: 52px;
+  width: 100%;
+  padding: 22px;
+}
+
+page-vendorregister .input-name {
+  text-align: center;
+  background: #fbfbee;
+  padding: 18px;
+  border-radius: 29px;
+  background-image: url(../img/psr.jpg);
+  background-repeat: no-repeat;
+  background-position: 17px;
+  font-size: 17px;
+}
+
+page-vendorregister .input-email {
+  text-align: center;
+  background: #fbfbee;
+  padding: 18px;
+  border-radius: 29px;
+  background-image: url(../img/email.png);
+  background-repeat: no-repeat;
+  background-position: 17px;
+  font-size: 17px;
+  margin-top: 17px;
+}
+
+page-vendorregister .input-name .text-input-md, page-vendorregister .input-name .text-input-ios {
+  margin: 0px !important;
+  text-align: center;
+}
+
+page-vendorregister .input-email .text-input-md, page-vendorregister .input-email .text-input-ios {
+  margin: 0px !important;
+  text-align: center;
+}
+
+page-vendorregister .input-pass .text-input-md, page-vendorregister .input-pass .text-input-ios {
+  margin: 0px !important;
+  text-align: center;
+}
+
+page-vendorregister .input-pass {
+  text-align: center;
+  background: #fbfbee;
+  padding: 18px;
+  border-radius: 29px;
+  background-image: url(../img/kicn.png);
+  background-repeat: no-repeat;
+  background-position: 17px;
+  font-size: 17px;
+  margin-top: 17px;
+}
+
+page-vendorregister .btn-sign {
+  width: 100%;
+  height: 50px;
+  font-size: 17px;
+  border-radius: 26px;
+  margin-top: 20px;
+  background-color: #f1be17;
+}
+
+page-vendorregister .loginrow {
+  padding: 10px 28px;
 }

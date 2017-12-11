@@ -23,7 +23,7 @@ declare var window: any;
   templateUrl: 'fblog.html'
 })
 export class FbPage {
-FB_APP_ID: number =1295611150530130;
+FB_APP_ID: number =1120408081397468;
 data:any;
 response:any;
 usrid:any;
@@ -31,10 +31,10 @@ dvcid:any;
 tokenid:any;
 notideviceid:any;
 dvctokn:any;
-
-
+apiurl:string;
   constructor(public navCtrl: NavController,public menu:MenuController, public navParams:NavParams, public loadingCtrl:LoadingController, private storage: Storage, private http: Http, public platform: Platform) {
-   
+    this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
+
     Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
           window.plugins.toast.show("You are offline", "long", "center");
@@ -45,7 +45,7 @@ dvctokn:any;
 
      });
 
-    Facebook.browserInit(this.FB_APP_ID, "v2.8");
+    Facebook.browserInit(this.FB_APP_ID, "v2.9");
     this.data={};
     this.data.email = '';
     this.data.pass = '';
@@ -54,20 +54,18 @@ dvctokn:any;
               var long=resp.coords.longitude;
               this.storage.set('currlat',latt);
               this.storage.set('currlng',long);
-    })
-    // get device user id for notification 
-    this.notideviceid =this.navParams.get("deviceidd");
-
+      })
+ 
 }
 
 login(){
 
 this.storage.set("userid",'')
 this.storage.set("logintype",'default');
-    this.http.get("http://192.169.146.6/ogo/iceCreamApi/login?email="+this.data.email+"&password="+this.data.pass).map(res =>res.json()).subscribe(data =>{
+    this.http.get(this.apiurl+"login?email="+this.data.email+"&password="+this.data.pass).map(res =>res.json()).subscribe(data =>{
       let loading = this.loadingCtrl.create({
         spinner: 'ios',
-        content: 'Logging in...'
+        content: 'Logging in'
       });   
     loading.present();   
          this.response = data;
@@ -80,8 +78,13 @@ this.storage.set("logintype",'default');
             this.storage.set("usrname",this.response.firstname);
             this.storage.get('userid').then((userid) => {
               this.usrid = userid;  
-              this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.notideviceid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+              this.storage.get("deviceid").then((deviceid)=>{
+                this.notideviceid=deviceid;
+                if(this.notideviceid){
+                  this.http.get(this.apiurl+"saveToken?token="+this.notideviceid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
 
+                  })
+                }
               })
             this.storage.get('currlat').then((currlat)=>{
             this.storage.get('currlng').then((currlng)=>{
@@ -172,7 +175,7 @@ loginfb(){
   let nav = this.navCtrl;
   let loading = this.loadingCtrl.create({
     spinner: 'ios',
-    content: 'Please wait...'
+    content: 'Loading'
   });
   loading.present();
   GooglePlus.login({

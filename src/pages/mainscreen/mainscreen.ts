@@ -38,7 +38,9 @@ devicenotid:any;
 temperature:any;
 weathericon:any;
 usrname:any;
+apiurl:string;
 ngOnInit(){
+ this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
 
      this.fbt=this.navParams.get('type');
      if(this.fbt == 'facebook' ){
@@ -51,7 +53,7 @@ ngOnInit(){
           this.storage.get('usrname').then((usrname) => {
               this.usrname = usrname;  
           })
-          this.http.get("http://192.169.146.6/ogo/iceCreamApi/fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
+          this.http.get(this.apiurl+"fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
                 this.response = data;
                    this.storage.set("userid",this.response.id); 
               this.storage.get('currlat').then((currlat)=>{
@@ -70,7 +72,7 @@ ngOnInit(){
                 this.usrid = userid;   
                   this.storage.get('deviceid').then((deviceid) => {
                     this.devicenotid = deviceid;
-                      this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+                      this.http.get(this.apiurl+"saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
                       })  
                   })
               })          
@@ -85,7 +87,7 @@ ngOnInit(){
       this.storage.get('usrname').then((usrname) => {
               this.usrname = usrname;  
       })
-      this.http.get("http://192.169.146.6/ogo/iceCreamApi/googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
+      this.http.get(this.apiurl+"googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
         this.response = data;
            this.storage.set("userid",this.response.id); 
             this.storage.get('currlat').then((currlat)=>{
@@ -104,7 +106,7 @@ ngOnInit(){
               this.usrid = userid;  
                 this.storage.get('deviceid').then((deviceid) => {
                   this.devicenotid = deviceid;
-                    this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+                    this.http.get(this.apiurl+"saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
 
                     })  
                  })
@@ -136,6 +138,8 @@ ngOnInit(){
 
 }
 constructor(public navCtrl: NavController,private http:Http,public menu:MenuController, private storage: Storage, public platform:Platform, private navParams:NavParams) {
+ this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
+
     Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
           window.plugins.toast.show("You are offline", "long", "center");
@@ -147,7 +151,7 @@ constructor(public navCtrl: NavController,private http:Http,public menu:MenuCont
      });
     this.storage.get('userid').then((userid) => {
       this.usrid = userid;
-        this.http.get("http://192.169.146.6/ogo/iceCreamApi/getProfile?userid="+ this.usrid).map(res =>res.json()).subscribe(data =>{
+        this.http.get(this.apiurl+"getProfile?userid="+ this.usrid).map(res =>res.json()).subscribe(data =>{
           this.usrname=data.firstname;
       })
      })

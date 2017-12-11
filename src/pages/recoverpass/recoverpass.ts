@@ -14,7 +14,9 @@ declare var window: any;
 })
 export class RecoverpassPage {
 recover:any;
+apiurl:string;
   constructor(public http:Http,public loadingCtrl:LoadingController,public platform:Platform,public navCtrl: NavController,public menu:MenuController,public navParams: NavParams) {
+    this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
     this.recover=[];
     this.recover.otp="";
     this.recover.password="";
@@ -28,7 +30,7 @@ recover:any;
   });
   loading.present();
     if( this.recover.password== this.recover.conf_pass && this.recover.otp!=''){
-      this.http.get("http://192.169.146.6/ogo/iceCreamApi/recoverPassword?otp="+ this.recover.otp+"&password="+ this.recover.password).map(res =>res.json()).subscribe(data =>{
+      this.http.get(this.apiurl+"recoverPassword?otp="+ this.recover.otp+"&password="+ this.recover.password).map(res =>res.json()).subscribe(data =>{
         this.recover=data;
       if(this.recover.status != "Failed"){
           loading.dismiss(); 

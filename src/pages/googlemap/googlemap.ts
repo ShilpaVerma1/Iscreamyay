@@ -13,6 +13,9 @@ import * as GeoFire from "geofire";
 import {MainHomePage } from '../mainhome/mainhome';
 import * as jQuery from 'jquery';
 import * as $ from 'jquery';
+import { Diagnostic } from '@ionic-native/diagnostic';
+
+
 declare var google;
 declare var window: any;
 @Component({
@@ -35,25 +38,37 @@ export class GoogleMapPage {
   watchId:any;
   marker:any;
   af:any;marker1:any;
-devicenotid:any;
-temperature:any;
-weathericon:any;
-usrname:any;
-weather:any;
-fbt:any;Name:any;Email:any;img:any;
+  devicenotid:any;
+  temperature:any;
+  weathericon:any;
+  usrname:any;
+  weather:any;
+  fbt:any;Name:any;Email:any;img:any;
+  apiurl:string;
+  constructor(private diagnostic: Diagnostic,af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
+       this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
 
-  constructor(af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
-
-    Network.onDisconnect().subscribe(() => {
-      this.platform.ready().then(() => {
-
+     Network.onDisconnect().subscribe(() => {
         window.plugins.toast.show("You are offline", "long", "center");
-      });
-
     });
     Network.onConnect().subscribe(() => {
     
     });
+      this.platform.ready().then((readySource) => {
+
+      this.diagnostic.isLocationEnabled().then((isAvailable) => {
+        if(isAvailable==false){
+         window.plugins.toast.show("Your location services are disabled.Please turn on your location to continuee", "long", "center");
+         this.navCtrl.push(MainHomePage);
+        }
+
+      }).catch( (e) => {
+         window.plugins.toast.show(e, "short", "center");
+
+      });
+
+
+      });
 
      this.fbt=this.navParams.get('type');
      this.storage.set("logintype",this.fbt);
@@ -64,15 +79,17 @@ fbt:any;Name:any;Email:any;img:any;
           this.Email=this.navParams.get('email');  
           var uid = this.navParams.get('usrid');
           this.storage.set("usrname",this.Name);
-          this.http.get("http://192.169.146.6/ogo/iceCreamApi/fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
+          this.http.get(this.apiurl+"fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
                 this.response = data;
               this.storage.set("userid",this.response.id);      
               this.storage.get('userid').then((userid) => {
                 this.usrid = userid;  
                   this.storage.get('deviceid').then((deviceid) => {
                     this.devicenotid = deviceid;
-                      this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+                     if(this.devicenotid){
+                      this.http.get(this.apiurl+"saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
                       })  
+                     }
                   })
               })          
           });   
@@ -83,21 +100,33 @@ fbt:any;Name:any;Email:any;img:any;
       this.Email=this.navParams.get('email');
       this.img=this.navParams.get('picture');
       this.storage.set("usrname",this.Name);
-      this.http.get("http://192.169.146.6/ogo/iceCreamApi/googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
+      this.http.get(this.apiurl+"googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
         this.response = data;
          this.storage.set("userid",this.response.id);   
            this.storage.get('userid').then((userid) => {
               this.usrid = userid;  
                 this.storage.get('deviceid').then((deviceid) => {
                   this.devicenotid = deviceid;
-                    this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
+                  if(this.devicenotid){
+                    this.http.get(this.apiurl+"saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
 
-                    })  
+                    })
+                  }     
                  })
              })         
        }) 
-    }  
-       this.loadMap();
+    } 
+  let loading = this.loadingCtrl.create({
+    cssClass:'spin',
+    spinner: 'hide',
+    content:  `<img src="http://2.mediaoncloud.com/Shilpa/load.gif" />`
+  });
+  loading.present(); 
+  setTimeout(() => {
+    loading.dismiss();
+  }, 4000); 
+    this.loadMap();
+    
   }
 
 loadMap() {
@@ -116,7 +145,7 @@ this.storage.get('userid').then((userid) => {
            var lng = resp.coords.longitude;
     
             let latLng = new google.maps.LatLng(lat, lng);    
-    this.http.get("http://192.169.146.6/ogo/iceCreamApi/getEvent?userid="+this.usrid+"&lat="+lat+"&lng="+lng).map(res => res.json()).subscribe(data => {
+    this.http.get(this.apiurl+"getEvent?userid="+this.usrid+"&lat="+lat+"&lng="+lng).map(res => res.json()).subscribe(data => {
       this.response = data;
       this.length = data.length;
      
@@ -182,7 +211,7 @@ this.storage.get('userid').then((userid) => {
                     }
                     
                     })(that.marker, data));   
-             }
+            }
     }  
     
 
@@ -251,12 +280,18 @@ function addDriversToMap(location){
               var long=data.coords.longitude;
               var firebaseRef = firebase.database().ref('/Drivers/Profiles');
               var geoFire = new GeoFire(firebaseRef);
-              geoFire.set(this.usrid, [latt,long]).then(function() {
-                  
-              }, function(error) {
-              
+              geoQuery.on("key_entered", function(key, location, distance) { 
+               if(key==that.usrid){
+                 if(location[0]!=latt && location[1]!=long){
+                    geoFire.set(this.usrid, [latt,long]).then(function() {
+                        
+                    }, function(error) {
+                    
+                    });
+                 }
+               }
               });
-          })
+            })
          })
       })
     }) 
@@ -264,7 +299,6 @@ function addDriversToMap(location){
 }) 
 } 
 eventtoggle(togglevnt){
-
   this.storage.set('togglevnt',togglevnt);
   this.storage.get('toggleid').then((x)=>{
     if(x==null && x==''){
@@ -282,15 +316,18 @@ eventtoggle(togglevnt){
       watch.unsubscribe();
     })
   this.loadMap();
+
   let loading = this.loadingCtrl.create({
     cssClass:'spin',
-    spinner: 'ios',
-    content: 'Loading...'
+    spinner: 'hide',
+    content:  `<img src="http://2.mediaoncloud.com/Shilpa/load.gif" />`
   });
   loading.present(); 
   setTimeout(() => {
-    loading.dismiss();
+      loading.dismiss();
   }, 4000);
+ 
+
 }
 eventtogglee(){
     this.storage.set('toggleid',null);
@@ -303,15 +340,18 @@ eventtogglee(){
       watch.unsubscribe();
     })
   this.loadMap();
+
   let loading = this.loadingCtrl.create({
     cssClass:'spin',
-    spinner: 'ios',
-    content: 'Loading...'
+    spinner: 'hide',
+    content:  `<img src="http://2.mediaoncloud.com/Shilpa/load.gif" />`
   });
   loading.present(); 
   setTimeout(() => {
     loading.dismiss();
-  }, 4000);
+  }, 3000);
+  
+
 }
  showdata(eventdata) {
 

@@ -1,4 +1,6 @@
 page-vendorregister {
+     //.fixed-content{ background-image: url(../img/Becoming_Vendor.png)!important;background-size: cover!important;}
+
     @font-face{
          font-family:Century Gothic;
     src:url(www/fonts/CenturyGothic.ttf);
@@ -24,19 +26,16 @@ page-vendorregister {
 .has-subheader {
     top: 110px;
 }
-/*.btn-bg{
-background:#79b350;
-width:85%;
-margin:auto;
-display:block;
-border-radius: 5px;
-padding:2px;}*/
+.main-grid{    margin-bottom:25px; width: 100%;  padding:22px;}
+
 .login-btn {
-background-color: #92d050;
-width:100%;
-color:#fff; 
-border:1px solid #79b350;
-font-weight:400;
+    background-color: #f1be17;
+    width: 100%;
+    color: #fff;
+    border: 1px solid #f1be17;
+    font-weight: 400;
+    margin: auto;
+    display: block;
 
 }
 .button.disabled, .button[disabled]{opacity:0.4!important;}
@@ -64,4 +63,59 @@ text-align:justify;}
     display: block;
 }
 .item-md.item-block .item-inner{border-bottom:0px;}
+
+
+/*************NewCSS************/
+.main-logo{  width: 66%;height: 50%; margin: 0 auto;}
+.text-center{    text-align: center;}
+.text-center h3.heading-ease{    font-family: 'Roboto', sans-serif;
+    font-weight: 600;}
+.heading-ease{width:100%; margin-top:30px!important; margin-bottom: 18px;}
+.fb-image{ height:48%; width:48%; margin-right: 1px;}
+.google-img{width:48%;height:48%;margin-left: 1px;}
+.main-grid{    margin-bottom:31px; width: 100%;  padding:22px;}
+.scroll-content{padding:0px!important;}
+.Second-grid{background-color:#f7f7f7; padding-bottom: 52px; width: 100%;  padding:22px;}
+.input-name{    text-align: center;
+      background: #fbfbee;
+
+    padding: 18px;
+    border-radius: 29px;
+    background-image: url(../img/psr.jpg);
+    background-repeat: no-repeat;
+    background-position: 17px;
+    font-size: 17px;
+    
+}
+  .input-email{ text-align: center;
+    background: #fbfbee;
+    padding: 18px;
+    border-radius: 29px;
+     background-image: url(../img/email.png);
+    background-repeat: no-repeat;
+    background-position: 17px;
+    font-size: 17px;
+    margin-top: 17px;}
+    .input-name .text-input-md ,.input-name .text-input-ios{margin:0px !important; text-align:center;}
+
+    .input-email .text-input-md ,.input-email .text-input-ios{margin:0px !important; text-align:center;}
+        .input-pass .text-input-md ,.input-pass .text-input-ios{margin:0px !important; text-align:center;}
+    .input-pass{ text-align: center;
+    background: #fbfbee;
+    padding: 18px;
+    border-radius: 29px;
+    background-image: url(../img/kicn.png);
+    background-repeat: no-repeat;
+    background-position: 17px;
+    font-size: 17px;
+    margin-top: 17px;}
+    .btn-sign{    width: 100%;
+    height: 50px;
+    font-size: 17px;
+    border-radius: 26px;
+    margin-top: 20px;
+    background-color: #f1be17;}
+.loginrow{
+    padding: 10px 28px;
+}
 }

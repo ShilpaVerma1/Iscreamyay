@@ -24,7 +24,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule} from 'angularfire2';
 import * as GeoFire from "geofire";
 import {FaqPage } from '../pages/faq/faq';
-
+import { Diagnostic } from '@ionic-native/diagnostic';
 var firebaseConfig = {
     apiKey: "AIzaSyAOHcD8KwzFRtdnnK9obtKGARTwMrBXW_M",
     authDomain: "iscreamyay-88ef1.firebaseapp.com",
@@ -88,7 +88,7 @@ var firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    Geolocation,
+    Geolocation,Diagnostic,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

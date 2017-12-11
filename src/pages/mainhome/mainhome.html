@@ -5,8 +5,8 @@
 <ion-content class="main-back" >
 <ion-row class="top-row">
   <img class="logoicon" src="img/newicecreamlogo.png" />
-   <img [src]="weathericon" class="weathericon" />
-          <p class="temp">{{temperature}}°F</p>
+   <img [src]="weathericon" class="weathericon" *ngIf="weathericon"/>
+          <p class="temp" *ngIf="temperature">{{temperature}}°F</p>
 
   </ion-row>
 

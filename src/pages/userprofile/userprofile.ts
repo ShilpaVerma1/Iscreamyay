@@ -25,7 +25,10 @@ lastImage: string = null;
   usrid:any;
   profile:any={};
   mail:any;
+  apiurl:string;
   constructor(public navCtrl: NavController,public menu:MenuController, public storage: Storage, private http:Http, public toastCtrl: ToastController,  public actionSheetCtrl: ActionSheetController, public platform: Platform, public loadingCtrl: LoadingController) {
+    this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
+
     Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
           window.plugins.toast.show("You are offline", "long", "center");
@@ -41,16 +44,16 @@ lastImage: string = null;
     this.storage.get('userid').then((userid) => {
       this.usrid = userid;
           let loadingPopup = this.loadingCtrl.create({
-            content: 'Loading...',
             cssClass: 'img-blank',
-            spinner:'ios'
+            spinner: 'hide',
+            content:  `<img class="imgprofileload" src="http://2.mediaoncloud.com/Shilpa/loading_circle.gif" />`
           });
           loadingPopup.present(); 
     
-      this.http.get("http://192.169.146.6/ogo/iceCreamApi/getProfile?userid="+ this.usrid).map(res =>res.json()).subscribe(data =>{
+      this.http.get(this.apiurl+"getProfile?userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
           setTimeout(() => {
               this.profile= data;
-              if(this.profile.email=='undefined'){
+              if(this.profile.email=='undefined' || this.profile.email==''){
                   this.mail='';
               }
               if(this.profile.email!='undefined'){
@@ -132,7 +135,7 @@ private copyFileToLocalDir(namePath, currentName, newFileName) {
   File.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
     this.lastImage = newFileName;
 
- var url = "http://192.169.146.6/ogo/ImageUpload/icecreamapp.php";
+ var url = "http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/ImageUpload/icecreamapp.php";
  
   // File for Upload
   var targetPath = this.pathForImage(this.lastImage);
@@ -159,7 +162,7 @@ private copyFileToLocalDir(namePath, currentName, newFileName) {
   fileTransfer.upload(targetPath, url, options).then(data => {
     this.loading.dismissAll()
     
-    this.presentToast('Image succesful uploaded.');
+    this.presentToast('Image successfully uploaded.');
     this.navCtrl.setRoot(this.navCtrl.getActive().component());
   }, err => {
     this.loading.dismissAll()
@@ -169,7 +172,7 @@ private copyFileToLocalDir(namePath, currentName, newFileName) {
 this.storage.get('userid').then((userid) => {
       this.usrid = userid;
       //alert(this.usrid);
-this.http.get("http://192.169.146.6/ogo/iceCreamApi/saveImage?userid="+ this.usrid+"&image="+filename).map(res =>res.json()).subscribe(data =>{
+this.http.get(this.apiurl+"saveImage?userid="+ this.usrid+"&image="+filename).map(res =>res.json()).subscribe(data =>{
 
 }),
 err => this.presentToast(err);

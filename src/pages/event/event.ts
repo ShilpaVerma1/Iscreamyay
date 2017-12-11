@@ -34,6 +34,7 @@ export class EventPage {
   watchId:any;
   marker:any;
   af:any;marker1:any;
+  apiurl:string;
   constructor(af:AngularFire,public navCtrl: NavController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
     this.af=af;
 
@@ -47,6 +48,7 @@ export class EventPage {
     Network.onConnect().subscribe(() => {
     
     });
+    this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
 
   }
   ionViewDidLoad() {
@@ -58,7 +60,7 @@ var that=this;
 
 this.storage.get('userid').then((userid) => {
  this.usrid = userid;
-    this.http.get("http://192.169.146.6/ogo/iceCreamApi/getEvent?userid="+this.usrid).map(res => res.json()).subscribe(data => {
+    this.http.get(this.apiurl+"getEvent?userid="+this.usrid).map(res => res.json()).subscribe(data => {
       this.response = data;
       
       var options={enableHighAccuracy: true};

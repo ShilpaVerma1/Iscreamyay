@@ -42,11 +42,15 @@ export class CurrentPage {
   markerArray :any= [];
   markerA:any;
   markerB:any;
-  af:any;
+  apiurl:string;
   constructor(public navCtrl: NavController,public menu:MenuController,private storage:Storage,private http:Http, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, public alertCtrl:AlertController) {
     this.lati = this.navParams.get("latt");
     this.longi = this.navParams.get("longg");
     this.eventid = this.navParams.get("evntid");
+    this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
+
+    // this.http.get(this.apiurl+"removeEvent?id="+this.eventid+"&userid="+this.usrid).map(res => res.json()).subscribe(data => {
+    //  })
 
   }
   ionViewDidLoad() {
@@ -121,7 +125,7 @@ this.storage.get('userid').then((userid) => {
                 this.storage.get('userid').then((userid) => {
                 this.usrid = userid;
                 this.eventid = this.navParams.get("evntid");
-                this.http.get("http://192.169.146.6/ogo/iceCreamApi/removeEvent?id="+this.eventid+"&userid="+this.usrid).map(res => res.json()).subscribe(data => {
+                this.http.get(this.apiurl+"removeEvent?id="+this.eventid+"&userid="+this.usrid).map(res => res.json()).subscribe(data => {
                 this.navCtrl.setRoot(this.navCtrl.getActive().component);
                 })
                 })

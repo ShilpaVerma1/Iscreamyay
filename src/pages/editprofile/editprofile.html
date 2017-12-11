@@ -11,31 +11,29 @@
 <ion-row class="margin-main"><button  ion-button full class="btn-profile">Edit your profile</button></ion-row>
     
     <form class="main-form">
-    <ion-label class="label-first" >First Name</ion-label>
+    <ion-label class="label-first" >Name</ion-label>
     <ion-input type="text" style="text-transform:lowercase;" class="inputbox1 dull-input" placeholder="" name="profile.firstname" [(ngModel)]="profile.firstname"></ion-input>
-
-    <ion-label class="label-first">Last Name</ion-label>
-    <ion-input type="text" style="text-transform:lowercase;" class="inputbox1 dull-input" placeholder="" name="profile.lastname" [(ngModel)]="profile.lastname"></ion-input>
-
-    <ion-label class="label-first">Phone Number</ion-label>
-    <ion-input type="text" style="text-transform:lowercase;" class="inputbox1 dark-input" placeholder="" name="profile.phone_number" [(ngModel)]="profile.phone_number"></ion-input>
   
     <ion-label class="label-first" >Email</ion-label>
-    <ion-input type="text" style="text-transform:lowercase;" class="inputbox1 dark-input" placeholder="" name="profile.email" [(ngModel)]="profile.email"></ion-input>
+    <ion-input type="text" style="text-transform:lowercase;" class="inputbox1 dark-input"  name="mail" [(ngModel)]="mail"></ion-input>
+    
+  
+   <ion-label class="label-first">Country Code</ion-label>
+       <select #newSelect [(ngModel)]="profile.country_id" (change)="onChange(profile.country_id)" name="countrycode" style="font-family: Lucida Console;" class="selcountry">
+						<option *ngFor="let i of codes" [ngValue]="i.id" style="color:#000!important;">{{i.country_name}}(+{{i.calling_code}})</option>
+				</select>
+    
+    <ion-label class="label-first">Phone Number</ion-label>
+    <ion-input type="tel" style="text-transform:lowercase;" class="inputbox1 dark-input"  placeholder="Contact no." name="profile.phone_number" [(ngModel)]="profile.phone_number"></ion-input>
+
+  <ion-label class="label-first">States</ion-label>
+   <select name="states" [(ngModel)]="profile.city" (change)="Change(profile.city)" class="selcountry" style="font-family: CenturyGothic;text-align: left;">		
+						<option  *ngFor="let i of states" [ngValue]="i.city_name" style="color:#000!important;">{{i.city_name}}</option>
+				</select>
+    
     </form>
 
-    <ion-row><button  ion-button full class="btn-update" (click)="update(profile.firstname,profile.lastname,profile.phone_number,profile.email)">Update</button> </ion-row>
-
-
-
-
-
-
-
-
-
-
-
+    <ion-row><button  ion-button full class="btn-update" (click)="update(profile.firstname,mail,profile.country_id,profile.phone_number,profile.city)">Update</button> </ion-row>
 
 
 </ion-content>

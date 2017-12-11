@@ -23,9 +23,10 @@ codes:any;
 states:any;
 userref:any;
 af:any;
-
+apiurl:string;
   constructor(af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, private platform: Platform,public menu: MenuController, public navParams: NavParams,private http: Http) {
     this.af=af;
+    this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
 
 Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
@@ -50,14 +51,14 @@ this.regsterform.countrycode="";
 this.regsterform.stats="";
 //this.netprovider;
 
-this.http.get("http://192.169.146.6/ogo/iceCreamApi/getCountries").map(res =>res.json()).subscribe(data =>{
+this.http.get(this.apiurl+"getCountries").map(res =>res.json()).subscribe(data =>{
 this.codes = data;
  
 })
 }
 
  onChange(SelectedValue){
- this.http.get("http://192.169.146.6/ogo/iceCreamApi/getCityByCountry?country_id=" +SelectedValue).map(res =>res.json()).subscribe(data =>{
+ this.http.get(this.apiurl+"getCityByCountry?country_id=" +SelectedValue).map(res =>res.json()).subscribe(data =>{
   this.states = data;
  
 })
@@ -73,32 +74,24 @@ register(){
     content: 'Loading...'
   });
   loading.present(); 
-  if(this.regsterform.firstname != "" && this.regsterform.lastname != "" && this.regsterform.email !="" && this.regsterform.password != "" && this.regsterform.confirmPassword != "" && this.regsterform.phone != "" && this.regsterform.countrycode != "" && this.regsterform.stats != ""){
-    if(this.regsterform.password == this.regsterform.confirmPassword){
+  if(this.regsterform.firstname != ""  && this.regsterform.email !="" && this.regsterform.password != ""){
 
-  this.http.get("http://192.169.146.6/ogo/iceCreamApi/signup?firstname="+this.regsterform.firstname+"&lastname="+this.regsterform.lastname+"&email="+this.regsterform.email+"&password="+this.regsterform.password+"&phone_number="+this.regsterform.phone+"&city="+this.regsterform.stats+"&country_code="+this.regsterform.countrycode).map(res =>res.json()).subscribe(data =>{
-  this.regsterform = data;
-  
-  if(this.regsterform.status != "Failed"){
-  //alert("Check your email for completing registeration.");
-    loading.dismiss();
-    window.plugins.toast.show("You are successfully registered","long","center");
-    this.navCtrl.push(FbPage);
-  }else{
-//alert("You have already registered");
-loading.dismiss();
-window.plugins.toast.show("You have already registered","long","center");
-this.navCtrl.setRoot(this.navCtrl.getActive().component);
-  }
- 
-})
-  }else{
- loading.dismiss();
- window.plugins.toast.show("Password doesn't match","long","center");
-  //alert("Password doesn't match");
-    this.regsterform.password="";
-    this.regsterform.confirmPassword="";
-  }
+          this.http.get(this.apiurl+"signup?firstname="+this.regsterform.firstname+"&email="+this.regsterform.email+"&password="+this.regsterform.password).map(res =>res.json()).subscribe(data =>{
+          this.regsterform = data;
+          
+          if(this.regsterform.status != "Failed"){
+          //alert("Check your email for completing registeration.");
+            loading.dismiss();
+            window.plugins.toast.show("You are successfully registered","long","center");
+            this.navCtrl.push(FbPage);
+          }else{
+        //alert("You have already registered");
+        loading.dismiss();
+        window.plugins.toast.show("You have already registered","long","center");
+        this.navCtrl.setRoot(this.navCtrl.getActive().component);
+          }
+        
+        })
   }
   else{
     loading.dismiss();

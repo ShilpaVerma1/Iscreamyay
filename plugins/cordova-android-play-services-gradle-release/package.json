@@ -1,0 +1,74 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-android-play-services-gradle-release",
+        "scope": null,
+        "escapedName": "cordova-android-play-services-gradle-release",
+        "name": "cordova-android-play-services-gradle-release",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/node_modules"
+    ]
+  ],
+  "_from": "cordova-android-play-services-gradle-release@latest",
+  "_id": "cordova-android-play-services-gradle-release@0.0.2",
+  "_inCache": true,
+  "_location": "/cordova-android-play-services-gradle-release",
+  "_nodeVersion": "7.10.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-android-play-services-gradle-release-0.0.2.tgz_1498476079163_0.8302254392765462"
+  },
+  "_npmUser": {
+    "name": "davealden",
+    "email": "dave@workingedge.co.uk"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-android-play-services-gradle-release",
+    "scope": null,
+    "escapedName": "cordova-android-play-services-gradle-release",
+    "name": "cordova-android-play-services-gradle-release",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-android-play-services-gradle-release/-/cordova-android-play-services-gradle-release-0.0.2.tgz",
+  "_shasum": "fb5f39dd13a6cdd00ea60261a131a9052b4403fa",
+  "_shrinkwrap": null,
+  "_spec": "cordova-android-play-services-gradle-release",
+  "_where": "/home/moc/Desktop/All Projects/IscreamYayapp/myApp/node_modules",
+  "author": {
+    "name": "Dave Alden"
+  },
+  "dependencies": {},
+  "description": "Cordova/Phonegap plugin to align various versions of the Play Services library specified by other plugins to the latest release version",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "fb5f39dd13a6cdd00ea60261a131a9052b4403fa",
+    "tarball": "https://registry.npmjs.org/cordova-android-play-services-gradle-release/-/cordova-android-play-services-gradle-release-0.0.2.tgz"
+  },
+  "gitHead": "f4759dddb50b8225749fc4ef7612b59e161a1e57",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "davealden",
+      "email": "dave@workingedge.co.uk"
+    }
+  ],
+  "name": "cordova-android-play-services-gradle-release",
+  "optionalDependencies": {},
+  "readme": "cordova-android-play-services-gradle-release\n======================================\n\nThis Cordova/Phonegap plugin for Android aligns various versions of the Play Services library specified by other plugins to the latest release (or a specific) version.\n\n<!-- START doctoc generated TOC please keep comment here to allow auto update -->\n<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->\n**Table of Contents**\n\n- [Purpose](#purpose)\n- [Installation](#installation)\n- [Different library versions](#different-library-versions)\n  - [Default version](#default-version)\n  - [Other versions](#other-versions)\n- [Example](#example)\n- [License](#license)\n\n<!-- END doctoc generated TOC please keep comment here to allow auto update -->\n \n# Purpose\n\n**TL;DR**: To prevent build failures caused by including different versions of the Play Services library. \n\nSome Cordova plugins include the [Play Services library](https://developers.google.com/android/guides/overview) to faciliate them.\nMost commonly, these are now included into the Cordova project by specifying them as Gradle dependencies (see the [Cordova plugin spec documenation](https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html#framework)).\n\nExample plugins:\n- [cordova-plugin-googleplus)](https://github.com/EddyVerbruggen/cordova-plugin-googleplus)\n- [phonegap-plugin-push@1](https://github.com/phonegap/phonegap-plugin-push/tree/v1.10.5)\n- [google-analytics-plugin](https://github.com/danwilson/google-analytics-plugin)\n\nThe problem arises when these plugins specify different versions of the Play Services library. This can cause build failures to occur, which are not easy to resolve without changes by the plugin authors to align the specified versions. See these issues:\n\n- [phonegap-plugin-push#17720](https://github.com/phonegap/phonegap-plugin-push/issues/17720)\n- [google-analytics-plugin#427](https://github.com/danwilson/google-analytics-plugin/issues/427)\n- [cordova-plugin-googleplus#398](https://github.com/EddyVerbruggen/cordova-plugin-googleplus/issues/398)\n\nTo resolve these version collisions, this plugin injects a Gradle configuration file into the native Android platform project, which overrides any versions specified by other plugins, and forces them to the version specified in its Gradle file.\n\nIf you're encountering similar problems with the Android Support libraries, checkout the sister plugin: [cordova-android-support-gradle-release](https://github.com/dpa99c/cordova-android-support-gradle-release).\n\n# Installation\n\n    $ cordova plugin add cordova-android-play-services-gradle-release\n    \nJust install the plugin and that's it. It should fix should build.\n\n# Different library versions\n\n## Default version\nBy default, the `master` branch of this repo and corresponding npm release, will be made to specify the most major version of the most recent release of the Play Services library - [see here](https://developers.google.com/android/guides/releases) for a list recent versions.\n\n## Other versions\n\nIn some cases, you may want to specify a different version of the Play Services library. \nSo this plugin provides branches for various older major versions of the Play Services library.\n \nBecause Cordova doesn't support tags in plugins sourced from npm, you'll need to install this version directly from the git repo:\n\n    cordova plugin add https://github.com/dpa99c/cordova-android-play-services-gradle-release#v10\n    \nThe following branches currently exist:\n    \n- [master](https://github.com/dpa99c/cordova-android-play-services-gradle-release) (default)\n    - The most recent major release\n    - Currently uses `11.+`\n    - Install with: `cordova plugin add cordova-android-play-services-gradle-release`\n    - Or: `https://github.com/dpa99c/cordova-android-play-services-gradle-release`\n- [edge](https://github.com/dpa99c/cordova-android-play-services-gradle-release/tree/edge)\n    - The most recent release\n    - Uses `+`\n    - Install with: `cordova plugin add https://github.com/dpa99c/cordova-android-play-services-gradle-release#edge`\n- [v11](https://github.com/dpa99c/cordova-android-play-services-gradle-release/tree/v11)\n    - The highest v11 version\n    - Uses `11.+`\n    - Install with: `cordova plugin add https://github.com/dpa99c/cordova-android-play-services-gradle-release#v11`\n- [v10](https://github.com/dpa99c/cordova-android-play-services-gradle-release/tree/v10)\n    - The highest v10 version\n    - Uses `10.+`\n    - Install with: `cordova plugin add https://github.com/dpa99c/cordova-android-play-services-gradle-release#v10`\n- [v9](https://github.com/dpa99c/cordova-android-play-services-gradle-release/tree/v9)\n    - The highest v9 version\n    - Uses `9.+`\n    - Install with: `cordova plugin add https://github.com/dpa99c/cordova-android-play-services-gradle-release#v9`\n    \n# Example\n\nForces the latest release version of the Play Services library to fix the build issue.\n\n1. `cordova create test1 && cd test1/`\n2. `cordova platform add android@latest`\n3. `cordova plugin add phonegap-plugin-push@1.10.3`\n4. `cordova compile`\n\nObserve the build succeeds and in the console output is `v10.2.6` of Play Services library:\n\n    :prepareComGoogleAndroidGmsPlayServicesBase1026Library\n\n5. `cordova plugin add cordova-plugin-googleplus@5.1.1`\n6. `cordova compile`\n\nObserve the build failed and in the console output is higher than `v10.2.6` (e.g `v11.0.0`) of Play Services library:\n\n    :prepareComGoogleAndroidGmsPlayServicesBase1100Library\n\n7. `cordova plugin add cordova-android-play-services-gradle-release`\n8. `cordova compile`    \n\nObserve the build succeeds and in the console output is latest release version of Play Services library.\n\nLicense\n================\n\nThe MIT License\n\nCopyright (c) 2017 Dave Alden / Working Edge Ltd.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.",
+  "readmeFilename": "README.md",
+  "scripts": {},
+  "version": "0.0.2"
+}

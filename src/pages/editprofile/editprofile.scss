@@ -1,5 +1,12 @@
 page-editprofile{
-    
+ .selcountry{
+    height: 33px!important;
+    width:100%;
+    border: 1px solid #7f7f7f!important;
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.54);
+    text-align: center;
+ } 
     .btn-profile{    background-color: #c5c951;
     font-size: 24px;
     font-weight: 300;

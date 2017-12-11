@@ -10,12 +10,15 @@
 
 <ion-row class="margin-main"><button  ion-button full class="btn-profile" (click)="editprofile()">Edit your profile</button></ion-row>
 <ion-row class="img-center">
-<img class="img-profile "  src="img/icon_person_by_ninjavdesign-d8x96sl.png" />
-<img class="img-profile profile1" [src]="profile.img"/>
+<img class="img-profile"  src="img/icon_person_by_ninjavdesign-d8x96sl.png" />
+<img class="img-profile profile1" *ngIf="profile.img" [src]="profile.img"/>
 </ion-row>
 <ion-row class="img-blank"><img  class="img-cemra" src="img/cemra.png" (click)="presentActionSheet()" /></ion-row>
-  <p class="profile-name">{{profile.firstname}} {{profile.lastname}}</p>
-  <p class="profile-phone">{{profile.phone_number}}</p>
-  <p class="profile-email">{{mail}}</p>
+  <p class="profile-name">{{profile.firstname}} </p>
+  <p class="profile-phone" *ngIf="profile.phone_number">{{profile.c_code}}-{{profile.phone_number}}</p>
+  <p class="profile-phone" *ngIf="!profile.phone_number || profile.phone_number=='undefined'"></p>
+  <p class="profile-email" >{{mail}}</p>
+  <p class="profile-email" *ngIf="profile.city">{{profile.city}}</p>
+  <p class="profile-email" *ngIf="!profile.city || profile.city=='undefined'"></p>
 
 </ion-content>

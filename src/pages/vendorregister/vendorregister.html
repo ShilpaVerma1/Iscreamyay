@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button style="background:transparent;border:none;" (click)="back()" >
+  <!--<button ion-button style="background:transparent;border:none;" (click)="back()" >
     <ion-icon name="ios-arrow-back" style="color:#538135!important;font-size:40px;font-weight:bolder;" > 
     </ion-icon>
-</button>
+</button>-->
  <!--  <div class="reg-img">
 	            <img src="img/facebook.png" style="margin-top:10px !important;" (click)="Loginwithfacebook()" />
       <img src="img/google.png" style="margin-top:10px !important;" (click)="LoginwithGoogle()"/>
@@ -30,8 +30,10 @@
       </button>
    </div>-->
    <!--<p style="text-align:center;float:left;text-align:center;width:100%;">OR</p>-->
-   <form #registerForm="ngForm" style="float:left;">
-     <div class="list registerlist">
+<!--  <ion-grid class="main-grid">
+<ion-row><img src="img/logoo.png" class="main-logo"/></ion-row> 
+	 <form #registerForm="ngForm" >
+     <div class="list registerlist" style=" margin-top: 30px;">
 				<ion-input type="text"  [(ngModel)]="regsterform.firstname" name="firstname" placeholder="First Name" class="login-box"></ion-input>
 				<ion-input type="text"  [(ngModel)]="regsterform.lastname" name="lastname" placeholder="Last Name" class="login-box"></ion-input>
 				<ion-input type="email" name="email" [(ngModel)]="regsterform.email"  placeholder="Enter your email" class="login-box"></ion-input>
@@ -40,7 +42,7 @@
 				<ion-input type="password" name="password"  [(ngModel)]="regsterform.password" placeholder="Choose New password"  ng-minlength="5" class="login-box" style="color:Grey;"></ion-input>
 					<div class=""  style="color:#7662b1; font-family:Calibri Light; font-size:10; text-align:left;margin-left:30px;">
 					</div>
-				<ion-input type="password"  name="confirmPassword" [(ngModel)]="regsterform.confirmPassword" placeholder="Confirm New password" ng-minlength="5" class="login-box" style="color:Grey;"></ion-input>
+			<ion-input type="password"  name="confirmPassword" [(ngModel)]="regsterform.confirmPassword" placeholder="Confirm New password" ng-minlength="5" class="login-box" style="color:Grey;"></ion-input>
 			
 				<div class="row" style="margin:0px 10px;">
 					<div class="col col-50" >
@@ -63,9 +65,22 @@
 						<ion-checkbox style="padding-right:0px;" required></ion-checkbox>
 					</ion-item>
 				<div class="btn-bg" style="margin-top:20px;margin-left:25px;margin-right:25px;">
-					<button ion-button full  type="submit" [disabled]="!registerForm.form.valid"  (click) ="register()" class="login-btn" style="text-transform:none;height:50px;border-radius:10px;font-size:20px;">Register</button>
+					<button ion-button full  type="submit" [disabled]="!registerForm.form.valid"  (click) ="register()" class="login-btn" style="text-transform:none;height:50px;border-radius:26px;font-size:20px;">Register</button>
 				</div>
 
       </div>
    </form>
+  </ion-grid>-->
+	<ion-grid class="main-grid">
+<ion-row><img src="img/logoo.png" class="main-logo" (click)="back()" /></ion-row> 
+<ion-row class="text-center"><h3 class="heading-ease" >Sign Up Here</h3></ion-row>
+</ion-grid>
+
+<ion-grid class="-gridSecond">
+	<ion-input type="text"  [(ngModel)]="regsterform.firstname" name="firstname" class="input-name" placeholder="Enter your name "></ion-input>
+  <ion-input type="text"  name="email" [(ngModel)]="regsterform.email" class="input-email" placeholder="Enter your email "></ion-input>
+   <ion-input type="password" name="password"  [(ngModel)]="regsterform.password" class="input-pass"  placeholder="........."></ion-input>
+<ion-row class="loginrow"><button ion-button class="btn-sign" (click)="register()">Register</button></ion-row>
+
+</ion-grid>
 </ion-content>

@@ -18,7 +18,10 @@ export class ForgotpassPage {
  ForgetForm: FormGroup;
  errorMsg:any;
  response:any;
+ apiurl:string;
   constructor(public navCtrl: NavController,public loadingCtrl:LoadingController,public platform:Platform,private storage: Storage,public http:Http,public alert:AlertController, public formBuilder: FormBuilder,public menu:MenuController, public navParams: NavParams) {
+  this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
+
      Observable.interval(30000).subscribe(x => {
         this.errorMsg='';
      })
@@ -45,7 +48,7 @@ validate(): boolean {
 }
  submit(Email) {
     if (this.validate()) {
-    this.http.get("http://192.169.146.6/ogo/iceCreamApi/verifyEmail?email="+Email).map(res =>res.json()).subscribe(data =>{
+    this.http.get(this.apiurl+"verifyEmail?email="+Email).map(res =>res.json()).subscribe(data =>{
      let loading = this.loadingCtrl.create({
           cssClass:'spin',
           spinner: 'ios',

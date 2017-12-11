@@ -18,8 +18,13 @@ usrrid:any;
 profile:any={};
 usrrrid:any;
 typeuser:any;
-
+apiurl:any;
+codes:any;
+states:any;
+mail:any;
   constructor(public navCtrl: NavController,public menu:MenuController, private http: Http, private storage: Storage, public platform: Platform, private loadingCtrl: LoadingController ) {
+       this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
+
      Network.onDisconnect().subscribe(() => {
       this.platform.ready().then(() => {
           window.plugins.toast.show("You are offline", "long", "center");
@@ -32,17 +37,37 @@ typeuser:any;
 
 this.storage.get('userid').then((userid) => {
   this.usrrrid = userid;
-  this.http.get("http://192.169.146.6/ogo/iceCreamApi/getProfile?userid="+ this.usrrrid).map(res =>res.json()).subscribe(data =>{
+  this.http.get(this.apiurl+"getProfile?userid="+this.usrrrid).map(res =>res.json()).subscribe(data =>{
     this.profile= data; 
+        if(this.profile.email=='undefined' || this.profile.email==''){
+            this.mail='';
+        }
+        if(this.profile.email!='undefined'){
+            this.mail=this.profile.email;
+        }
+    this.http.get(this.apiurl+"getCityByCountry?country_id=" +this.profile.country_id).map(res =>res.json()).subscribe(data =>{
+        this.states = data;
+    
+    })
   })
 })
-
+this.http.get(this.apiurl+"getCountries").map(res =>res.json()).subscribe(data =>{
+  this.codes = data;
+ 
+})
 }
-
-update(fname,lname,ph_no,email){
+Change(SelectedValue){
+  
+}
+ onChange(SelectedValue){
+    this.http.get(this.apiurl+"getCityByCountry?country_id=" +SelectedValue).map(res =>res.json()).subscribe(data =>{
+      this.states = data;
+    
+    })
+ }
+update(name,email,country,ph_no,state){
    this.storage.get('logintype').then((logintype) => {
       this.typeuser = logintype;
-     
       this.storage.get('userid').then((userid) => {
       this.usrrid = userid;
         let loadingPopup = this.loadingCtrl.create({
@@ -50,17 +75,17 @@ update(fname,lname,ph_no,email){
           spinner:'ios'
         });
     loadingPopup.present(); 
-    this.http.get("http://192.169.146.6/ogo/iceCreamApi/editProfile?userid="+this.usrrid+"&fname="+fname+"&lname="+lname+"&email=" +email+"&phone="+ph_no+"&type="+this.typeuser).map(res =>res.json()).subscribe(data =>{
+    this.http.get(this.apiurl+"editProfile?userid="+this.usrrid+"&fname="+name+"&email="+email+"&phone="+ph_no+"&state="+state+"&country_code="+country+"&type="+this.typeuser).map(res =>res.json()).subscribe(data =>{
        setTimeout(() => {
         this.upImage =data;
         loadingPopup.dismiss();   
           if(this.upImage.status == "Success"){
-              //alert("Your profile has been successfully updated");
+             // alert("Your profile has been successfully updated");
               window.plugins.toast.show("Your profile has been successfully updated", "long", "center");
               this.navCtrl.push(MainHomePage);
           }else{
              //alert("This email id already registered");
-            window.plugins.toast.show("This email id already registered", "long", "center");
+             window.plugins.toast.show("This email id already registered", "long", "center");
                    this.navCtrl.push(UserProfilePage);
           }
       }, 1000);

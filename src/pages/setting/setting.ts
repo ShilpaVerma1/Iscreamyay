@@ -20,9 +20,12 @@ export class SettingPage {
   sound_status:any;
   noti_status:any;
   usrid:any;
+  apiurl:string;
   data: Array<{ title: string, id: number, details: string, img: string, cssClass: string,showDetails: boolean }> = [];
 
 constructor(public navCtrl: NavController,public menu:MenuController, private storage: Storage, private http: Http) {
+   this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
+
    this.storage.get('soundstatus').then((soundstatus) => {
       this.sound_status=soundstatus; 
    })
@@ -83,7 +86,7 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
   }
 
   notify_music(a){
-      this.http.get("http://192.169.146.6/ogo/iceCreamApi/changeNotiSound?user_id="+this.usrid+"&sound_status="+a).map(res => res.json()).subscribe(data => {
+      this.http.get(this.apiurl+"changeNotiSound?user_id="+this.usrid+"&sound_status="+a).map(res => res.json()).subscribe(data => {
         this.sound_status=a;
         if(data.status=='Success'){
             this.storage.set('soundstatus',this.sound_status);
@@ -92,7 +95,7 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
   }
 
  notify(a){
-     this.http.get("http://192.169.146.6/ogo/iceCreamApi/changeNotiStatus?user_id="+this.usrid+"&noti_status="+a).map(res => res.json()).subscribe(data => {
+     this.http.get(this.apiurl+"changeNotiStatus?user_id="+this.usrid+"&noti_status="+a).map(res => res.json()).subscribe(data => {
         console.log(data);
          this.noti_status=a;
          if(data.status=='Success'){
@@ -127,7 +130,7 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
       this.usrrid = userid;
       if (newpass == confnewpass) {
 
-        this.http.get("http://192.169.146.6/ogo/iceCreamApi/changePassword?user_id=" + this.usrrid + "&currentPasswd=" + curntpass + "&newPasswd=" + newpass + "&confPasswd=" + confnewpass).map(res => res.json()).subscribe(data => {
+        this.http.get(this.apiurl+"changePassword?user_id=" + this.usrrid + "&currentPasswd=" + curntpass + "&newPasswd=" + newpass + "&confPasswd=" + confnewpass).map(res => res.json()).subscribe(data => {
           this.changepass = data;
           if (this.changepass.status == "Success") {
             //alert("Your updation submitted successfully");

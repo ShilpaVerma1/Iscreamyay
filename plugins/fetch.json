@@ -15,14 +15,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-console": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-console@1.0.5"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-device": {
         "source": {
             "type": "registry",
@@ -54,17 +46,6 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "cordova-plugin-facebook4": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-facebook4"
-        },
-        "is_top_level": true,
-        "variables": {
-            "APP_ID": "1120408081397468",
-            "APP_NAME": "iScreamYaY"
-        }
     },
     "cordova-sqlite-storage": {
         "source": {
@@ -154,24 +135,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-googleplus": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-googleplus@^5.1.1"
-        },
-        "is_top_level": true,
-        "variables": {
-            "REVERSED_CLIENT_ID": "com.googleusercontent.apps.680639023257-jnqjvhaiduga8sj9dhjiuu15p2igj82l"
-        }
-    },
-    "cordova-plugin-crosswalk-webview": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-crosswalk-webview@^2.3.0"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-googlemaps": {
         "source": {
             "type": "registry",
@@ -181,6 +144,43 @@
         "variables": {
             "API_KEY_FOR_ANDROID": "AIzaSyA18BVeneMpRBj1PB4G1OY68IQFS6W6DyQ",
             "API_KEY_FOR_IOS": "AIzaSyAJd4VrhlXPQjEGKYae3ONMstOzCbuUODo"
+        }
+    },
+    "cordova-android-play-services-gradle-release": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-android-play-services-gradle-release"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-googleplus": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-googleplus"
+        },
+        "is_top_level": true,
+        "variables": {
+            "REVERSED_CLIENT_ID": "com.googleusercontent.apps.680639023257-7g2l9g89cba87vsd08kokf7vct8jt2gd"
+        }
+    },
+    "cordova.plugins.diagnostic": {
+        "source": {
+            "type": "registry",
+            "id": "cordova.plugins.diagnostic"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-facebook4": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-facebook4"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "352671008499326",
+            "APP_NAME": "comiScreampydaro"
         }
     }
 }

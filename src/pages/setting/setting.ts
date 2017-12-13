@@ -165,8 +165,8 @@ constructor(public navCtrl: NavController,public menu:MenuController, private st
    this.navCtrl.push(MainHomePage);
  }
   logout() {
-    this.storage.clear();
     this.storage.set("userid",'');
+    this.storage.clear();
     this.navCtrl.push(HomePage);
   }
 ionViewDidEnter() {

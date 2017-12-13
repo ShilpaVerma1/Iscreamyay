@@ -60,7 +60,7 @@ apiurl:string;
 
 login(){
 
-this.storage.set("userid",'')
+this.storage.set("userid",'');
 this.storage.set("logintype",'default');
     this.http.get(this.apiurl+"login?email="+this.data.email+"&password="+this.data.pass).map(res =>res.json()).subscribe(data =>{
       let loading = this.loadingCtrl.create({
@@ -127,7 +127,7 @@ forgotpass(){
 
 //facebook login.........
 loginfb(){
-   this.storage.set("userid",'')
+   this.storage.set("userid",'');
    let permissions = new Array();
     let nav = this.navCtrl;
     //the permissions your facebook app needs from the user
@@ -171,7 +171,7 @@ loginfb(){
 
  //google login........
   doGoogleLogin(){
-   this.storage.set("userid",'')
+   this.storage.set("userid",'');
   let nav = this.navCtrl;
   let loading = this.loadingCtrl.create({
     spinner: 'ios',

@@ -119,14 +119,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "onesignal-cordova-plugin": {
-        "source": {
-            "type": "registry",
-            "id": "onesignal-cordova-plugin"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-crop": {
         "source": {
             "type": "registry",
@@ -182,5 +174,13 @@
             "APP_ID": "352671008499326",
             "APP_NAME": "comiScreampydaro"
         }
+    },
+    "onesignal-cordova-plugin": {
+        "source": {
+            "type": "registry",
+            "id": "onesignal-cordova-plugin"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

@@ -273,9 +273,11 @@ function addDriversToMap(location){
 
  /**********Updating current location and save it to realtime DB***********/
          
-          this.watchId = Geolocation.watchPosition();
+       //   this.watchId = Geolocation.watchPosition();
           this.storage.set('watch',this.watchId);
-            this.watchId.subscribe((data) => {
+     // Observable.interval(20000).subscribe(x => {
+    setInterval(() => {
+           Geolocation.getCurrentPosition(options).then((data) => {
               var latt=data.coords.latitude;
               var long=data.coords.longitude;
               var firebaseRef = firebase.database().ref('/Drivers/Profiles');
@@ -283,7 +285,7 @@ function addDriversToMap(location){
               geoQuery.on("key_entered", function(key, location, distance) { 
                if(key==that.usrid){
                  if(location[0]!=latt && location[1]!=long){
-                    geoFire.set(this.usrid, [latt,long]).then(function() {
+                    geoFire.set(that.usrid, [latt,long]).then(function() {
                         
                     }, function(error) {
                     
@@ -292,6 +294,7 @@ function addDriversToMap(location){
                }
               });
             })
+    }, 10000);
          })
       })
     }) 
@@ -336,9 +339,9 @@ eventtogglee(){
       geoq.cancel()
     })
 
-    this.storage.get('watch').then((watch)=>{
-      watch.unsubscribe();
-    })
+    // this.storage.get('watch').then((watch)=>{
+    //   watch.unsubscribe();
+    // })
   this.loadMap();
 
   let loading = this.loadingCtrl.create({

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.pydaro.iscreamyay.com" version="0.0.13" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Townup Driver</name>
+    <name>Tawnup Driver</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
@@ -43,10 +43,11 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
-    <preference name="FadeSplashScreenDuration" value="0000" />
-    <preference name="SplashScreenDelay" value="13000" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
+    <preference name="SplashScreenDelay" value="10000" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
+    <preference name="FadeSplashScreen" value="true" />
     <preference name="CrosswalkAnimatable" value="true" />
     <resource-file src="/www/img/iScream.png" target="platforms/android/res/drawable-hdpi/iScream.png" />
     <resource-file src="/www/assets/sounds/gets_in_the_way.mp3" target="platforms/android/res/raw/gets_in_the_way.mp3" />
@@ -76,4 +77,5 @@
     <plugin name="cordova-sqlite-storage" spec="~2.0.3" />
     <plugin name="cordova.plugins.diagnostic" spec="^3.6.6" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.2.4" />
 </widget>

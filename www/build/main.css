@@ -24844,12 +24844,11 @@ page-faq .question-another .second-para {
 }
 
 page-fblog .main-logo {
-  width: 66%;
-  height: 50%;
   margin: 0 auto;
 }
 
 page-fblog .text-center {
+  margin-top: -45px;
   text-align: center;
 }
 
@@ -25031,8 +25030,12 @@ page-forgotpass .heading-forgot {
   color: rgba(236, 14, 14, 0.87);
 }
 
+page-forgotpass .button-md:hover:not(.disable-hover) {
+  background-color: #f1be17;
+}
+
 page-forgotpass .text-forgot {
-  margin-top: 27px;
+  margin-top: 0px;
   display: block;
 }
 

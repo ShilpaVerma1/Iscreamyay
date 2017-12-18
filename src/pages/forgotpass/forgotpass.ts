@@ -48,23 +48,26 @@ validate(): boolean {
 }
  submit(Email) {
     if (this.validate()) {
-    this.http.get(this.apiurl+"verifyEmail?email="+Email).map(res =>res.json()).subscribe(data =>{
-     let loading = this.loadingCtrl.create({
+        let loading = this.loadingCtrl.create({
           cssClass:'spin',
           spinner: 'ios',
           content: 'Loading...'
         });
         loading.present(); 
+    this.http.get(this.apiurl+"verifyEmail?email="+Email).map(res =>res.json()).subscribe(data =>{
+
     this.response=data;
     this.storage.set("otp",this.response.otp);
           if(this.response.success == "Sucess"){
-            loading.dismiss();
             this.platform.ready().then(() => {
+              loading.dismiss();
+
+              this.navCtrl.push(RecoverpassPage);
+
               window.plugins.toast.show("Check your email id", "long", 'center');
             });
 
            //alert("Check your email id");
-            this.navCtrl.push(RecoverpassPage);
           }else{
              loading.dismiss();
              this.platform.ready().then(() => {

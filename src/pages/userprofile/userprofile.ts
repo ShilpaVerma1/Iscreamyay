@@ -45,8 +45,8 @@ lastImage: string = null;
       this.usrid = userid;
           let loadingPopup = this.loadingCtrl.create({
             cssClass: 'img-blank',
-            spinner: 'hide',
-            content:  `<img class="imgprofileload" src="http://2.mediaoncloud.com/Shilpa/loading_circle.gif" />`
+            spinner: 'ios',
+            // content:  `<img style="height:60px;width:60px;" class="imgprofileload" src="http://2.mediaoncloud.com/Shilpa/loading_circle.gif" />`
           });
           loadingPopup.present(); 
     

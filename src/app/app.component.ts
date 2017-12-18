@@ -18,7 +18,7 @@ import { UserProfilePage } from '../pages/userprofile/userprofile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   usrid:any;
-  rootPage: any=GoogleMapPage;
+  rootPage: any=HomePage;
   typeuser:any;
   pages: Array<{title: string, component: any}>;
 

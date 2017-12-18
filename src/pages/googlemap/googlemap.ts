@@ -143,8 +143,7 @@ this.storage.get('userid').then((userid) => {
       Geolocation.getCurrentPosition(options).then((resp) => {
            var lat = resp.coords.latitude;
            var lng = resp.coords.longitude;
-    
-            let latLng = new google.maps.LatLng(lat, lng);    
+           let latLng = new google.maps.LatLng(lat, lng);    
     this.http.get(this.apiurl+"getEvent?userid="+this.usrid+"&lat="+lat+"&lng="+lng).map(res => res.json()).subscribe(data => {
       this.response = data;
       this.length = data.length;
@@ -271,15 +270,15 @@ function addDriversToMap(location){
 
 }
 
- /**********Updating current location and save it to realtime DB***********/
-         
-       //   this.watchId = Geolocation.watchPosition();
-          this.storage.set('watch',this.watchId);
-     // Observable.interval(20000).subscribe(x => {
-    setInterval(() => {
-           Geolocation.getCurrentPosition(options).then((data) => {
-              var latt=data.coords.latitude;
-              var long=data.coords.longitude;
+ /**********Updating current location and save it to realtime DB***********/    
+       // this.watchId = Geolocation.watchPosition();
+          // this.watchId = Geolocation.watchPosition(options);
+          // this.storage.set('watch',this.watchId);
+          // this.watchId.subscribe((pos)=> {
+          this.watchId = setInterval(() => {  
+            Geolocation.getCurrentPosition(options).then((pos) => {
+              var latt=pos.coords.latitude;
+              var long=pos.coords.longitude;
               var firebaseRef = firebase.database().ref('/Drivers/Profiles');
               var geoFire = new GeoFire(firebaseRef);
               geoQuery.on("key_entered", function(key, location, distance) { 
@@ -294,7 +293,7 @@ function addDriversToMap(location){
                }
               });
             })
-    }, 10000);
+          },2000);
          })
       })
     }) 
@@ -315,9 +314,9 @@ eventtoggle(togglevnt){
       geoq.cancel()
     })
 
-    this.storage.get('watch').then((watch)=>{
-      watch.unsubscribe();
-    })
+    // this.storage.get('watch').then((watch)=>{
+    //   watch.unsubscribe();
+    // })
   this.loadMap();
 
   let loading = this.loadingCtrl.create({
@@ -368,11 +367,11 @@ eventtogglee(){
         this.miles = dis * 1.60934;
         this.time = data.rows[0].elements[0].duration.text;
         let popover = this.popoverCtrl.create(PopoverPage, { eventid: eventdata, miles: this.miles, time: this.time });
-   let loading = this.loadingCtrl.create({
-                              cssClass:'spin',
-                              spinner: 'ios',
-                              content: 'Loading...'
-                            });
+        let loading = this.loadingCtrl.create({
+          cssClass:'spin',
+          spinner: 'ios',
+          content: 'Loading...'
+        });
         popover.present({
           ev: PopoverPage
         });
@@ -389,9 +388,9 @@ eventtogglee(){
       geoq.cancel()
     })
 
-    this.storage.get('watch').then((watch)=>{
-      watch.unsubscribe();
-    })
+    // this.storage.get('watch').then((watch)=>{
+    //   watch.unsubscribe();
+    // })
     this.storage.get("logintype").then((logintype)=>{   
           this.navCtrl.push(MainHomePage,{
             type:logintype

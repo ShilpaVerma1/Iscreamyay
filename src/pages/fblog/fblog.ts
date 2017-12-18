@@ -61,7 +61,6 @@ apiurl:string;
 login(){
 
 this.storage.set("userid",'');
-this.storage.set("logintype",'default');
     this.http.get(this.apiurl+"login?email="+this.data.email+"&password="+this.data.pass).map(res =>res.json()).subscribe(data =>{
       let loading = this.loadingCtrl.create({
         spinner: 'ios',
@@ -70,7 +69,7 @@ this.storage.set("logintype",'default');
     loading.present();   
          this.response = data;
          if(this.response.status != "Failed"){
-
+            this.storage.set("logintype",'default');
             this.storage.set("userid",this.response.id);         
             this.storage.set("user_detail",this.response);
             this.storage.set("sound_status",this.response.sound_status);
@@ -98,12 +97,13 @@ this.storage.set("logintype",'default');
                   });
               })
             }) 
-            loading.dismiss();              
+            loading.dismiss();  
+                this.navCtrl.push(GoogleMapPage,{
+                       type:'default'
+                });             
              //alert("You have login successfully");
              window.plugins.toast.show("You have logged in successfully","short","center");
-                     this.navCtrl.push(GoogleMapPage,{
-                       type:'default'
-                     });  
+                  
             })
           }
           else{

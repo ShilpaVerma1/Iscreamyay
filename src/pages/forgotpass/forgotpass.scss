@@ -15,8 +15,11 @@ font-family: CenturyGothic;
     color: rgba(236, 14, 14, 0.87);
 
 }
+.button-md:hover:not(.disable-hover){
+        background-color: #f1be17;
+}
 .text-forgot{
-    margin-top: 27px;
+    margin-top: 0px;
     display: block;
 }
 

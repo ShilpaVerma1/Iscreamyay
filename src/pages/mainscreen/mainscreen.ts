@@ -118,6 +118,9 @@ ngOnInit(){
               this.usrname = usrname;  
           })
     }
+       this.storage.get('usrname').then((usrname) => {
+              this.usrname = usrname;  
+        })
     this.storage.get('currlat').then((currlat)=>{
         this.storage.get('currlng').then((currlng)=>{
 

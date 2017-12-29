@@ -11,6 +11,18 @@
         "type": "tag"
       },
       "/home/moc/Desktop/All Projects/Briidgge/myApp/node_modules"
+    ],
+    [
+      {
+        "raw": "cordova-plugin-facebook4",
+        "scope": null,
+        "escapedName": "cordova-plugin-facebook4",
+        "name": null,
+        "rawSpec": "cordova-plugin-facebook4",
+        "spec": "/home/moc/Desktop/All Projects/myprojects/Tawnupdriver/node_modules/cordova-plugin-facebook4",
+        "type": "directory"
+      },
+      "/home/moc/Desktop/All Projects/myprojects/Tawnupdriver/node_modules"
     ]
   ],
   "_from": "cordova-plugin-facebook4@latest",
@@ -32,10 +44,10 @@
     "raw": "cordova-plugin-facebook4",
     "scope": null,
     "escapedName": "cordova-plugin-facebook4",
-    "name": "cordova-plugin-facebook4",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
+    "name": null,
+    "rawSpec": "cordova-plugin-facebook4",
+    "spec": "/home/moc/Desktop/All Projects/myprojects/Tawnupdriver/node_modules/cordova-plugin-facebook4",
+    "type": "directory"
   },
   "_requiredBy": [
     "#USER",
@@ -45,7 +57,7 @@
   "_shasum": "60acb3a026b5eaceb1160e97ab28be6c68192e4f",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-facebook4",
-  "_where": "/home/moc/Desktop/All Projects/Briidgge/myApp/node_modules",
+  "_where": "/home/moc/Desktop/All Projects/myprojects/Tawnupdriver/node_modules",
   "bugs": {
     "url": "https://github.com/jeduan/cordova-plugin-facebook4/issues"
   },

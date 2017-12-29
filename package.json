@@ -29,7 +29,7 @@
     "cordova-android-play-services-gradle-release": "0.0.2",
     "cordova-plugin-crop": "~0.3.1",
     "cordova-plugin-device": "1.1.4",
-    "cordova-plugin-facebook4": "^1.9.1",
+    "cordova-plugin-facebook4": "file:node_modules/cordova-plugin-facebook4",
     "cordova-plugin-googleplus": "^5.1.1",
     "cordova-plugin-nativestorage": "~2.2.2",
     "cordova-plugin-splashscreen": "~4.0.1",
@@ -81,11 +81,11 @@
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.680639023257-7g2l9g89cba87vsd08kokf7vct8jt2gd"
       },
       "cordova.plugins.diagnostic": {},
+      "onesignal-cordova-plugin": {},
       "cordova-plugin-facebook4": {
-        "APP_ID": "352671008499326",
-        "APP_NAME": "comiScreampydaro"
-      },
-      "onesignal-cordova-plugin": {}
+        "APP_ID": "512764349056794",
+        "APP_NAME": "Tawnup"
+      }
     },
     "platforms": []
   }

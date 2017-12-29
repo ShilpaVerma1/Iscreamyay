@@ -138,7 +138,7 @@ this.storage.get('userid').then((userid) => {
      var eventtoogleid=toggleid;
      this.storage.get('togglevnt').then((toggleevent)=>{
        var toggleeventid=toggleevent;
-       var options={enableHighAccuracy: true};
+       var options={enableHighAccuracy: false};
 
       Geolocation.getCurrentPosition(options).then((resp) => {
            var lat = resp.coords.latitude;
@@ -271,26 +271,26 @@ function addDriversToMap(location){
 }
 
  /**********Updating current location and save it to realtime DB***********/    
-       // this.watchId = Geolocation.watchPosition();
           // this.watchId = Geolocation.watchPosition(options);
           // this.storage.set('watch',this.watchId);
           // this.watchId.subscribe((pos)=> {
+
           this.watchId = setInterval(() => {  
             Geolocation.getCurrentPosition(options).then((pos) => {
               var latt=pos.coords.latitude;
               var long=pos.coords.longitude;
               var firebaseRef = firebase.database().ref('/Drivers/Profiles');
               var geoFire = new GeoFire(firebaseRef);
-              geoQuery.on("key_entered", function(key, location, distance) { 
-               if(key==that.usrid){
-                 if(location[0]!=latt && location[1]!=long){
-                    geoFire.set(that.usrid, [latt,long]).then(function() {
-                        
-                    }, function(error) {
-                    
-                    });
-                 }
-               }
+              geoQuery.on("key_entered", function(key, location, distance) {  
+                    if(key==that.usrid){
+                      if(location[0]!=latt && location[1]!=long){
+                          geoFire.set(that.usrid, [latt,long]).then(function() {
+                              
+                          }, function(error) {
+                          
+                          });
+                      }
+                  }   
               });
             })
           },2000);
@@ -299,6 +299,10 @@ function addDriversToMap(location){
     }) 
   })
 }) 
+
+
+
+
 } 
 eventtoggle(togglevnt){
   this.storage.set('togglevnt',togglevnt);

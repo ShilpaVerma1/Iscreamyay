@@ -23,7 +23,7 @@ declare var window: any;
   templateUrl: 'fblog.html'
 })
 export class FbPage {
-FB_APP_ID: number =1120408081397468;
+FB_APP_ID: number =512764349056794;
 data:any;
 response:any;
 usrid:any;

@@ -10,6 +10,7 @@ import { GoogleMapPage} from '../pages/googlemap/googlemap';
 import { OneSignal } from 'ionic-native';
 import { UserProfilePage } from '../pages/userprofile/userprofile';
 
+
 @Component({
   templateUrl: 'app.html',
   providers: [OneSignal]
@@ -22,7 +23,7 @@ export class MyApp {
   typeuser:any;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public menu: MenuController,private storage: Storage, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+constructor(public platform: Platform, public menu: MenuController,private storage: Storage, public statusBar: StatusBar, public splashScreen: SplashScreen) {
   this.initializeApp();
   
     document.addEventListener("pause", () => {
@@ -67,7 +68,9 @@ export class MyApp {
         });
         OneSignal.endInit();
     })
-  }
+
+
+}
 
   initializeApp() {
     this.platform.ready().then(() => {

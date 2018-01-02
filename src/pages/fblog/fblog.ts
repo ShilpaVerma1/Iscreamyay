@@ -97,6 +97,7 @@ this.storage.set("userid",'');
                   });
               })
             }) 
+            
             loading.dismiss();  
                 this.navCtrl.push(GoogleMapPage,{
                        type:'default'

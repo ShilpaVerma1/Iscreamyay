@@ -25,7 +25,6 @@ import { AngularFireModule} from 'angularfire2';
 import * as GeoFire from "geofire";
 import {FaqPage } from '../pages/faq/faq';
 import { Diagnostic } from '@ionic-native/diagnostic';
-import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
 
 var firebaseConfig = {
     apiKey: "AIzaSyAOHcD8KwzFRtdnnK9obtKGARTwMrBXW_M",
@@ -90,7 +89,7 @@ var firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    Geolocation,Diagnostic,BackgroundGeolocation,
+    Geolocation,Diagnostic,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

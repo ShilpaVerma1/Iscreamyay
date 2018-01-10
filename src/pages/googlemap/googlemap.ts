@@ -14,7 +14,6 @@ import {MainHomePage } from '../mainhome/mainhome';
 import * as jQuery from 'jquery';
 import * as $ from 'jquery';
 import { Diagnostic } from '@ionic-native/diagnostic';
-import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
 
 declare var google;
 declare var window: any;
@@ -45,7 +44,7 @@ export class GoogleMapPage {
   weather:any;
   fbt:any;Name:any;Email:any;img:any;
   apiurl:string;
-  constructor(private backgroundGeolocation: BackgroundGeolocation,private diagnostic: Diagnostic,af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
+  constructor(private diagnostic: Diagnostic,af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
        this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
 
      Network.onDisconnect().subscribe(() => {
@@ -135,24 +134,24 @@ var that=this;
 this.storage.get('userid').then((userid) => {
  this.usrid = userid;
 /*************Updating Background Geolocation*************/
-    let config: BackgroundGeolocationConfig = {
-          desiredAccuracy: 0,
-          stationaryRadius: 10,
-          distanceFilter: 10,
-          debug: false,
-          interval: 3000,
-          stopOnTerminate: true, 
-    };
-    this.backgroundGeolocation.configure(config).subscribe((location: BackgroundGeolocationResponse) => {
-       var firebaseRef = firebase.database().ref('/Drivers/Profiles');
-       var geoFire = new GeoFire(firebaseRef);
-            geoFire.set(this.usrid,[location.latitude,location.longitude]).then(function() {
+    // let config: BackgroundGeolocationConfig = {
+    //       desiredAccuracy: 0,
+    //       stationaryRadius: 10,
+    //       distanceFilter: 10,
+    //       debug: false,
+    //       interval: 4000,
+    //       stopOnTerminate: true, 
+    // };
+    // this.backgroundGeolocation.configure(config).subscribe((location: BackgroundGeolocationResponse) => {
+    //    var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+    //    var geoFire = new GeoFire(firebaseRef);
+    //         geoFire.set(that.usrid,[location.latitude,location.longitude]).then(function() {
                                     
-            }, function(error) {
+    //         }, function(error) {
                                 
-            });
-    });
-    this.backgroundGeolocation.start();
+    //         });
+    // });
+    // this.backgroundGeolocation.start();
     
     this.storage.get('toggleid').then((toggleid)=>{
      var eventtoogleid=toggleid;

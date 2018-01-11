@@ -21,8 +21,10 @@ package cordova.plugins;
 /*
  * Imports
  */
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,8 +45,11 @@ import org.json.JSONObject;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.IntentFilter;
 import android.location.Location;
 import android.location.LocationListener;
@@ -68,6 +73,8 @@ import android.provider.Settings;
 import android.net.wifi.WifiManager;
 
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationManagerCompat;
+
 import java.lang.SecurityException;
 import java.util.Set;
 
@@ -89,6 +96,7 @@ public class Diagnostic extends CordovaPlugin{
      * Tag for debug log messages
      */
     public static final String TAG = "Diagnostic";
+
 
     /**
      * Map of "dangerous" permissions that need to be requested at run-time (Android 6.0/API 23 and above)
@@ -201,6 +209,15 @@ public class Diagnostic extends CordovaPlugin{
     public static final String NFC_STATE_ON = "powered_on";
     public static final String NFC_STATE_TURNING_OFF = "powering_off";
 
+    public static final String CPU_ARCH_UNKNOWN = "unknown";
+    public static final String CPU_ARCH_ARMv6 = "ARMv6";
+    public static final String CPU_ARCH_ARMv7 = "ARMv7";
+    public static final String CPU_ARCH_ARMv8 = "ARMv8";
+    public static final String CPU_ARCH_X86 = "X86";
+    public static final String CPU_ARCH_X86_64 = "X86_64";
+    public static final String CPU_ARCH_MIPS = "MIPS";
+    public static final String CPU_ARCH_MIPS_64 = "MIPS_64";
+
     /*************
      * Variables *
      *************/
@@ -209,6 +226,8 @@ public class Diagnostic extends CordovaPlugin{
      * Singleton class instance
      */
     public static Diagnostic instance = null;
+
+    boolean debugEnabled = false;
 
     public static LocationManager locationManager;
 
@@ -258,7 +277,7 @@ public class Diagnostic extends CordovaPlugin{
                 this.cordova.getActivity().unregisterReceiver(blueoothStateChangeReceiver);
             }
         }catch(Exception e){
-            Log.w(TAG, "Unable to unregister Bluetooth receiver: " + e.getMessage());
+            logWarning("Unable to unregister Bluetooth receiver: " + e.getMessage());
         }
     }
 
@@ -274,7 +293,11 @@ public class Diagnostic extends CordovaPlugin{
         currentContext = callbackContext;
 
         try {
-            if (action.equals("switchToSettings")){
+            if (action.equals("enableDebug")){
+                debugEnabled = true;
+                logDebug("Debug enabled");
+                callbackContext.success();
+            } else if (action.equals("switchToSettings")){
                 switchToAppSettings();
                 callbackContext.success();
             } else if (action.equals("switchToLocationSettings")){
@@ -309,13 +332,15 @@ public class Diagnostic extends CordovaPlugin{
                 callbackContext.success(isNetworkLocationEnabled() ? 1 : 0);
             } else if(action.equals("getLocationMode")) {
                 callbackContext.success(getLocationModeName());
+            } else if(action.equals("isDataRoamingEnabled")) {
+                callbackContext.success(isDataRoamingEnabled() ? 1 : 0);
             } else if(action.equals("isWifiAvailable")) {
                 callbackContext.success(isWifiAvailable() ? 1 : 0);
             } else if(action.equals("isCameraPresent")) {
                 callbackContext.success(isCameraPresent() ? 1 : 0);
             } else if(action.equals("isBluetoothAvailable")) {
                 callbackContext.success(isBluetoothAvailable() ? 1 : 0);
-            }else if(action.equals("isBluetoothEnabled")) {
+            } else if(action.equals("isBluetoothEnabled")) {
                 callbackContext.success(isBluetoothEnabled() ? 1 : 0);
             } else if(action.equals("hasBluetoothSupport")) {
                 callbackContext.success(hasBluetoothSupport() ? 1 : 0);
@@ -350,6 +375,16 @@ public class Diagnostic extends CordovaPlugin{
                 callbackContext.success(isNFCEnabled() ? 1 : 0);
             } else if(action.equals("isNFCAvailable")) {
                 callbackContext.success(isNFCAvailable() ? 1 : 0);
+            } else if(action.equals("isRemoteNotificationsEnabled")) {
+                callbackContext.success(isRemoteNotificationsEnabled() ? 1 : 0);
+            } else if(action.equals("isADBModeEnabled")) {
+                callbackContext.success(isADBModeEnabled() ? 1 : 0);
+            } else if(action.equals("isDeviceRooted")) {
+                callbackContext.success(isDeviceRooted() ? 1 : 0);
+            } else if(action.equals("restart")) {
+                this.restart(args);
+            } else if(action.equals("getArchitecture")) {
+                callbackContext.success(getCPUArchitecture());
             } else {
                 handleError("Invalid action");
                 return false;
@@ -361,30 +396,38 @@ public class Diagnostic extends CordovaPlugin{
         return true;
     }
 
+    public void restart(JSONArray args) throws Exception{
+        boolean cold = args.getBoolean(0);
+        if(cold){
+            doColdRestart();
+        }else{
+            doWarmRestart();
+        }
+    }
 
     public boolean isGpsLocationAvailable() throws Exception {
         boolean result = isGpsLocationEnabled() && isLocationAuthorized();
-        Log.d(TAG, "GPS location available: " + result);
+        logDebug("GPS location available: " + result);
         return result;
     }
 
     public boolean isGpsLocationEnabled() throws Exception {
         int mode = getLocationMode();
         boolean result = (mode == 3 || mode == 1);
-        Log.d(TAG, "GPS location setting enabled: " + result);
+        logDebug("GPS location setting enabled: " + result);
         return result;
     }
 
     public boolean isNetworkLocationAvailable() throws Exception {
         boolean result =  isNetworkLocationEnabled() && isLocationAuthorized();
-        Log.d(TAG, "Network location available: " + result);
+        logDebug("Network location available: " + result);
         return result;
     }
 
     public boolean isNetworkLocationEnabled() throws Exception {
         int mode = getLocationMode();
         boolean result = (mode == 3 || mode == 2);
-        Log.d(TAG, "Network location setting enabled: " + result);
+        logDebug("Network location setting enabled: " + result);
         return result;
     }
 
@@ -416,16 +459,26 @@ public class Diagnostic extends CordovaPlugin{
             String currentMode = currentLocationMode;
             String newMode = getLocationModeName();
             if(!newMode.equals(currentMode)){
-                Log.d(TAG, "Location mode change to: " + getLocationModeName());
-                executeGlobalJavascript("_onLocationStateChange(\"" + getLocationModeName() +"\");");
+                logDebug("Location mode change to: " + getLocationModeName());
+                executePluginJavascript("_onLocationStateChange(\"" + getLocationModeName() +"\");");
             }
         }catch(Exception e){
-            Log.e(TAG, "Error retrieving current location mode on location state change: "+e.toString());
+            logError("Error retrieving current location mode on location state change: "+e.toString());
         }
     }
 
+    public boolean isDataRoamingEnabled() throws Exception {
+        boolean result;
+        if (Build.VERSION.SDK_INT < 17) {
+            result = Settings.System.getInt(this.cordova.getActivity().getContentResolver(), Settings.Global.DATA_ROAMING, 0) == 1;
+        }else{
+            result = Settings.Global.getInt(this.cordova.getActivity().getContentResolver(), Settings.Global.DATA_ROAMING, 0) == 1;
+        }
+        return result;
+    }
+
     public boolean isWifiAvailable() {
-        WifiManager wifiManager = (WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) this.cordova.getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         boolean result = wifiManager.isWifiEnabled();
         return result;
     }
@@ -467,9 +520,9 @@ public class Diagnostic extends CordovaPlugin{
         }
         return false;
     }
-       
+
     public void switchToAppSettings() {
-        Log.d(TAG, "Switch to App Settings");
+        logDebug("Switch to App Settings");
         Intent appIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         Uri uri = Uri.fromParts("package", cordova.getActivity().getPackageName(), null);
         appIntent.setData(uri);
@@ -477,36 +530,36 @@ public class Diagnostic extends CordovaPlugin{
     }
 
     public void switchToLocationSettings() {
-        Log.d(TAG, "Switch to Location Settings");
+        logDebug("Switch to Location Settings");
         Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         cordova.getActivity().startActivity(settingsIntent);
     }
 
     public void switchToMobileDataSettings() {
-        Log.d(TAG, "Switch to Mobile Data Settings");
+        logDebug("Switch to Mobile Data Settings");
         Intent settingsIntent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
         cordova.getActivity().startActivity(settingsIntent);
     }
 
     public void switchToBluetoothSettings() {
-        Log.d(TAG, "Switch to Bluetooth Settings");
+        logDebug("Switch to Bluetooth Settings");
         Intent settingsIntent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
         cordova.getActivity().startActivity(settingsIntent);
     }
 
     public void switchToWifiSettings() {
-        Log.d(TAG, "Switch to Wifi Settings");
+        logDebug("Switch to Wifi Settings");
         Intent settingsIntent = new Intent(Settings.ACTION_WIFI_SETTINGS);
         cordova.getActivity().startActivity(settingsIntent);
     }
 
     public void switchToWirelessSettings() {
-        Log.d(TAG, "Switch to wireless Settings");
+        logDebug("Switch to wireless Settings");
         Intent settingsIntent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
         cordova.getActivity().startActivity(settingsIntent);
     }
     public void switchToNFCSettings() {
-        Log.d(TAG, "Switch to NFC Settings");
+        logDebug("Switch to NFC Settings");
         Intent settingsIntent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
         if (android.os.Build.VERSION.SDK_INT >= 16) {
             settingsIntent = new Intent(android.provider.Settings.ACTION_NFC_SETTINGS);
@@ -515,7 +568,7 @@ public class Diagnostic extends CordovaPlugin{
     }
 
     public void setWifiState(boolean enable) {
-        WifiManager wifiManager = (WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) this.cordova.getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (enable && !wifiManager.isWifiEnabled()) {
             wifiManager.setWifiEnabled(true);
         } else if (!enable && wifiManager.isWifiEnabled()) {
@@ -608,7 +661,7 @@ public class Diagnostic extends CordovaPlugin{
             NfcAdapter adapter = nfcManager.getDefaultAdapter();
             result = adapter != null;
         }catch(Exception e){
-            Log.e(TAG, e.getMessage());
+            logError(e.getMessage());
         }
         return result;
     }
@@ -619,7 +672,7 @@ public class Diagnostic extends CordovaPlugin{
             NfcAdapter adapter = nfcManager.getDefaultAdapter();
             result = adapter != null && adapter.isEnabled();
         }catch(Exception e){
-            Log.e(TAG, e.getMessage());
+            logError(e.getMessage());
         }
         return result;
     }
@@ -632,19 +685,130 @@ public class Diagnostic extends CordovaPlugin{
     public void notifyNFCStateChange(String state){
         try {
             if(state != currentNFCState){
-                Log.d(TAG, "NFC state changed to: " + state);
-                executeGlobalJavascript("_onNFCStateChange(\"" + state +"\");");
+                logDebug("NFC state changed to: " + state);
+                executePluginJavascript("_onNFCStateChange(\"" + state +"\");");
                 currentNFCState = state;
             }
         }catch(Exception e){
-            Log.e(TAG, "Error retrieving current NFC state on state change: "+e.toString());
+            logError("Error retrieving current NFC state on state change: "+e.toString());
         }
+    }
+
+    public boolean isRemoteNotificationsEnabled() {
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this.cordova.getActivity().getApplicationContext());
+        boolean result = notificationManagerCompat.areNotificationsEnabled();
+        return result;
+    }
+
+    /**
+     * get device ADB mode info
+     */
+    public int getADBMode(){
+        int mode;
+        Context context = this.cordova.getActivity().getApplicationContext();
+        if (Build.VERSION.SDK_INT >= 17){ // Jelly_Bean_MR1 and above
+            mode = Settings.Global.getInt(context.getContentResolver(), Settings.Global.ADB_ENABLED, 0);
+        } else { // Pre-Jelly_Bean_MR1
+            mode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ADB_ENABLED, 0);
+        }
+        return mode;
+    }
+
+    /**
+     * checks if ADB mode is on
+     * especially for debug mode check
+     */
+    public boolean isADBModeEnabled(){
+        boolean result = false;
+        try {
+            result = getADBMode() == 1;
+        } catch (Exception e) {
+            logError(e.getMessage());
+        }
+        logDebug("ADB mode enabled: " + result);
+        return result;
+    }
+
+    /**
+     * checks if device is rooted
+     * refer to: https://stackoverflow.com/questions/1101380
+     */
+    public boolean isDeviceRooted(){
+        // from build info
+        String buildTags = android.os.Build.TAGS;
+        if (buildTags != null && buildTags.contains("test-keys")) {
+            return true;
+        }
+
+        // from binary exists
+        try {
+            String[] paths = { "/system/app/Superuser.apk", "/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su",
+                    "/data/local/bin/su", "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su" };
+            for (String path : paths) {
+                if (new File(path).exists()) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            logDebug(e.getMessage());
+        }
+
+        // from command authority
+        Process process = null;
+        try {
+            process = Runtime.getRuntime().exec(new String[] { "/system/xbin/which", "su" });
+            BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            if (in.readLine() != null) {
+                return true;
+            }
+        } catch (Exception e) {
+            logDebug(e.getMessage());
+        } finally {
+            if (process != null) process.destroy();
+        }
+
+        return false;
     }
 
 
     /************
      * Internals
      ***********/
+
+    private void logDebug(String msg) {
+        if(debugEnabled){
+            Log.d(TAG, msg);
+            executeGlobalJavascript("console.log(\""+TAG+"[native]: "+escapeDoubleQuotes(msg)+"\")");
+        }
+    }
+
+    private void logInfo(String msg){
+        Log.i(TAG, msg);
+        if(debugEnabled){
+            executeGlobalJavascript("console.info(\""+TAG+"[native]: "+escapeDoubleQuotes(msg)+"\")");
+        }
+    }
+
+    private void logWarning(String msg){
+        Log.w(TAG, msg);
+        if(debugEnabled){
+            executeGlobalJavascript("console.warn(\""+TAG+"[native]: "+escapeDoubleQuotes(msg)+"\")");
+        }
+    }
+
+    private void logError(String msg){
+        Log.e(TAG, msg);
+        if(debugEnabled){
+            executeGlobalJavascript("console.error(\""+TAG+"[native]: "+escapeDoubleQuotes(msg)+"\")");
+        }
+    }
+
+    private String escapeDoubleQuotes(String string){
+        String escapedString = string.replace("\"", "\\\"");
+        escapedString = escapedString.replace("%22", "\\%22");
+        return escapedString;
+    }
+    
     /**
      * Handles an error while executing a plugin API method  in the specified context.
      * Calls the registered Javascript plugin error handler callback.
@@ -652,10 +816,10 @@ public class Diagnostic extends CordovaPlugin{
      */
     private void handleError(String errorMsg, CallbackContext context){
         try {
-            Log.e(TAG, errorMsg);
+            logError(errorMsg);
             context.error(errorMsg);
         } catch (Exception e) {
-            Log.e(TAG, e.toString());
+            logError(e.toString());
         }
     }
 
@@ -856,7 +1020,7 @@ public class Diagnostic extends CordovaPlugin{
             Boolean bool = (Boolean) method.invoke(cordova, permission);
             hasPermission = bool.booleanValue();
         } catch (NoSuchMethodException e) {
-            Log.w(TAG, "Cordova v" + CordovaWebView.CORDOVA_VERSION + " does not support runtime permissions so defaulting to GRANTED for " + permission);
+            logWarning("Cordova v" + CordovaWebView.CORDOVA_VERSION + " does not support runtime permissions so defaulting to GRANTED for " + permission);
         }
         return hasPermission;
     }
@@ -886,9 +1050,13 @@ public class Diagnostic extends CordovaPlugin{
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                webView.loadUrl("javascript:cordova.plugins.diagnostic." + jsString);
+                webView.loadUrl("javascript:" + jsString);
             }
         });
+    }
+
+    public void executePluginJavascript(final String jsString){
+        executeGlobalJavascript("cordova.plugins.diagnostic." + jsString);
     }
 
     protected void _getExternalSdCardDetails() throws JSONException {
@@ -1016,6 +1184,93 @@ public class Diagnostic extends CordovaPlugin{
         return storageDirectories;
     }
 
+    /**
+     * Performs a warm app restart - restarts only Cordova main activity
+     */
+    private void doWarmRestart() {
+        cordova.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    logInfo("Warm restarting main activity");
+                    instance.cordova.getActivity().recreate();
+                } catch (Exception ex) {
+                    handleError("Unable to warm restart main activity: " + ex.getMessage());
+                }
+            }
+        });
+}
+
+    /**
+     * Performs a full cold app restart - restarts application
+     * https://stackoverflow.com/a/22345538/777265
+     */
+    private void doColdRestart() {
+        String baseError = "Unable to cold restart application: ";
+        try {
+            logInfo("Cold restarting application");
+            Context c = this.cordova.getActivity().getApplicationContext();
+            //check if the context is given
+            if (c != null) {
+                //fetch the packagemanager so we can get the default launch activity
+                // (you can replace this intent with any other activity if you want
+                PackageManager pm = c.getPackageManager();
+                //check if we got the PackageManager
+                if (pm != null) {
+                    //create the intent with the default start activity for your application
+                    Intent mStartActivity = pm.getLaunchIntentForPackage(
+                            c.getPackageName()
+                    );
+                    if (mStartActivity != null) {
+                        //mStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //create a pending intent so the application is restarted after System.exit(0) was called.
+                        // We use an AlarmManager to call this intent in 100ms
+                        int mPendingIntentId = 223344;
+                        PendingIntent mPendingIntent = PendingIntent
+                                .getActivity(c, mPendingIntentId, mStartActivity,
+                                        PendingIntent.FLAG_CANCEL_CURRENT);
+                        AlarmManager mgr = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
+                        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+                        Log.i(TAG,"Killing application for cold restart");
+                        //kill the application
+                        System.exit(0);
+                    } else {
+                        handleError(baseError+"StartActivity is null");
+                    }
+                } else {
+                    handleError(baseError+"PackageManager is null");
+                }
+            } else {
+                handleError(baseError+"Context is null");
+            }
+        } catch (Exception ex) {
+            handleError(baseError+ ex.getMessage());
+        }
+    }
+
+    private String getCPUArchitecture(){
+        String arch = CPU_ARCH_UNKNOWN;
+
+        String abi = null;
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            abi = Build.CPU_ABI;
+        } else {
+            abi = Build.SUPPORTED_ABIS[0];
+        }
+           
+           
+        if(abi == "armeabi") { arch = CPU_ARCH_ARMv6; }
+        else if(abi == "armeabi-v7a") { arch = CPU_ARCH_ARMv7; }
+        else if(abi == "arm64-v8a") { arch = CPU_ARCH_ARMv8; }
+        else if(abi == "x86") { arch = CPU_ARCH_X86; }
+        else if(abi == "x86_64") { arch = CPU_ARCH_X86_64; }
+        else if(abi == "mips") { arch = CPU_ARCH_MIPS; }
+        else if(abi == "mips64") { arch = CPU_ARCH_MIPS_64; }
+
+        return arch;
+    }
+
     /************
      * Overrides
      ***********/
@@ -1095,7 +1350,7 @@ public class Diagnostic extends CordovaPlugin{
                     default:
                         bluetoothState = BLUETOOTH_STATE_UNKNOWN;
                 }
-                instance.executeGlobalJavascript("_onBluetoothStateChange(\""+bluetoothState+"\");");
+                instance.executePluginJavascript("_onBluetoothStateChange(\""+bluetoothState+"\");");
             }
         }
     };

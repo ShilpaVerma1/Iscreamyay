@@ -119,6 +119,17 @@ var Diagnostic = (function(){
         "POWERED_ON": "powered_on",
         "POWERING_OFF": "powering_off"
     };
+    
+    Diagnostic.cpuArchitecture = {
+        UNKNOWN: "unknown",
+        ARMv6: "ARMv6",
+        ARMv7: "ARMv7",
+        ARMv8: "ARMv8",
+        X86: "X86",
+        X86_64: "X86_64",
+        MIPS: "MIPS",
+        MIPS_64: "MIPS_64"
+    };
 
 
     /********************
@@ -275,6 +286,20 @@ var Diagnostic = (function(){
     /***********
      * General
      ***********/
+
+    /**
+     * Enables debug mode, which logs native debug messages to the native and JS consoles.
+     * Debug mode is initially disabled on plugin initialisation.
+     *
+     * @param {Function} successCallback - The callback which will be called when enabling debug is successful.
+     */
+    Diagnostic.enableDebug = function(successCallback) {
+        return cordova.exec(successCallback,
+            null,
+            'Diagnostic',
+            'enableDebug',
+            []);
+    };
 
     /**
      * Opens settings page for this app.
@@ -562,6 +587,23 @@ var Diagnostic = (function(){
             errorCallback,
             'Diagnostic',
             'isNetworkLocationEnabled',
+            []);
+    };
+
+    /**
+     * Checks if the device data roaming setting is enabled.
+     * Returns true if data roaming is enabled.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single boolean parameter which is TRUE if data roaming is enabled.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.isDataRoamingEnabled = function(successCallback, errorCallback) {
+        return cordova.exec(ensureBoolean(successCallback),
+            errorCallback,
+            'Diagnostic',
+            'isDataRoamingEnabled',
             []);
     };
 
@@ -1278,6 +1320,105 @@ var Diagnostic = (function(){
      */
     Diagnostic.registerNFCStateChangeHandler = function(successCallback) {
         Diagnostic._onNFCStateChange = successCallback || function(){};
+    };
+
+    /**********************
+     * Remote Notifications
+     **********************/
+
+    /**
+     * Checks if remote notifications is available to the app.
+     * Returns true if remote notifications are switched on.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single boolean parameter which is TRUE if remote notifications is available.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.isRemoteNotificationsEnabled = function(successCallback, errorCallback) {
+        return cordova.exec(ensureBoolean(successCallback),
+            errorCallback,
+            'Diagnostic',
+            'isRemoteNotificationsEnabled',
+            []);
+    };
+
+
+    /**********************
+     * System Utilities
+     **********************/
+
+    /**
+     * Checks if ADB mode(debug mode) is switched on.
+     * Returns true if ADB mode is switched on.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single boolean parameter which is TRUE if ADB mode(debug mode) is switched on.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.isADBModeEnabled = function(successCallback, errorCallback) {
+        return cordova.exec(ensureBoolean(successCallback),
+            errorCallback,
+            'Diagnostic',
+            'isADBModeEnabled',
+            []);
+    };
+
+    /**
+     * Checks if the device is rooted.
+     * Returns true if the device is rooted.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single boolean parameter which is TRUE if the device is rooted.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.isDeviceRooted = function(successCallback, errorCallback) {
+        return cordova.exec(ensureBoolean(successCallback),
+            errorCallback,
+            'Diagnostic',
+            'isDeviceRooted',
+            []);
+    };
+
+    /**
+     * Restarts the application.
+     * By default, a "warm" restart will be performed in which the main Cordova activity is immediately restarted, causing the Webview instance to be recreated.
+     * However, if the `cold` parameter is set to true, then the application will be "cold" restarted, meaning a system exit will be performed, causing the entire application to be restarted.
+     * This is useful if you want to fully reset the native application state but will cause the application to briefly disappear and re-appear.
+     *
+     * Note: There is no successCallback() since if the operation is successful, the application will restart immediately before any success callback can be applied.
+     *
+     * @param {Function} successCallback - function to call on successful retrieval of status.
+     * This callback function is passed a single string parameter which defines the current authorisation status as a value in cordova.plugins.diagnostic.permissionStatus.
+     * @param {Function} errorCallback - function to call on failure to retrieve authorisation status.
+     * This callback function is passed a single string parameter containing the error message.
+     * @param {Boolean} cold - if true the application will be cold restarted. Defaults to false.
+     */
+    Diagnostic.restart = function(errorCallback, cold){
+        return cordova.exec(
+            null,
+            errorCallback,
+            'Diagnostic',
+            'restart',
+            [cold]);
+    };
+
+    /**
+     * Returns CPU architecture of the current device.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single string parameter defined as a constant in `cordova.plugins.diagnostic.cpuArchitecture`.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.getArchitecture = function(successCallback, errorCallback) {
+        return cordova.exec(successCallback,
+            errorCallback,
+            'Diagnostic',
+            'getArchitecture',
+            []);
     };
 
 

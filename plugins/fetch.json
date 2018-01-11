@@ -156,14 +156,6 @@
       "REVERSED_CLIENT_ID": "com.googleusercontent.apps.680639023257-7g2l9g89cba87vsd08kokf7vct8jt2gd"
     }
   },
-  "cordova.plugins.diagnostic": {
-    "source": {
-      "type": "registry",
-      "id": "cordova.plugins.diagnostic"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-facebook4": {
     "source": {
       "type": "registry",
@@ -187,6 +179,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-ionic-webview@^1.1.11"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova.plugins.diagnostic": {
+    "source": {
+      "type": "registry",
+      "id": "cordova.plugins.diagnostic@^3.9.1"
     },
     "is_top_level": true,
     "variables": {}

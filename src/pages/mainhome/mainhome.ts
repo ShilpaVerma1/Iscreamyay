@@ -132,7 +132,12 @@ constructor(public navCtrl: NavController,private http:Http,public menu:MenuCont
      Network.onConnect().subscribe(()=> {
      
      });
-       
+    
+    var firebaseRef = firebase.database().ref('/Drivers/Profiles');
+    var geoFire = new GeoFire(firebaseRef);
+        geoFire.set( this.usrid , [0,0]).then(function() {
+         }, function(error) {
+    });   
       Geolocation.getCurrentPosition().then((resp) => {
         var currlat=resp.coords.latitude;
         var currlng=resp.coords.longitude;

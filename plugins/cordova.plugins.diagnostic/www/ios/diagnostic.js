@@ -62,6 +62,35 @@ var Diagnostic = (function(){
         "POWERED_ON": "powered_on"
     };
 
+    /**
+     * Status of motion+tracking permission
+     * @type {object}
+     */
+    Diagnostic.motionStatus = {
+        "UNKNOWN": "unknown", // Status is not known
+        "NOT_REQUESTED": "not_requested", // App has not yet requested this permission
+        "DENIED": "denied", // User denied access to this permission
+        "RESTRICTED": "restricted", // Permission is unavailable and user cannot enable it.  For example, when parental controls are in effect for the current user.
+        "GRANTED": "authorized", //  User granted access to this permission
+        "NOT_AVAILABLE": "not_available", // Motion tracking not available on device
+        "NOT_DETERMINED": "not_determined" // Motion authorization request status outcome cannot be determined on device
+    };
+
+    Diagnostic.cpuArchitecture = {
+        UNKNOWN: "unknown",
+        ARMv6: "ARMv6",
+        ARMv7: "ARMv7",
+        ARMv8: "ARMv8",
+        X86: "X86",
+        X86_64: "X86_64"
+    };
+
+    Diagnostic.remoteNotificationType = {
+        ALERT: "alert",
+        SOUND: "sound",
+        BADGE: "badge"
+    };
+
     // Placeholder listeners
     Diagnostic._onBluetoothStateChange =
         Diagnostic._onLocationStateChange = function(){};
@@ -77,6 +106,20 @@ var Diagnostic = (function(){
      ***********/
 
     /**
+     * Enables debug mode, which logs native debug messages to the native and JS consoles.
+     * Debug mode is initially disabled on plugin initialisation.
+     *
+     * @param {Function} successCallback - The callback which will be called when enabling debug is successful.
+     */
+    Diagnostic.enableDebug = function(successCallback) {
+        return cordova.exec(successCallback,
+            null,
+            'Diagnostic',
+            'enableDebug',
+            []);
+    };
+
+    /**
      * Switch to settings app. Opens settings page for this app.
      *
      * @param {Function} successCallback - The callback which will be called when switch to settings is successful.
@@ -89,22 +132,6 @@ var Diagnostic = (function(){
             errorCallback,
             'Diagnostic',
             'switchToSettings',
-            []);
-    };
-
-    /**
-     * Switch to location settings
-     *
-     * @param {Function} successCallback - The callback which will be called when switch to settings is successful.
-     * @param {Function} errorCallback - The callback which will be called when switch to settings encounters an error.
-     * This callback function is passed a single string parameter containing the error message.
-     * This works only on iOS 8+. iOS 7 and below will invoke the errorCallback.
-     */
-    Diagnostic.switchToLocationSettings = function(successCallback, errorCallback) {
-        return cordova.exec(successCallback,
-            errorCallback,
-            'Diagnostic',
-            'switchToLocationSettings',
             []);
     };
 
@@ -571,10 +598,10 @@ var Diagnostic = (function(){
      * Note: on iOS 8+, if "Allow Notifications" switch is OFF, all types will be returned as disabled.
      *
      * @param {Function} successCallback - The callback which will be called when operation is successful.
-     * This callback function is passed a single object parameter where the key is the notification type and the value is a boolean indicating whether it's enabled:
-     * "alert" => alert style is not set to "None" (i.e. "Banners" or "Alerts");
-     * "badge" => "Badge App Icon" switch is ON;
-     * "sound" => "Sounds"/"Alert Sound" switch is ON.
+     * This callback function is passed a single object parameter where the key is the notification type as a constant in `cordova.plugins.diagnostic.remoteNotificationType` and the value is a boolean indicating whether it's enabled:
+     * cordova.plugins.diagnostic.remoteNotificationType.ALERT => alert style is not set to "None" (i.e. "Banners" or "Alerts").
+     * cordova.plugins.diagnostic.remoteNotificationType.BADGE => "Badge App Icon" switch is ON.
+     * cordova.plugins.diagnostic.remoteNotificationType.SOUND => "Sounds"/"Alert Sound" switch is ON.
      * @param {Function} errorCallback -  The callback which will be called when operation encounters an error.
      * This callback function is passed a single string parameter containing the error message.
      */
@@ -610,6 +637,82 @@ var Diagnostic = (function(){
             'Diagnostic',
             'isRegisteredForRemoteNotifications',
             []);
+    };
+
+    /**
+     * Returns the remote notifications authorization status for the application.
+     * Works on iOS 10+ (iOS 9 and below will invoke the error callback).
+     *
+     * @param {Object} params - (optional) parameters:
+     *  - {Function} successCallback - The callback which will be called when operation is successful.
+     * This callback function is passed a single string parameter which indicates the authorization status as a constant in `cordova.plugins.diagnostic.permissionStatus`.
+     * Possible values are:
+     * `cordova.plugins.diagnostic.permissionStatus.NOT_REQUESTED`
+     * `cordova.plugins.diagnostic.permissionStatus.DENIED`
+     * `cordova.plugins.diagnostic.permissionStatus.GRANTED`
+     *  - {Function} errorCallback -  The callback which will be called when operation encounters an error.
+     * This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.getRemoteNotificationsAuthorizationStatus = function() {
+        var params;
+        if (typeof arguments[0]  === "function") {
+            params = {};
+            params.successCallback = arguments[0];
+            if(typeof arguments[1]  === "function") {
+                params.errorCallback = arguments[1];
+            }
+        }else{
+            params = arguments[0];
+        }
+
+        return cordova.exec(
+            params.successCallback,
+            params.errorCallback,
+            'Diagnostic',
+            'getRemoteNotificationsAuthorizationStatus',
+            []);
+    };
+
+    /**
+     * Requests remote notifications authorization for the application.
+     * Works on iOS 8+ (iOS 8 and below will invoke the error callback).
+     *
+     * @param {Object} params - (optional) parameters:
+     *  - {Function} successCallback - The callback which will be called when operation is successful.
+     *  - {Function} errorCallback -  The callback which will be called when operation encounters an error.
+     * This callback function is passed a single string parameter containing the error message.
+     * @param {Array} types - list of notifications to register for as constants in `cordova.plugins.diagnostic.remoteNotificationType`.
+     * If not specified, defaults to all notification types.
+     * @param {Boolean} omitRegistration - If true, registration for remote notifications will not be carried out once remote notifications authorization is granted.
+     * Defaults to false (registration will automatically take place once authorization is granted).
+     * iOS 10+ only: on iOS 8 & 9 authorization and registration are implicitly inseparable so both will be carried out.
+     */
+    Diagnostic.requestRemoteNotificationsAuthorization = function() {
+        var params;
+        if (typeof arguments[0]  === "function") {
+            params = {};
+            params.successCallback = arguments[0];
+            if(typeof arguments[1]  === "function") {
+                params.errorCallback = arguments[1];
+            }
+            if(typeof arguments[2]  !== "undefined") {
+                params.types = arguments[2];
+            }
+            if(typeof arguments[3]  !== "undefined") {
+                params.omitRegistration = arguments[3];
+            }
+        }else{
+            params = arguments[0];
+        }
+
+        params.types = params.types && params.types.length ? JSON.stringify(params.types) : null;
+
+        return cordova.exec(
+            params.successCallback,
+            params.errorCallback,
+            'Diagnostic',
+            'requestRemoteNotificationsAuthorization',
+            [params.types, params.omitRegistration ? 1 : 0]);
     };
 
     /*************
@@ -820,6 +923,7 @@ var Diagnostic = (function(){
 
     /**
      * Checks if motion tracking is available on the current device.
+     * Motion tracking is supported by iOS devices with an M7 co-processor (or above): that is iPhone 5s (or above), iPad Air (or above), iPad Mini 2 (or above).
      *
      * @param {Function} successCallback - The callback which will be called when operation is successful.
      * This callback function is passed a single boolean parameter which is TRUE if motion tracking is available on the current device.
@@ -836,8 +940,9 @@ var Diagnostic = (function(){
 
     /**
      * Checks if it's possible to determine the outcome of a motion authorization request on the current device.
-     * There's no direct way to determine if authorization was granted or denied, so the Pedometer API must be used to indirectly determine this:
-     * therefore, if the device supports motion tracking but not Pedometer Event Tracking, the outcome of requesting motion detection cannot be determined.
+     * There's no direct way to determine if authorization was granted or denied, so the Pedometer API must be used to indirectly determine this.
+     * Therefore, if the device supports motion tracking but not Pedometer Event Tracking, while Motion Track permission can be requested, the outcome of the request cannot be determined.
+     * Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
      *
      * @param {Function} successCallback - The callback which will be called when operation is successful.
      * This callback function is passed a single boolean parameter which is TRUE if it's possible to determine the outcome of a motion authorization request on the current device.
@@ -853,36 +958,90 @@ var Diagnostic = (function(){
     };
 
     /**
-     * Requests and checks motion authorization for the application:
-     * there is no way to independently request only or check only, so both must be done in one operation.
-     * The native dialog asking user's consent can only be invoked once after the app is installed by calling this function:
-     * once the user has either allowed or denied access, this function will only return the current authorization status
-     * - it is not possible to re-invoke the dialog if the user denied permission in the native dialog;
-     * in this case, you will have to instruct the user how to change motion authorization manually via the Settings app.
+     * Requests motion tracking authorization for the application.
+     * The native dialog asking user's consent can only be invoked once after the app is installed by calling this function.
+     * Once the user has either allowed or denied access, calling this function again will result in an error.
+     * It is not possible to re-invoke the dialog if the user denied permission in the native dialog,
+     * so in this case you will have to instruct the user how to change motion authorization manually via the Settings app.
      * When calling this function, the message contained in the `NSMotionUsageDescription` .plist key is displayed to the user;
      * this plugin provides a default message, but you should override this with your specific reason for requesting access.
-     * If the device doesn't support motion detection, the error callback will be invoked.
      * There's no direct way to determine if authorization was granted or denied, so the Pedometer API must be used to indirectly determine this:
      * therefore, if the device supports motion tracking but not Pedometer Event Tracking, the outcome of requesting motion detection cannot be determined.
      *
      * @param {Function} successCallback - The callback which will be called when operation is successful.
      * This callback function is passed a single string parameter indicating the result:
-     * - `cordova.plugins.diagnostic.permissionStatus.GRANTED` - user granted motion authorization
-     * - `cordova.plugins.diagnostic.permissionStatus.DENIED` - user denied authorization
-     * - `cordova.plugins.diagnostic.permissionStatus.RESTRICTED` - user cannot grant motion authorization
-     * - `cordova.plugins.diagnostic.permissionStatus.NOT_DETERMINED` - device does not support Pedometer Event Tracking, so authorization outcome cannot be determined.
+     * - `cordova.plugins.diagnostic.motionStatus.GRANTED` - user granted motion authorization.
+     * - `cordova.plugins.diagnostic.motionStatus.DENIED` - user denied authorization.
+     * - `cordova.plugins.diagnostic.motionStatus.RESTRICTED` - user cannot grant motion authorization.
+     * - `cordova.plugins.diagnostic.motionStatus.NOT_AVAILABLE` - device does not support Motion Tracking.
+     * Motion tracking is supported by iOS devices with an M7 co-processor (or above): that is iPhone 5s (or above), iPad Air (or above), iPad Mini 2 (or above).
+     * - `cordova.plugins.diagnostic.motionStatus.NOT_DETERMINED` - authorization outcome cannot be determined because device does not support Pedometer Event Tracking.
+     * Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
+     * - `cordova.plugins.diagnostic.motionStatus.UNKNOWN` - motion tracking authorization is in an unknown state.
      * - {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
      * @param {Function} errorCallback -  The callback which will be called when operation encounters an error.
      * This callback function is passed a single string parameter containing the error message.
      */
-    Diagnostic.requestAndCheckMotionAuthorization = function(successCallback, errorCallback) {
+    Diagnostic.requestMotionAuthorization = function(successCallback, errorCallback) {
         return cordova.exec(
             successCallback,
             errorCallback,
             'Diagnostic',
-            'requestAndCheckMotionAuthorization',
+            'requestMotionAuthorization',
             []);
     };
+
+    //TODO Remove in next major version
+    Diagnostic.requestAndCheckMotionAuthorization = function(successCallback, errorCallback) {
+        console.warn("requestAndCheckMotionAuthorization() is deprecated and will be removed in a future release. Please use requestMotionAuthorization()");
+        Diagnostic.requestMotionAuthorization(successCallback, errorCallback);
+    };
+    
+   /**
+     * Checks motion authorization status for the application.
+     * There's no direct way to determine if authorization was granted or denied, so the Pedometer API is used to indirectly determine this.
+     * Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
+     *
+     * @param {Function} successCallback - The callback which will be called when operation is successful.
+     * This callback function is passed a single string parameter indicating the result:
+    * - `cordova.plugins.diagnostic.motionStatus.NOT_REQUESTED` - App has not yet requested this permission.
+    * - `cordova.plugins.diagnostic.motionStatus.GRANTED` - user granted motion authorization.
+    * - `cordova.plugins.diagnostic.motionStatus.DENIED` - user denied authorization.
+    * - `cordova.plugins.diagnostic.motionStatus.RESTRICTED` - user cannot grant motion authorization.
+    * - `cordova.plugins.diagnostic.motionStatus.NOT_AVAILABLE` - device does not support Motion Tracking.
+    * Motion tracking is supported by iOS devices with an M7 co-processor (or above): that is iPhone 5s (or above), iPad Air (or above), iPad Mini 2 (or above).
+    * - `cordova.plugins.diagnostic.motionStatus.NOT_DETERMINED` - authorization outcome cannot be determined because device does not support Pedometer Event Tracking.
+    * Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
+    * - `cordova.plugins.diagnostic.motionStatus.UNKNOWN` - motion tracking authorization is in an unknown state.
+     * - {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+     * @param {Function} errorCallback -  The callback which will be called when operation encounters an error.
+     * This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.getMotionAuthorizationStatus = function(successCallback, errorCallback) {
+        return cordova.exec(
+            successCallback,
+            errorCallback,
+            'Diagnostic',
+            'getMotionAuthorizationStatus',
+            []);
+    };
+
+    /**
+     * Returns CPU architecture of the current device.
+     *
+     * @param {Function} successCallback -  The callback which will be called when the operation is successful.
+     * This callback function is passed a single string parameter defined as a constant in `cordova.plugins.diagnostic.cpuArchitecture`.
+     * @param {Function} errorCallback -  The callback which will be called when the operation encounters an error.
+     *  This callback function is passed a single string parameter containing the error message.
+     */
+    Diagnostic.getArchitecture = function(successCallback, errorCallback) {
+        return cordova.exec(successCallback,
+            errorCallback,
+            'Diagnostic',
+            'getArchitecture',
+            []);
+    };
+
 
     return Diagnostic;
 })();

@@ -23,8 +23,8 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
     - [isWifiEnabled()](#iswifienabled)
     - [isCameraAvailable()](#iscameraavailable)
     - [isBluetoothAvailable()](#isbluetoothavailable)
-    - [switchToLocationSettings()](#switchtolocationsettings)
   - [Android and Windows 10 Mobile only](#android-and-windows-10-mobile-only)
+    - [switchToLocationSettings()](#switchtolocationsettings)
     - [switchToMobileDataSettings()](#switchtomobiledatasettings)
     - [switchToBluetoothSettings()](#switchtobluetoothsettings)
     - [switchToWifiSettings()](#switchtowifisettings)
@@ -33,12 +33,16 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
   - [Android and iOS](#android-and-ios)
     - [permissionStatus constants](#permissionstatus-constants)
     - [bluetoothState constants](#bluetoothstate-constants)
+    - [cpuArchitecture constants](#cpuarchitecture-constants)
+    - [enableDebug()](#enabledebug)
+    - [getArchitecture()](#getarchitecture)
     - [isLocationEnabled()](#islocationenabled)
     - [isLocationAuthorized()](#islocationauthorized)
     - [getLocationAuthorizationStatus()](#getlocationauthorizationstatus)
     - [requestLocationAuthorization()](#requestlocationauthorization)
     - [isCameraPresent()](#iscamerapresent)
     - [isCameraAuthorized()](#iscameraauthorized)
+    - [isRemoteNotificationsEnabled()](#isremotenotificationsenabled)
     - [getCameraAuthorizationStatus()](#getcameraauthorizationstatus)
     - [requestCameraAuthorization()](#requestcameraauthorization)
     - [isMicrophoneAuthorized()](#ismicrophoneauthorized)
@@ -60,6 +64,7 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
     - [isGpsLocationEnabled()](#isgpslocationenabled)
     - [isNetworkLocationAvailable()](#isnetworklocationavailable)
     - [isNetworkLocationEnabled()](#isnetworklocationenabled)
+    - [isDataRoamingEnabled()](#isdataroamingenabled)
     - [getLocationMode()](#getlocationmode)
     - [getPermissionAuthorizationStatus()](#getpermissionauthorizationstatus)
     - [getPermissionsAuthorizationStatus()](#getpermissionsauthorizationstatus)
@@ -80,24 +85,31 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
     - [isNFCPresent()](#isnfcpresent)
     - [isNFCEnabled()](#isnfcenabled)
     - [isNFCAvailable()](#isnfcavailable)
+    - [isADBModeEnabled()](#isadbmodeenabled)
+    - [isDeviceRooted()](#isdevicerooted)
+    - [restart()](#restart)
     - [registerNFCStateChangeHandler()](#registernfcstatechangehandler)
     - [NFCState constants](#nfcstate-constants)
   - [iOS only](#ios-only)
     - [isCameraRollAuthorized()](#iscamerarollauthorized)
     - [getCameraRollAuthorizationStatus()](#getcamerarollauthorizationstatus)
     - [requestCameraRollAuthorization()](#requestcamerarollauthorization)
-    - [isRemoteNotificationsEnabled()](#isremotenotificationsenabled)
+    - [remoteNotificationType constants](#remotenotificationtype-constants)
     - [isRegisteredForRemoteNotifications()](#isregisteredforremotenotifications)
     - [getRemoteNotificationTypes()](#getremotenotificationtypes)
+    - [getRemoteNotificationsAuthorizationStatus()](#getremotenotificationsauthorizationstatus)
+    - [requestRemoteNotificationsAuthorization()](#requestremotenotificationsauthorization)
     - [isRemindersAuthorized()](#isremindersauthorized)
     - [getRemindersAuthorizationStatus()](#getremindersauthorizationstatus)
     - [requestRemindersAuthorization()](#requestremindersauthorization)
     - [isBackgroundRefreshAuthorized()](#isbackgroundrefreshauthorized)
     - [getBackgroundRefreshStatus()](#getbackgroundrefreshstatus)
     - [requestBluetoothAuthorization()](#requestbluetoothauthorization)
+    - [motionStatus constants](#motionstatus-constants)
     - [isMotionAvailable()](#ismotionavailable)
     - [isMotionRequestOutcomeAvailable()](#ismotionrequestoutcomeavailable)
-    - [requestAndCheckMotionAuthorization()](#requestandcheckmotionauthorization)
+    - [requestMotionAuthorization()](#requestmotionauthorization)
+    - [getMotionAuthorizationStatus()](#getmotionauthorizationstatus)
 - [Platform Notes](#platform-notes)
   - [Android](#android)
     - [Android permissions](#android-permissions)
@@ -180,6 +192,7 @@ Phonegap Build uses should use the latest available CLI version ([listed here](h
     
 #### Gradle version collisions
 
+This plugin uses the Android Support Library and [pins the major version](https://github.com/dpa99c/cordova-diagnostic-plugin/blob/master/plugin.xml#L101) to align with [the target SDK version of the `cordova-android` platform](https://github.com/apache/cordova-android/blob/master/framework/project.properties#L13) in its [latest release to npm](https://www.npmjs.com/package/cordova-android).
 If your build fails with an error such as this:
 
     Attribute meta-data#android.support.VERSION@value value=(26.0.0-alpha1) from [com.android.support:support-v4:26.0.0-alpha1] AndroidManifest.xml:27:9-38
@@ -187,7 +200,15 @@ If your build fails with an error such as this:
     
 Then it's likely that the build failure is due to a collision caused by another plugin requesting a different version of the Android Support Library (see [#212](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/212), [#211](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/211), [#205](https://github.com/dpa99c/cordova-diagnostic-plugin/issues/205), etc.).
 
-The easy fix is to install [cordova-android-support-gradle-release](https://github.com/dpa99c/cordova-android-support-gradle-release) into your project to align the versions
+Depending what other plugins you have installed in your project, you may need to specify a different version of the Support Library than that specified by this plugin to make your build succeed. 
+
+If building locally, one way to do this is to install [cordova-android-support-gradle-release](https://github.com/dpa99c/cordova-android-support-gradle-release) into your project.
+This attempts to override the Android Support Library version specified by other plugins (including this plugin) with a specified version. For example:
+
+    cordova plugin add cordova-android-support-gradle-release --variable ANDROID_SUPPORT_VERSION=25.+
+
+
+Note: `cordova-android-support-gradle-release` will not work in Phonegap Build (or other cloud-build environments) that do not support Cordova Hook Scripts.
 
 #### Building for Android runtime permissions
 
@@ -262,9 +283,9 @@ When location is enabled, the locations returned are dependent on the location m
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if location is available for use.
+The function is passed a single boolean parameter which is TRUE if location is available for use.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -288,9 +309,9 @@ On Android this requires permission `<uses-permission android:name="android.perm
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if WiFi is available.
+The function is passed a single boolean parameter which is TRUE if WiFi is available.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -312,9 +333,9 @@ On Android this requires permission `<uses-permission android:name="android.perm
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is true if the device setting is enabled.
+The function is passed a single boolean parameter which is true if the device setting is enabled.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -345,9 +366,9 @@ Notes for Android:
 #### Parameters
 - {Object} params - (optional) parameters:
     - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if camera is present and authorized for use.
+The function is passed a single boolean parameter which is TRUE if camera is present and authorized for use.
     - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
     - {Boolean} externalStorage - (Android only) If true, checks permission for `READ_EXTERNAL_STORAGE` in addition to `CAMERA` run-time permission.
 Defaults to true.
 
@@ -394,9 +415,9 @@ On Android this requires permission `<uses-permission android:name="android.perm
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if Bluetooth is available.
+The function is passed a single boolean parameter which is TRUE if Bluetooth is available.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -407,6 +428,8 @@ This callback function is passed a single string parameter containing the error 
         console.error("The following error occurred: "+error);
     });
 
+## Android and Windows 10 Mobile only
+
 ### switchToLocationSettings()
 
 Displays the device location settings to allow user to enable location services/change location mode.
@@ -414,8 +437,6 @@ Displays the device location settings to allow user to enable location services/
     cordova.plugins.diagnostic.switchToLocationSettings();
 
 Note: On Android, you may want to consider using the [Request Location Accuracy Plugin for Android](https://github.com/dpa99c/cordova-plugin-request-location-accuracy) to request the desired location accuracy without needing the user to manually do this on the Location Settings page.
-
-## Android and Windows 10 Mobile only
 
 ### switchToMobileDataSettings()
 
@@ -572,6 +593,80 @@ Defines constants for the various Bluetooth hardware states
     }, function(error){
         console.error(error);
     });
+    
+### cpuArchitecture constants
+
+Defines constants for the various CPU architectures of the current hardware returned by [getArchitecture()](#getarchitecture).
+
+        cordova.plugins.diagnostic.cpuArchitecture
+
+#### Android
+
+- `UNKNOWN` - Unknown CPU architecture
+- `ARMv6` - ARM v6 or below (32 bit)
+- `ARMv7` - ARM v7 (32 bit)
+- `ARMv8` - ARM v8 (64 bit)
+- `X86` - Intel x86 (32 bit)
+- `X86_64` - Intel x86 (64 bit)
+- `MIPS` - MIPS (32 bit)
+- `MIPS_64` - MIPS (64 bit)
+
+#### iOS
+
+- `UNKNOWN` - Unknown CPU architecture
+- `ARMv6` - ARM v6 or below (32 bit)
+- `ARMv7` - ARM v7 (32 bit)
+- `ARMv8` - ARM v8 (64 bit)
+- `X86` - Intel x86 (32 bit)
+- `X86_64` - Intel x86 (64 bit)
+
+#### Example usage
+
+See [getArchitecture()](#getarchitecture).
+    
+### enableDebug()
+
+Enables debug mode, which logs native debug messages to the native and JS consoles.
+- For Android, log messages will appear in the native logcat output and in the JS console if Chrome Developer Tools is connected to the app Webview.
+- For Android, log messages will appear in the native Xcode console output and in the JS console if Safari Web Inspector is connected to the app Webview.
+- Debug mode is initially disabled on plugin initialisation.
+
+
+    cordova.plugins.diagnostic.enableDebug(successCallback);
+    
+#### Parameters
+
+- {Function} successCallback - The callback which will be called when debug has been enabled.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.enableDebug(function(){
+        console.log("Debug is enabled"));
+    });
+    
+### getArchitecture()
+
+Returns the CPU architecture of the current device.
+
+    cordova.plugins.diagnostic.getArchitecture(successCallback, errorCallback);
+    
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when operation is successful.
+The function is passed a single boolean parameter which indicates the location authorization status as a [cpuArchitecture constant](#cpuarchitecture-constants).
+- {Function} errorCallback -  The callback which will be called when operation encounters an error.
+The function is passed a single string parameter containing the error message.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.getArchitecture(function(arch){
+        if(arch === cordova.plugins.diagnostic.cpuArchitecture.X86
+        || arch === cordova.plugins.diagnostic.cpuArchitecture.X86_64){
+            console.log("Intel inside");
+        }
+    }, function(error){
+        console.error(error);
+    });
 
 ### isLocationEnabled()
 
@@ -584,9 +679,9 @@ On iOS this returns true if Location Services is switched on.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if location setting is enabled.
+The function is passed a single boolean parameter which is TRUE if location setting is enabled.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -611,11 +706,11 @@ Calling on Android 5 / API 22 and below will always return GRANTED status as per
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter.
+The function is passed a single boolean parameter.
 On iOS this will return TRUE if application is authorized to use location either "when in use" (only in foreground) OR "always" (foreground and background).
 On Android this will return TRUE if the app currently has runtime authorisation to use location.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -637,9 +732,9 @@ This callback function is passed a single string parameter containing the error 
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the location authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the location authorization status as a [permissionStatus constant](#permissionstatus-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example iOS usage
 
@@ -692,7 +787,7 @@ This callback function is passed a single string parameter containing the error 
 - Calling this on iOS 7 or below will have no effect, as location permissions are are implicitly granted.
 - On iOS 8+, authorization can be requested to use location either "when in use" (only in foreground) or "always" (foreground and background).
 - This should only be called if authorization status is NOT_DETERMINED - calling it when in any other state will have no effect.
-- When calling this function, the messages contained in the  `NSLocationAlwaysUsageDescription` and `NSLocationWhenInUseUsageDescription` .plist keys are displayed to the user when requesting to use location **always** or **when in use**, respectively;
+- When calling this function, the messages contained in the `NSLocationWhenInUseUsageDescription` and `NSLocationAlwaysAndWhenInUseUsageDescription` (iOS 11+) / `NSLocationAlwaysUsageDescription` (iOS 10 and below)  .plist keys are displayed to the user when requesting to use location **always** or **when in use**, respectively;
 this plugin provides default messages, but you should override them with your specific reason for requesting access - see the [iOS usage description messages](#ios-usage-description-messages) section for how to customise them.
 
  Notes for Android:
@@ -707,7 +802,7 @@ this plugin provides default messages, but you should override them with your sp
 - {Function} successCallback - Invoked in response to the user's choice in the permission dialog.
 It is passed a single string parameter which defines the [resulting authorisation status](#runtime-permission-statuses).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 - {String} mode - (iOS-only / optional) location authorization mode specified as a [locationAuthorizationMode constant](#locationauthorizationmode-constants).
 If not specified, defaults to `WHEN_IN_USE`.
 
@@ -762,9 +857,9 @@ Checks if camera hardware is present on device.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if camera is present
+The function is passed a single boolean parameter which is TRUE if camera is present
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -792,9 +887,9 @@ Notes for Android:
 #### Parameters
 - {Object} params - (optional) parameters:
     - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if camera is authorized for use.
+The function is passed a single boolean parameter which is TRUE if camera is authorized for use.
     - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
     - {Boolean} externalStorage - (Android only) If true, checks permission for `READ_EXTERNAL_STORAGE` in addition to `CAMERA` run-time permission.
 Defaults to true.
 
@@ -826,8 +921,31 @@ Defaults to true.
         }, function(error){
             console.error("The following error occurred: "+error);
         }, false
-    );    
+    );
 
+### isRemoteNotificationsEnabled()
+
+Checks if remote (push) notifications are enabled.
+
+On Android, returns whether notifications for the app are not blocked.
+
+On iOS 8+, returns true if app is registered for remote notifications **AND** "Allow Notifications" switch is ON **AND** alert style is not set to "None" (i.e. "Banners" or "Alerts").
+On iOS <=7, returns true if app is registered for remote notifications **AND** alert style is not set to "None" (i.e. "Banners" or "Alerts") - same as [isRegisteredForRemoteNotifications()](#isregisteredforremotenotifications).
+
+    cordova.plugins.diagnostic.isRemoteNotificationsEnabled(successCallback, errorCallback);
+
+#### Parameters
+- {Function} successCallback - The callback which will be called when operation is successful.
+The function is passed a single boolean parameter which is TRUE if remote (push) notifications are enabled.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isRemoteNotificationsEnabled(function(enabled){
+        console.log("Remote notifications are " + (enabled ? "enabled" : "disabled"));
+    }, function(error){
+        console.error("The following error occurred: "+error);
+    });
 ### getCameraAuthorizationStatus()
 
 Returns the camera authorization status for the application.
@@ -845,9 +963,9 @@ Notes for Android:
 #### Parameters
 - {Object} params - (optional) parameters:
     - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
     - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
     - {Boolean} externalStorage - (Android only) If true, checks permission for `READ_EXTERNAL_STORAGE` in addition to `CAMERA` run-time permission.
 Defaults to true.
 
@@ -913,10 +1031,10 @@ Notes for Android:
 
 - {Object} params - (optional) parameters:
     - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating whether access to the camera was granted or denied:
+The function is passed a single string parameter indicating whether access to the camera was granted or denied:
 `cordova.plugins.diagnostic.permissionStatus.GRANTED` or `cordova.plugins.diagnostic.permissionStatus.DENIED`
     - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
     - {Boolean} externalStorage - (Android only) If true, requests permission for `READ_EXTERNAL_STORAGE` in addition to `CAMERA` run-time permission.
     Defaults to true.
 
@@ -965,9 +1083,9 @@ Notes for iOS:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if microphone is authorized for use.
+The function is passed a single boolean parameter which is TRUE if microphone is authorized for use.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -993,9 +1111,9 @@ Notes for iOS:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1026,9 +1144,9 @@ Notes for Android:
 
 #### Parameters
 - {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating whether access to the microphone was granted or denied:
+The function is passed a single string parameter indicating whether access to the microphone was granted or denied:
 `cordova.plugins.diagnostic.permissionStatus.GRANTED` or `cordova.plugins.diagnostic.permissionStatus.DENIED`
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1052,9 +1170,9 @@ Notes for Android:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if contacts is authorized for use.
+The function is passed a single boolean parameter which is TRUE if contacts is authorized for use.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1077,9 +1195,9 @@ Notes for Android:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1110,9 +1228,9 @@ Notes for Android:
 
 #### Parameters
 - {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating whether access to contacts was granted or denied:
+The function is passed a single string parameter indicating whether access to contacts was granted or denied:
 `cordova.plugins.diagnostic.permissionStatus.GRANTED` or `cordova.plugins.diagnostic.permissionStatus.DENIED`
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1139,9 +1257,9 @@ Notes for iOS:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if calendar is authorized for use.
+The function is passed a single boolean parameter which is TRUE if calendar is authorized for use.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1167,9 +1285,9 @@ Notes for iOS:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1201,9 +1319,9 @@ Notes for Android:
 
 #### Parameters
 - {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating whether access to calendar was granted or denied:
+The function is passed a single string parameter indicating whether access to calendar was granted or denied:
 `cordova.plugins.diagnostic.permissionStatus.GRANTED` or `cordova.plugins.diagnostic.permissionStatus.DENIED`
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1228,7 +1346,7 @@ On iOS, this opens the app settings page in the Settings app. This works only on
 #### Parameters
 
 - {Function} successCallback - The callback which will be called when switch to settings is successful.
-- {Function} errorCallback - The callback which will be called when switch to settings encounters an error. This callback function is passed a single string parameter containing the error message.
+- {Function} errorCallback - The callback which will be called when switch to settings encounters an error. The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1248,9 +1366,9 @@ Returns the state of Bluetooth on the device.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the Bluetooth state as a constant in [`cordova.plugins.diagnostic.bluetoothState`](#bluetoothstate-constants).
+The function is passed a single string parameter which indicates the Bluetooth state as a constant in [`cordova.plugins.diagnostic.bluetoothState`](#bluetoothstate-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1274,7 +1392,7 @@ This is triggered when Bluetooth state changes so is useful for detecting change
 #### Parameters
 
 - {Function} successCallback - function call when a change in Bluetooth state occurs.
-This callback function is passed a single string parameter which indicates the Bluetooth state as a constant in [`cordova.plugins.diagnostic.bluetoothState`](#bluetoothstate-constants).
+The function is passed a single string parameter which indicates the Bluetooth state as a constant in [`cordova.plugins.diagnostic.bluetoothState`](#bluetoothstate-constants).
 
 #### Example usage
 
@@ -1363,9 +1481,9 @@ Returns true if Location mode is enabled and is set to "Device only" or "High ac
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if high-accuracy GPS-based location is available.
+The function is passed a single boolean parameter which is TRUE if high-accuracy GPS-based location is available.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1390,9 +1508,9 @@ Returns true if Location mode is enabled and is set to either:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if device setting is set to return high-accuracy GPS-based location.
+The function is passed a single boolean parameter which is TRUE if device setting is set to return high-accuracy GPS-based location.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1414,9 +1532,9 @@ AND if the app is authorised to use location.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if low-accuracy network-based location is available.
+The function is passed a single boolean parameter which is TRUE if low-accuracy network-based location is available.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1441,9 +1559,9 @@ Returns true if Location mode is enabled and is set to either:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if device setting is set to return low-accuracy network-based location.
+The function is passed a single boolean parameter which is TRUE if device setting is set to return low-accuracy network-based location.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1453,6 +1571,31 @@ This callback function is passed a single string parameter containing the error 
     }, function(error){
         console.error("The following error occurred: "+error);
     });
+	
+
+### isDataRoamingEnabled()
+
+Checks if the device data roaming setting is enabled.
+Returns true if data roaming is enabled.
+
+    cordova.plugins.diagnostic.isDataRoamingEnabled(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when the operation is successful.
+The function is passed a single boolean parameter which is TRUE if data roaming is enabled.
+- {Function} errorCallback -  The callback which will be called when operation encounters an error.
+The function is passed a single string parameter containing the error message.
+
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isDataRoamingEnabled(function(enabled){
+        console.log("Data roaming is " + (enabled ? "enabled" : "disabled"));
+    }, function(error){
+        console.error("The following error occurred: "+error);
+    });
+
 
 ### getLocationMode()
 
@@ -1463,10 +1606,10 @@ Returns the current location mode setting for the device.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating the current location mode
+The function is passed a single string parameter indicating the current location mode
 as a constant in `cordova.plugins.diagnostic.locationMode`.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1499,9 +1642,9 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 #### Parameters
 
 - {Function} successCallback - function to call on successful retrieval of status.
-This callback function is passed a single string parameter which defines the current [permission status](#permissionstatus-constants)
+The function is passed a single string parameter which defines the current [permission status](#permissionstatus-constants)
 - {Function} errorCallback - function to call on failure to retrieve authorisation status.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 - {String} permission - permission to request authorisation status for, defined as a [runtime permission constant](#dangerous-runtime-permissions).
 
 #### Example usage
@@ -1534,9 +1677,9 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 #### Parameters
 
 - {Function} successCallback - function to call on successful retrieval of status.
-This callback function is passed a single object parameter which defines a key/value map, where the key is the requested [runtime permission](#dangerous-runtime-permissions), and the value is the current [permission status](#permissionstatus-constants).
+The function is passed a single object parameter which defines a key/value map, where the key is the requested [runtime permission](#dangerous-runtime-permissions), and the value is the current [permission status](#permissionstatus-constants).
 - {Function} errorCallback - function to call on failure to retrieve authorisation status.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 - {Array} permissions - list of permissions to request authorisation statuses for, defined as [runtime permission constants](#dangerous-runtime-permissions).
 
 #### Example usage
@@ -1574,9 +1717,9 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 #### Parameters
 
 - {Function} successCallback - function to call on successful request for runtime permission.
-This callback function is passed a single string parameter which defines the resulting [permission status](#permissionstatus-constants)
+The function is passed a single string parameter which defines the resulting [permission status](#permissionstatus-constants)
 - {Function} errorCallback - function to call on failure to request authorisation.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 - {String} permission - permission to request authorisation for, defined as a [runtime permission constant](#dangerous-runtime-permissions).
 
 #### Example usage
@@ -1610,9 +1753,9 @@ Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / 
 #### Parameters
 
 - {Function} successCallback - function to call on successful request for runtime permissions.
-This callback function is passed a single object parameter which defines a key/value map, where the key is the [runtime permission](#dangerous-runtime-permissions) to request, and the value is the current [permission status](#permissionstatus-constants).
+The function is passed a single object parameter which defines a key/value map, where the key is the [runtime permission](#dangerous-runtime-permissions) to request, and the value is the current [permission status](#permissionstatus-constants).
 - {Function} errorCallback - function to call on failure to request authorisation.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 - {Array} permissions - list of permissions to request authorisation for, defined as [runtime permission constants](#dangerous-runtime-permissions).
 
 #### Example usage
@@ -1672,7 +1815,7 @@ Pass in a falsey value to de-register the currently registered function.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when a runtime permission request has completed.
-This callback function is passed a single object parameter which defines a key/value map, where the key is the permission requested (defined as a value in cordova.plugins.diagnostic.permission) and the value is the resulting authorisation status of that permission as a value in cordova.plugins.diagnostic.permissionStatus.
+The function is passed a single object parameter which defines a key/value map, where the key is the permission requested (defined as a value in cordova.plugins.diagnostic.permission) and the value is the resulting authorisation status of that permission as a value in cordova.plugins.diagnostic.permissionStatus.
 
 #### Example usage
 
@@ -1709,9 +1852,9 @@ On Android this requires permission `<uses-permission android:name="android.perm
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if Bluetooth is switched on.
+The function is passed a single boolean parameter which is TRUE if Bluetooth is switched on.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1732,9 +1875,9 @@ See http://developer.android.com/guide/topics/connectivity/bluetooth.html.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when the operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if device has Bluetooth capabilities.
+The function is passed a single boolean parameter which is TRUE if device has Bluetooth capabilities.
 - {Function} errorCallback -  The callback which will be called when the operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1754,9 +1897,9 @@ See http://developer.android.com/guide/topics/connectivity/bluetooth-le.html.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when the operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if device has Bluetooth LE capabilities.
+The function is passed a single boolean parameter which is TRUE if device has Bluetooth LE capabilities.
 - {Function} errorCallback -  The callback which will be called when the operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1773,9 +1916,9 @@ See http://developer.android.com/guide/topics/connectivity/bluetooth-le.html#rol
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when the operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if device supports Bluetooth LE Peripheral mode.
+The function is passed a single boolean parameter which is TRUE if device supports Bluetooth LE Peripheral mode.
 - {Function} errorCallback -  The callback which will be called when the operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1798,9 +1941,9 @@ Notes for Android:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if external storage is authorized for use.
+The function is passed a single boolean parameter which is TRUE if external storage is authorized for use.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1824,9 +1967,9 @@ Notes for Android:
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1850,10 +1993,10 @@ Requests external storage authorization for the application.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating whether access to the external storage was granted or denied:
+The function is passed a single string parameter indicating whether access to the external storage was granted or denied:
 `cordova.plugins.diagnostic.permissionStatus.GRANTED` or `cordova.plugins.diagnostic.permissionStatus.DENIED`
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1904,7 +2047,7 @@ For example, on a Samsung Galaxy S4 running Android 7.1.1:
 #### Parameters
 
 - {Function} successCallback -  function to call on successful request for external SD card details.
-This callback function is passed a single argument which is an array consisting of an entry for each external storage location found.
+The function is passed a single argument which is an array consisting of an entry for each external storage location found.
 Each array entry is an object with the following keys:
     - {String} path - absolute path to the storage location
     - {String} filePath - absolute path prefixed with file protocol for use with cordova-plugin-file
@@ -1912,7 +2055,7 @@ Each array entry is an object with the following keys:
     - {Integer} freeSpace - number of bytes of free space on the device on which the storage locaiton is mounted.
     - {String} type - indicates the type of storage location: either "application" if the path is an Android application sandbox path or "root" if the path is the device root.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -1951,9 +2094,9 @@ Checks if NFC hardware is present on device.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if NFC is present
+The function is passed a single boolean parameter which is TRUE if NFC is present
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -1975,9 +2118,9 @@ Note: this operation **does not** require NFC permission in the manifest.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if NFC is switched on.
+The function is passed a single boolean parameter which is TRUE if NFC is switched on.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -2000,9 +2143,9 @@ Note: this operation **does not** require NFC permission in the manifest.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if NFC is available.
+The function is passed a single boolean parameter which is TRUE if NFC is available.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -2013,6 +2156,83 @@ This callback function is passed a single string parameter containing the error 
         console.error("The following error occurred: "+error);
     });
 
+### isADBModeEnabled()
+
+Checks if the device setting for ADB(debug) is switched on.
+Returns true if ADB(debug) setting is switched on.
+
+    cordova.plugins.diagnostic.isADBModeEnabled(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when operation is successful.
+The function is passed a single boolean parameter which is TRUE if ADB mode(debug mode) is switched on.
+- {Function} errorCallback -  The callback which will be called when operation encounters an error.
+The function is passed a single string parameter containing the error message.
+
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isADBModeEnabled(function(enabled){
+        console.log("ADB mode(debug mode) is " + (enabled ? "enabled" : "disabled"));
+    }, function(error){
+        console.error("The following error occurred: "+error);
+    });
+
+### isDeviceRooted()
+
+Checks if the device is rooted.
+Returns true if the device is rooted.
+
+    cordova.plugins.diagnostic.isDeviceRooted(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when operation is successful.
+The function is passed a single boolean parameter which is TRUE if the device is rooted.
+- {Function} errorCallback -  The callback which will be called when operation encounters an error.
+The function is passed a single string parameter containing the error message.
+
+
+#### Example usage
+
+    cordova.plugins.diagnostic.isDeviceRooted(function(rooted){
+        console.log("device is " + (rooted ? "rooted" : "not rooted"));
+    }, function(error){
+        console.error("The following error occurred: "+error);
+    });
+    
+### restart()
+
+Restarts the application.
+By default, a "warm" restart will be performed in which the main Cordova activity is immediately restarted, causing the Webview instance to be recreated.
+
+However, if the `cold` parameter is set to true, then the application will be "cold" restarted, meaning a system exit will be performed, causing the entire application to be restarted.
+This is useful if you want to fully reset the native application state but will cause the application to briefly disappear and re-appear.
+
+Note: There is no `successCallback()` since if the operation is successful, the application will restart immediately before any success callback can be applied.
+
+    cordova.plugins.diagnostic.restart(errorCallback, cold);
+
+#### Parameters
+
+- {Function} errorCallback -  The callback which will be called when operation encounters an error.
+The function is passed a single string parameter containing the error message.
+- {Boolean} cold - if true the application will be cold restarted. Defaults to false.
+
+
+#### Example usage
+
+    var onError = function(error){
+        console.error("The following error occurred: "+error);
+    }
+    
+    // Warm restart
+    cordova.plugins.diagnostic.restart(onError, false);
+        
+    // Cold restart
+    cordova.plugins.diagnostic.restart(onError, true);
+    
 ### registerNFCStateChangeHandler()
 
 Registers a function to be called when a change in NFC state occurs.
@@ -2073,7 +2293,6 @@ Defines constants for the various NFC power states.
 
 ## iOS only
 
-
 ### isCameraRollAuthorized()
 
 Checks if the application is authorized to use the Camera Roll in Photos app.
@@ -2083,9 +2302,9 @@ Checks if the application is authorized to use the Camera Roll in Photos app.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if access to Camera Roll is authorized.
+The function is passed a single boolean parameter which is TRUE if access to Camera Roll is authorized.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -2105,9 +2324,9 @@ Returns the authorization status for the application to use the Camera Roll in P
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a constant in `cordova.plugins.diagnostic.permissionStatus`.
+The function is passed a single string parameter which indicates the authorization status as a constant in `cordova.plugins.diagnostic.permissionStatus`.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2139,10 +2358,10 @@ this plugin provides a default message, but you should override this with your s
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating the new authorization status:
+The function is passed a single string parameter indicating the new authorization status:
 `cordova.plugins.diagnostic.permissionStatus.GRANTED` or `cordova.plugins.diagnostic.permissionStatus.DENIED`
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2152,26 +2371,30 @@ This callback function is passed a single string parameter containing the error 
         console.error(error);
     });
 
+### remoteNotificationType constants
 
-### isRemoteNotificationsEnabled()
+Constants for requesting/reporting the various types of remote notification permission types on iOS devices.
 
-Checks if remote (push) notifications are enabled.
+    cordova.plugins.diagnostic.remoteNotificationType
 
-On iOS 8+, returns true if app is registered for remote notifications **AND** "Allow Notifications" switch is ON **AND** alert style is not set to "None" (i.e. "Banners" or "Alerts").
+The following notification types are defined:
 
-On iOS <=7, returns true if app is registered for remote notifications **AND** alert style is not set to "None" (i.e. "Banners" or "Alerts") - same as [isRegisteredForRemoteNotifications()](#isregisteredforremotenotifications).
+- `ALERT` - Permission to display Alerts or Banners
+- `SOUND` - Permission to play sounds.
+- `BADGE` - Permission to change app icon badge. 
 
-    cordova.plugins.diagnostic.isRemoteNotificationsEnabled(successCallback, errorCallback);
+#### Example
 
-#### Parameters
-- {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if remote (push) notifications are enabled.
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
-
-#### Example usage
-
-    cordova.plugins.diagnostic.isRemoteNotificationsEnabled(function(enabled){
-        console.log("Remote notifications are " + (enabled ? "enabled" : "disabled"));
+    cordova.plugins.diagnostic.getRemoteNotificationTypes(function(types){
+        if(types[cordova.plugins.diagnostic.remoteNotificationType.ALERT]){
+            console.log("Has permission to display alerts");
+        }
+        if(types[cordova.plugins.diagnostic.remoteNotificationType.SOUND]){
+            console.log("Has permission to play sounds");
+        }
+        if(types[cordova.plugins.diagnostic.remoteNotificationType.BADGE]){
+            console.log("Has permission to modify icon badge");
+        }
     }, function(error){
         console.error("The following error occurred: "+error);
     });
@@ -2189,8 +2412,8 @@ On iOS <=7, returns true if app is registered for remote notifications AND alert
 
 #### Parameters
 - {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if the device is registered for remote (push) notifications.
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+The function is passed a single boolean parameter which is TRUE if the device is registered for remote (push) notifications.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2210,11 +2433,11 @@ Note: on iOS 8+, if "Allow Notifications" switch is OFF, all types will be retur
 
 #### Parameters
 - {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single object parameter where the key is the notification type and the value is a boolean indicating whether it's enabled:
-     * "alert" => alert style is not set to "None" (i.e. "Banners" or "Alerts");
-     * "badge" => "Badge App Icon" switch is ON;
-     * "sound" => "Sounds"/"Alert Sound" switch is ON.
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+The function is passed a single object parameter where the key is the notification type as a constant in [`cordova.plugins.diagnostic.remoteNotificationType`](#remotenotificationtype-constants) and the value is a boolean indicating whether it's enabled:
+     * `cordova.plugins.diagnostic.remoteNotificationType.ALERT` => alert style is not set to "None" (i.e. "Banners" or "Alerts").    
+     * `cordova.plugins.diagnostic.remoteNotificationType.BADGE` => "Badge App Icon" switch is ON.
+     * `cordova.plugins.diagnostic.remoteNotificationType.SOUND` => "Sounds"/"Alert Sound" switch is ON.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2224,6 +2447,75 @@ This callback function is passed a single object parameter where the key is the 
         }
     }, function(error){
         console.error("The following error occurred: "+error);
+    });
+    
+### getRemoteNotificationsAuthorizationStatus()
+
+Returns the authorization status for the application to use Remote Notifications.
+
+**Note: Works on iOS 10+ only ** (iOS 9 and below will invoke the error callback).
+
+    cordova.plugins.diagnostic.getRemoteNotificationsAuthorizationStatus(successCallback, errorCallback);
+
+#### Parameters
+
+- {Function} successCallback -  The callback which will be called when operation is successful.
+The function is passed a single string parameter which indicates the authorization status as a constant in `cordova.plugins.diagnostic.permissionStatus`.
+- {Function} errorCallback -  The callback which will be called when operation encounters an error.
+The function is passed a single string parameter containing the error message.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.getRemoteNotificationsAuthorizationStatus(function(status){
+        switch(status){
+            case cordova.plugins.diagnostic.permissionStatus.NOT_REQUESTED:
+                console.log("Permission not yet requested");
+                break;
+            case cordova.plugins.diagnostic.permissionStatus.DENIED:
+                console.log("Permission denied");
+                break;
+            case cordova.plugins.diagnostic.permissionStatus.GRANTED:
+                console.log("Permission granted");
+                break;
+        }
+    }, function(error){
+        console.error("The following error occurred: "+error);
+    });
+    
+### requestRemoteNotificationsAuthorization()
+
+Requests remote notifications authorization for the application.
+Works on iOS 8+ (iOS 8 and below will invoke the error callback).
+
+    cordova.plugins.diagnostic.requestRemoteNotificationsAuthorization(params);
+
+#### Parameters
+
+- {Object} params - (optional) parameters:
+    - {Function} successCallback - The callback which will be called when operation is successful.
+    - {Function} errorCallback -  The callback which will be called when operation encounters an error.
+        * The function is passed a single string parameter containing the error message.
+    - {Array} types - list of notifications to register for as constants in [`cordova.plugins.diagnostic.remoteNotificationType`](#remotenotificationtype-constants).
+        * If not specified, defaults to all notification types.
+    - {Boolean} omitRegistration - If true, registration for remote notifications will not be carried out once remote notifications authorization is granted.
+        * Defaults to false (registration will automatically take place once authorization is granted).
+        * iOS 10+ only: on iOS 8 & 9 authorization and registration are implicitly inseparable so both will be carried out.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.requestRemoteNotificationsAuthorization({
+        successCallback: function(){
+            console.log("Successfully requested remote notifications authorization");
+        },
+        errorCallback: function(err){
+           console.error("Error requesting remote notifications authorization: " + err);
+        },
+        types: [
+            cordova.plugins.diagnostic.remoteNotificationType.ALERT,
+            cordova.plugins.diagnostic.remoteNotificationType.SOUND,
+            cordova.plugins.diagnostic.remoteNotificationType.BADGE
+        ],
+        omitRegistration: false
     });
 
 ### isRemindersAuthorized()
@@ -2235,9 +2527,9 @@ Checks if the application is authorized to use reminders.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if reminders access is authorized for use.
+The function is passed a single boolean parameter which is TRUE if reminders access is authorized for use.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -2257,9 +2549,9 @@ Returns the reminders authorization status for the application.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2283,9 +2575,9 @@ this plugin provides a default message, but you should override this with your s
 
 #### Parameters
 - {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating whether access to calendar was granted or denied:
+The function is passed a single string parameter indicating whether access to calendar was granted or denied:
 `cordova.plugins.diagnostic.permissionStatus.GRANTED` or `cordova.plugins.diagnostic.permissionStatus.DENIED`
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2306,9 +2598,9 @@ Checks if the application is authorized for background refresh.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if background refresh access is authorized for use.
+The function is passed a single boolean parameter which is TRUE if background refresh access is authorized for use.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -2328,9 +2620,9 @@ Returns the background refresh authorization status for the application.
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
+The function is passed a single string parameter which indicates the authorization status as a [permissionStatus constant](#permissionstatus-constants).
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2354,9 +2646,9 @@ this plugin provides a default message, but you should override this with your s
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is not passed any parameters.
+The function is not passed any parameters.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
@@ -2366,18 +2658,48 @@ This callback function is passed a single string parameter containing the error 
         console.error(error);
     });
 
+### motionStatus constants
+
+Constants for reporting the various states of Motion Tracking on iOS devices.
+
+    cordova.plugins.diagnostic.motionStatus
+
+The following permission states are defined:
+
+- `NOT_REQUESTED` - App has not yet requested this permission.
+App can request permission and user will be prompted to allow/deny.
+- `GRANTED` - User granted access to this permission.
+- `DENIED` - User denied access to this permission.
+App can never ask for permission again.
+The only way around this is to instruct the user to manually change the permission in the Settings app.
+- `RESTRICTED` - Permission is unavailable and user cannot enable it.
+For example, when parental controls are in effect for the current user.
+- `NOT_AVAILABLE` - device does not support Motion Tracking.
+Motion tracking is supported by iOS devices with an M7 co-processor (or above): that is iPhone 5s (or above), iPad Air (or above), iPad Mini 2 (or above).
+- `NOT_DETERMINED` - authorization outcome cannot be determined because device does not support Pedometer Event Tracking.
+Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
+- `UNKNOWN` - motion tracking authorization is in an unknown state.
+
+
+#### Example
+
+    if(status === cordova.plugins.diagnostic.motionStatus.NOT_REQUESTED){
+        cordova.plugins.diagnostic.requestMotionAuthorization(successCallback, errorCallback);
+    }
+
 ### isMotionAvailable()
 
 Checks if motion tracking is available on the current device.
+Motion tracking is supported by iOS devices with an M7 co-processor (or above): that is iPhone 5s (or above), iPad Air (or above), iPad Mini 2 (or above).
 
     cordova.plugins.diagnostic.isMotionAvailable(successCallback, errorCallback);
 
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if motion tracking is available on the current device.
+The function is passed a single boolean parameter which is TRUE if motion tracking is available on the current device.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -2393,15 +2715,16 @@ This callback function is passed a single string parameter containing the error 
 Checks if it's possible to determine the outcome of a motion authorization request on the current device.
 There's no direct way to determine if authorization was granted or denied, so the Pedometer API must be used to indirectly determine this:
 therefore, if the device supports motion tracking but not Pedometer Event Tracking, the outcome of requesting motion detection cannot be determined.
+Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
 
     cordova.plugins.diagnostic.isMotionRequestOutcomeAvailable(successCallback, errorCallback);
 
 #### Parameters
 
 - {Function} successCallback -  The callback which will be called when operation is successful.
-This callback function is passed a single boolean parameter which is TRUE if it's possible to determine the outcome of a motion authorization request on the current device.
+The function is passed a single boolean parameter which is TRUE if it's possible to determine the outcome of a motion authorization request on the current device.
 - {Function} errorCallback -  The callback which will be called when operation encounters an error.
-This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter containing the error message.
 
 
 #### Example usage
@@ -2412,38 +2735,71 @@ This callback function is passed a single string parameter containing the error 
         console.error("The following error occurred: "+error);
     });
 
-### requestAndCheckMotionAuthorization()
+### requestMotionAuthorization()
 
-Requests and checks motion authorization for the application:
-there is no way to independently request only or check only, so both must be done in one operation.
+Requests motion tracking authorization for the application.
 
 The native dialog asking user's consent can only be invoked once after the app is installed by calling this function.
-Once the user has either allowed or denied access, this function will only return the current authorization status:
-it is not possible to re-invoke the dialog if the user denied permission in the native dialog -
-in this case, you will have to instruct the user how to change motion authorization manually via the Settings app.
+Once the user has either allowed or denied access, calling this function again will result in an error.
+It is not possible to re-invoke the dialog if the user denied permission in the native dialog,
+so in this case you will have to instruct the user how to change motion authorization manually via the Settings app.
 
 When calling this function, the message contained in the `NSMotionUsageDescription` .plist key is displayed to the user;
 this plugin provides a default message, but you should override this with your specific reason for requesting access - see the [iOS usage description messages](#ios-usage-description-messages) section for how to customise it.
 
-If the device doesn't support motion detection, the error callback will be invoked.
-
 There's no direct way to determine if authorization was granted or denied, so the Pedometer API must be used to indirectly determine this:
 therefore, if the device supports motion tracking but not Pedometer Event Tracking, the outcome of requesting motion detection cannot be determined.
 
-    cordova.plugins.diagnostic.requestAndCheckMotionAuthorization(successCallback, errorCallback);
+    cordova.plugins.diagnostic.requestMotionAuthorization(successCallback, errorCallback);
 
 #### Parameters
 - {Function} successCallback - The callback which will be called when operation is successful.
-This callback function is passed a single string parameter indicating the result:
-    - `cordova.plugins.diagnostic.permissionStatus.GRANTED` - user granted motion authorization.
-    - `cordova.plugins.diagnostic.permissionStatus.DENIED` - user denied motion authorization.
-    - `cordova.plugins.diagnostic.permissionStatus.RESTRICTED` - user cannot grant motion authorization.
-    - `cordova.plugins.diagnostic.permissionStatus.NOT_DETERMINED` - device does not support Pedometer Event Tracking, so authorization outcome cannot be determined.
-- {Function} errorCallback - The callback which will be called when an error occurs. This callback function is passed a single string parameter containing the error message.
+The function is passed a single string parameter indicating the result:
+   - `cordova.plugins.diagnostic.motionStatus.GRANTED` - user granted motion authorization.
+   - `cordova.plugins.diagnostic.motionStatus.DENIED` - user denied authorization.
+   - `cordova.plugins.diagnostic.motionStatus.RESTRICTED` - user cannot grant motion authorization.
+   - `cordova.plugins.diagnostic.motionStatus.NOT_AVAILABLE` - device does not support Motion Tracking.
+   Motion tracking is supported by iOS devices with an M7 co-processor (or above): that is iPhone 5s (or above), iPad Air (or above), iPad Mini 2 (or above).
+   - `cordova.plugins.diagnostic.motionStatus.NOT_DETERMINED` - authorization outcome cannot be determined because device does not support Pedometer Event Tracking.
+   Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
+   - `cordova.plugins.diagnostic.motionStatus.UNKNOWN` - motion tracking authorization is in an unknown state.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
 
 #### Example usage
 
-    cordova.plugins.diagnostic.requestAndCheckMotionAuthorization(function(status){
+    cordova.plugins.diagnostic.requestMotionAuthorization(function(status){
+        if(status === cordova.plugins.motionStatus.permissionStatus.GRANTED){
+            console.log("Motion tracking authorized");
+        }
+    }, function(error){
+        console.error(error);
+    });
+
+### getMotionAuthorizationStatus()
+
+Checks motion authorization status for the application.
+There's no direct way to determine if authorization was granted or denied, so the Pedometer API is used to indirectly determine this.
+
+
+    cordova.plugins.diagnostic.getMotionAuthorizationStatus(successCallback, errorCallback);
+
+#### Parameters
+- {Function} successCallback - The callback which will be called when operation is successful.
+The function is passed a single string parameter indicating the result:
+   - `cordova.plugins.diagnostic.motionStatus.NOT_REQUESTED` - App has not yet requested this permission.
+   - `cordova.plugins.diagnostic.motionStatus.GRANTED` - user granted motion authorization.
+   - `cordova.plugins.diagnostic.motionStatus.DENIED` - user denied authorization.
+   - `cordova.plugins.diagnostic.motionStatus.RESTRICTED` - user cannot grant motion authorization.
+   - `cordova.plugins.diagnostic.motionStatus.NOT_AVAILABLE` - device does not support Motion Tracking.
+   Motion tracking is supported by iOS devices with an M7 co-processor (or above): that is iPhone 5s (or above), iPad Air (or above), iPad Mini 2 (or above).
+   - `cordova.plugins.diagnostic.motionStatus.NOT_DETERMINED` - authorization outcome cannot be determined because device does not support Pedometer Event Tracking.
+   Pedometer Event Tracking is only available on iPhones with an M7 co-processor (or above): that is iPhone 5s (or above). No iPads yet support it.
+   - `cordova.plugins.diagnostic.motionStatus.UNKNOWN` - motion tracking authorization is in an unknown state.
+- {Function} errorCallback - The callback which will be called when an error occurs. The function is passed a single string parameter containing the error message.
+
+#### Example usage
+
+    cordova.plugins.diagnostic.getMotionAuthorizationStatus(function(status){
         if(status === cordova.plugins.diagnostic.permissionStatus.GRANTED){
             console.log("Motion authorization allowed");
         }
@@ -2467,11 +2823,14 @@ You can add these permissions either by manually editing the AndroidManifest.xml
 
     <platform name="android">
         <plugin name="cordova-custom-config" version="*"/>
-        <config-file target="AndroidManifest.xml" parent="/*">
+        <custom-config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-        </config-file>
+        </custom-config-file>
     </platform>
+    
+Note: If you're using Phonegap Build (or some other Cloud build system), `cordova-custom-config` won't work because it relies on hook scripts.
+For Phonegap Build you can use [`<config-file>` blocks](http://docs.phonegap.com/phonegap-build/configuring/config-file-element/) so long as you use `cli-6.5.0` or below (support for `<config-file>` blocks was dropped in `cli-7.0.1`).
 
 #### Android runtime permissions
 
@@ -2513,7 +2872,16 @@ The plugin defines the [full list of dangersous permissions available in API 23]
 
 ##### Runtime permission groups
 
-Each runtime permission belongs to a permission group. Requesting a permission also requests authorisation for all other permissions in that group. If other permissions in the group are not defined in the manifest, they will default to DENIED_ALWAYS status. Otherwise, if user grants permission, all other permissions in the group will be granted; if user denies permission, all other permissions in the group will be denied.
+- Each runtime permission belongs to a permission group. 
+- In Android 6 & 7:
+    - Requesting a permission also requests authorisation for all other permissions in that group. 
+    - If other permissions in the group are not defined in the manifest, they will default to DENIED_ALWAYS status. 
+    - Otherwise, if user grants permission, all other permissions in the group will be granted
+    - if user denies permission, all other permissions in the group will be denied.
+- In Android 8+:
+   - Requesting a permission only grants that permission, not (as previously) all other permissions in that group.
+   - However, once the user grants a permission to the app, all subsequent requests for permissions in that permission group are automatically granted.
+   - See [Android 8.0 developer notes](https://developer.android.com/about/versions/oreo/android-8.0-changes.html#rmp) for more.
 
 Permissions are grouped as follows:
 
@@ -2576,17 +2944,19 @@ For example:
 
     <platform name="ios">
         <plugin name="cordova-custom-config" version="*"/>
-        <config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+        <custom-config-file platform="ios" target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
             <string>My custom message for always using location.</string>
-        </config-file>
-        <config-file platform="ios" target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+        </custom-config-file>
+        <custom-config-file platform="ios" target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
             <string>My custom message for using location when in use.</string>
-        </config-file>
+        </custom-config-file>
     </platform>
 
 # Example project
 
-An example project illustrating use of this plugin can be found here: [https://github.com/dpa99c/cordova-diagnostic-plugin-example](https://github.com/dpa99c/cordova-diagnostic-plugin-example)
+Example project using simple HTML/CSS/JS (no frameworks): [cordova-diagnostic-plugin-example](https://github.com/dpa99c/cordova-diagnostic-plugin-example)
+
+Example project using Ionic Framework: [cordova-diagnostic-plugin-ionic-example](https://github.com/dpa99c/cordova-diagnostic-plugin-ionic-example)
 
 Phonegap Build users who want to validate the plugin in that environment can try building: [https://github.com/dpa99c/cordova-diagnostic-plugin-phonegap-build-example](https://github.com/dpa99c/cordova-diagnostic-plugin-phonegap-build-example)
 

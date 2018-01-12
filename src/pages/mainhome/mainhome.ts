@@ -44,80 +44,20 @@ ngOnInit(){
 
      this.fbt=this.navParams.get('type');
      if(this.fbt == 'facebook' ){
-          // this.storage.set("logintype",'facebook');
-          // this.Name=this.navParams.get('name');
-          // this.img = this.navParams.get('picture');
-          // this.Email=this.navParams.get('email');  
-          // var uid = this.navParams.get('usrid');
-          // this.storage.set("usrname",this.Name);
           this.storage.get('usrname').then((usrname) => {
               this.usrname = usrname;  
           })
-          // this.http.get(this.apiurl+"fbLogin?name="+this.Name+"&email="+this.Email+"&type="+this.fbt+ "&fbuserid="+uid+ "&img=" +this.img).map(res =>res.json()).subscribe(data => {
-          //       this.response = data;
-          //          this.storage.set("userid",this.response.id); 
-          //     this.storage.get('currlat').then((currlat)=>{
-          //     this.storage.get('currlng').then((currlng)=>{
-
-          //           var firebaseRef = firebase.database().ref('/Drivers/Profiles');
-          //           var geoFire = new GeoFire(firebaseRef);
-          //           geoFire.set(this.response.id, [currlat,currlng]).then(function() {
-                        
-          //           }, function(error) {
-                    
-          //           });
-          //       })
-          //     })      
-          //     this.storage.get('userid').then((userid) => {
-          //       this.usrid = userid;   
-          //         this.storage.get('deviceid').then((deviceid) => {
-          //           this.devicenotid = deviceid;
-          //             this.http.get(this.apiurl+"saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
-          //             })  
-          //         })
-          //     })          
-          // });   
       }
-    if(this.fbt=='google'){
-      // this.storage.set("logintype",'google');
-      // this.Name=this.navParams.get('name');
-      // this.Email=this.navParams.get('email');
-      // this.img=this.navParams.get('picture');
-      // this.storage.set("usrname",this.Name);
-      this.storage.get('usrname').then((usrname) => {
-              this.usrname = usrname;  
-      })
-      // this.http.get(this.apiurl+"googleLogin?name="+this.Name+"&email="+ this.Email+"&type="+this.fbt+"&img="+this.img).map(res =>res.json()).subscribe(data => {
-      //   this.response = data;
-      //      this.storage.set("userid",this.response.id); 
-      //       this.storage.get('currlat').then((currlat)=>{
-      //         this.storage.get('currlng').then((currlng)=>{
-
-      //               var firebaseRef = firebase.database().ref('/Drivers/Profiles');
-      //               var geoFire = new GeoFire(firebaseRef);
-      //               geoFire.set(this.response.id, [currlat,currlng]).then(function() {
-                        
-      //               }, function(error) {
-                    
-      //               });
-      //           })
-      //         })    
-          //  this.storage.get('userid').then((userid) => {
-          //     this.usrid = userid;  
-          //       this.storage.get('deviceid').then((deviceid) => {
-          //         this.devicenotid = deviceid;
-          //           this.http.get(this.apiurl+"saveToken?token="+this.devicenotid+"&userid="+this.usrid).map(res =>res.json()).subscribe(data =>{
-
-          //           })  
-          //        })
-          //    })         
-      // }) 
-    }
-    if(this.fbt=='default'){
-          this.storage.get('usrname').then((usrname) => {
-              this.usrname = usrname;  
-          })
-    }
+      if(this.fbt=='google'){
+        this.storage.get('usrname').then((usrname) => {
+          this.usrname = usrname;  
+        })
+      }
+      if(this.fbt=='default'){
+        this.storage.get('usrname').then((usrname) => {
+          this.usrname = usrname;  
+        })
+      }
 
 }
 constructor(public navCtrl: NavController,private http:Http,public menu:MenuController, private storage: Storage, public platform:Platform, private navParams:NavParams) {
@@ -132,12 +72,8 @@ constructor(public navCtrl: NavController,private http:Http,public menu:MenuCont
      Network.onConnect().subscribe(()=> {
      
      });
-    
-    var firebaseRef = firebase.database().ref('/Drivers/Profiles');
-    var geoFire = new GeoFire(firebaseRef);
-        geoFire.set( this.usrid , [0,0]).then(function() {
-         }, function(error) {
-    });   
+  
+    clearInterval(this.navParams.get('watchid'));
       Geolocation.getCurrentPosition().then((resp) => {
         var currlat=resp.coords.latitude;
         var currlng=resp.coords.longitude;
@@ -151,6 +87,7 @@ constructor(public navCtrl: NavController,private http:Http,public menu:MenuCont
     
     this.storage.get('userid').then((userid) => {
       this.usrid = userid;
+
         this.http.get(this.apiurl+"getProfile?userid="+ this.usrid).map(res =>res.json()).subscribe(data =>{
           this.usrname=data.firstname;
       })

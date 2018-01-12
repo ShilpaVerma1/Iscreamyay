@@ -13,7 +13,7 @@ import * as GeoFire from "geofire";
 import {MainHomePage } from '../mainhome/mainhome';
 import * as jQuery from 'jquery';
 import * as $ from 'jquery';
-// import { Diagnostic } from '@ionic-native/diagnostic';
+import { Diagnostic } from '@ionic-native/diagnostic';
 
 declare var google;
 declare var window: any;
@@ -44,7 +44,7 @@ export class GoogleMapPage {
   weather:any;
   fbt:any;Name:any;Email:any;img:any;
   apiurl:string;
-  constructor(af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
+  constructor(private diagnostic:Diagnostic,af:AngularFire,public navCtrl: NavController,public loadingCtrl:LoadingController, public menu: MenuController, private storage:Storage,public popoverCtrl: PopoverController, private navParams: NavParams, private geolocation: Geolocation, private platform: Platform, private http: Http) {
        this.apiurl="http://ec2-54-204-73-121.compute-1.amazonaws.com/ogo/iceCreamApi/";
 
      Network.onDisconnect().subscribe(() => {
@@ -55,16 +55,16 @@ export class GoogleMapPage {
     });
       this.platform.ready().then((readySource) => {
 
-      // this.diagnostic.isLocationEnabled().then((isAvailable) => {
-      //   if(isAvailable==false){
-      //    window.plugins.toast.show("Your location services are disabled.Please turn on your location to continuee", "long", "center");
-      //    this.navCtrl.push(MainHomePage);
-      //   }
+      this.diagnostic.isLocationEnabled().then((isAvailable) => {
+        if(isAvailable==false){
+         window.plugins.toast.show("Your location services are disabled.Please turn on your location to continuee", "long", "center");
+         this.navCtrl.push(MainHomePage);
+        }
 
-      // }).catch( (e) => {
-      //    window.plugins.toast.show(e, "short", "center");
+      }).catch( (e) => {
+         window.plugins.toast.show(e, "short", "center");
 
-      // });
+      });
 
 
        });
@@ -157,7 +157,7 @@ this.storage.get('userid').then((userid) => {
      var eventtoogleid=toggleid;
      this.storage.get('togglevnt').then((toggleevent)=>{
        var toggleeventid=toggleevent;
-       var options={enableHighAccuracy: false};
+       var options={enableHighAccuracy: true,accuracy:10};
 
 
     Geolocation.getCurrentPosition(options).then((resp) => {
@@ -309,6 +309,7 @@ function addDriversToMap(location){
                   }   
               });
             })
+            
           },2000);
          })
       })
@@ -397,20 +398,22 @@ eventtogglee(){
     })
   }
 
-  backpage() {
+  backpage(wat) {
     this.storage.set('toggleid',null);
     this.storage.set('togglevnt','');
 
     this.storage.get('geoq').then((geoq)=>{
       geoq.cancel()
     })
-
+      clearInterval(wat);
     // this.storage.get('watch').then((watch)=>{
     //   watch.unsubscribe();
     // })
     this.storage.get("logintype").then((logintype)=>{   
+
           this.navCtrl.push(MainHomePage,{
-            type:logintype
+            type:logintype,
+            watchid:wat
           });
     })
 

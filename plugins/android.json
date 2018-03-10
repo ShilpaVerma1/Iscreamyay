@@ -1,0 +1,81 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-android-play-services-gradle-release": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-crop": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "512764349056794",
+            "APP_NAME": "Tawnup",
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-ionic-webview": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.pydaro.tawnupbedrock.com"
+        }
+    }
+}

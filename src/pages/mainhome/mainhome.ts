@@ -13,6 +13,7 @@ import firebase from 'firebase';
 import{AngularFire} from 'angularfire2';
 import * as GeoFire from "geofire";
 import {FaqPage } from '../faq/faq';
+import {UserstatusPage } from '../userstatus/userstatus';
 
 declare var window: any;
 @Component({
@@ -111,7 +112,10 @@ becomevendor(){
   this.navCtrl.push(BecomevendorPage);
 }
 faq(){
-  this.navCtrl.push(FaqPage)
+  this.navCtrl.push(FaqPage);
+}
+status(){
+  this.navCtrl.push(UserstatusPage);
 }
 ionViewDidEnter() {
     //to disable menu, or

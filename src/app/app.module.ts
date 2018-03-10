@@ -16,6 +16,9 @@ import {RecoverpassPage } from '../pages/recoverpass/recoverpass';
 import {BecomevendorPage } from '../pages/becomevendor/becomevendor';
 import {MainscreenPage } from '../pages/mainscreen/mainscreen';
 import {MainHomePage } from '../pages/mainhome/mainhome';
+import {UserstatusPage } from '../pages/userstatus/userstatus';
+import {VehicleformPage } from '../pages/vehicleform/vehicleform';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
@@ -54,8 +57,8 @@ var firebaseConfig = {
     RecoverpassPage,
     MainscreenPage,
     BecomevendorPage,
-    FaqPage,
-    MainHomePage
+    FaqPage,VehicleformPage,
+    MainHomePage,UserstatusPage
   ],
   imports: [
     BrowserModule,
@@ -83,8 +86,8 @@ var firebaseConfig = {
   RecoverpassPage,
   MainscreenPage,
   BecomevendorPage,
-  FaqPage,
-  MainHomePage
+  FaqPage,VehicleformPage,
+  MainHomePage,UserstatusPage
   ],
   providers: [
     StatusBar,

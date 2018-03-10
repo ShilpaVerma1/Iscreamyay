@@ -1,0 +1,79 @@
+page-vehicleform {
+ .scroll-content{background:#9b9ba1 ; padding:0px!important;}
+    ion-scroll .scroll-content{ background: #7277a1 !important;;
+        padding:10px!important;}
+    .top-row{       background: #629478;
+        padding: 2%;
+        display: block;
+        text-align: center;}
+    .top-row img{    width:35px;
+        height: 35px;
+        margin: 1% 4.5%;     display: inline-block;}
+    ion-footer{    box-shadow: 0px -5px 10px 1px rgba(49, 48, 48, 0.6);}
+.first-line {
+        margin: 0px;
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+.second-line{margin: 0px;
+    color: #fff;
+    font-size: 18px;} 
+
+.main-div{     margin: 25px 19px 15px 19px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 7px;
+}
+.main-div [col-2]{padding:0px; }
+.main-div [col-10]{    padding-left: 12px; }    
+        .main-line{ text-align: center;
+    font-size: 16px;    margin: 0px;
+    font-weight: 100;}
+    p{  color: #fff;
+        font-size: 18px;
+        text-shadow:#8185af 3px 0px 0px, #6a6e9f 2.83487px 0.98158px 0px, #676b98 2.35766px 1.85511px 0px, #5d6184 1.62091px 2.52441px 0px, #7276a0 0.70571px 2.91581px 0px, #8185af -0.28717px 2.98622px 0px, #8185af -1.24844px 2.72789px 0px, #8185af -2.07227px 2.16926px 0px, #8185af -2.66798px 1.37182px 0px, #767ba6 -2.96998px 0.42336px 0px, #8185af -2.94502px -0.5717px 0px, #8185af -2.59586px -1.50383px 0px, #8185af -1.96093px -2.27041px 0px, #8185af -1.11013px -2.78704px 0px, #6a6e98 -0.13712px -2.99686px 0px, #6a6e97 0.85099px -2.87677px 0px, #5d6290 1.74541px -2.43999px 0px, #545880 2.44769px -1.73459px 0px, #7f84b4 2.88051px -0.83825px 0px;
+    }
+
+    input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #fff;
+      }
+      input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+        color: #fff;
+      }
+      input[type="text"]:-ms-input-placeholder { /* IE 10+ */
+        color: #fff;
+      }
+      input[type="text"]:-moz-placeholder { /* Firefox 18- */
+        color: #fff;
+      }
+    .form{    margin-top:15px;}
+    .button-first{    padding: 7px;
+        color: #414142;
+        background: #bfd848; /* Old browsers */
+        background: -moz-linear-gradient(top, #bfd848 1%, #afd242 50%, #8dc63d 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #bfd848 1%,#afd242 50%,#8dc63d 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #bfd848 1%,#afd242 50%,#8dc63d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        margin: 3% 6% 0% 4%; }
+.button-first h3{    text-align: center; margin: 0px;font-weight:bold;}
+.button-first h2{    margin: 0px;
+    font-size: 17px;
+    text-align: center;}
+.form p{      font-size: 17px;
+    text-align: right;
+    color: #f48788;
+    margin-top: 9px;}
+    ion-input{   border-radius: 3px;
+         background: #9095bc;
+        color: #fff;
+        border: 1px solid #fff;}
+    .form [col-4]{margin-left: 3%;}
+
+.button-second h3{    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #ff6f70;    text-align: center;
+    width: 96%;
+    padding: 5px;  margin-top: 4px;}
+    .text-input-ios {
+        margin: 11px 8px 11px 8px;}
+}

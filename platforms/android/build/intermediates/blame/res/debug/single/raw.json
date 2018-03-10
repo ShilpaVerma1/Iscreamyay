@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/raw/gets_in_the_way.mp3",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/res/raw/gets_in_the_way.mp3"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/raw/consumer_onesignal_keep.xml",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.6.5/res/raw/consumer_onesignal_keep.xml"
+    }
+]

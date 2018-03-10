@@ -9,7 +9,7 @@ import {MainHomePage } from '../pages/mainhome/mainhome';
 import { GoogleMapPage} from '../pages/googlemap/googlemap';
 import { OneSignal } from 'ionic-native';
 import { UserProfilePage } from '../pages/userprofile/userprofile';
-
+import { UserstatusPage } from '../pages/userstatus/userstatus';
 
 @Component({
   templateUrl: 'app.html',

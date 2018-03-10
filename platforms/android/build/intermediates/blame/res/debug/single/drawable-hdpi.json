@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/iscream.png",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/res/drawable-hdpi/iscream.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_next_item.png",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/res/drawable-hdpi/ic_action_next_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_previous_item.png",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/res/drawable-hdpi/ic_action_previous_item.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/crop__ic_done.png",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-hdpi/crop__ic_done.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/crop__ic_cancel.png",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-hdpi/crop__ic_cancel.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_remove.png",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/res/drawable-hdpi/ic_action_remove.png"
+    },
+    {
+        "merged": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/crop__divider.9.png",
+        "source": "/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/res/drawable-hdpi/crop__divider.9.png"
+    }
+]

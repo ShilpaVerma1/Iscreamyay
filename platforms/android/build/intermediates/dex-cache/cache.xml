@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.4.0_382da1e00455da2602afa6cf99ef7973b5a54268.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-common/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="e3b8ecc558c6deeb90eb3934c1c715128ab26dcd">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-common-4.30.0_24caa4aa5ee49f6ddff397e47516487f56dbd83e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/bolts-applinks-1.4.0_f75bb5cf682afd4d99ecaabaa473d1afcf3c91d6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="b35ff61463403c8aa7820fc2fa7caf6a29e31c2c">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-11.2.2_e34f50c147dc67fe7c99e5944cc162218787b13e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.4.0_0514f993b55ce0936ba1a948c67336be26853f6c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-share/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="95d97996ec624fca99f6b06ad6004c749259970d">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-share-4.30.0_1fab9fc8bcf5de28e8ea06447b72ee36a8a7e6aa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/25.4.0/f6a2fc748ae3769633dea050563e1613e93c135e/support-annotations-25.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="f6a2fc748ae3769633dea050563e1613e93c135e">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/support-annotations-25.4.0_82fc74e39b2cc2d470e44f770a39d97fcf411ff4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/customtabs/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="c6e2b588eb35ac6b34dc7a007a35bbec3cccda4d">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-customtabs-25.4.0_749242fc64fea2e3b33b34206d4bf73da8456d7e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="dd65158c56079313c616823c22ef4285b762d004">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-identity-11.2.2_5f09a8fb2031f92d9b0758111bf2dcb25268be52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_c031a7c7187d693d551d477142f572a619a75eb9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="c879101226d1b2aaf6edae3d7491de6fd56d2659">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-25.4.0_5f536376036348597e55b115312b7803a8701fab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-messenger/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="2482bfd874e8b3927f4141105674ad392ff83698">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-messenger-4.30.0_70bec5e83c11cf83083991aea0295d2722ad72d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="4961be1437163ab598620a3c907c0f3432936f51">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.4.0_aa38eb850e4b66597c0196bb23ebb9a3691e9a0a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.4.0_1ba63e46ad548ae98e1c9d9ea3e039e3da077899.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/support-compat/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.4.0_1b1c9dddb4bf2900b94721fb4dd3e1c5ee4c41da.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="e04f28ac2dd9bbe48ced6fc87fedf46c2586f5d6">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.4.0_52fc4f58e20115051341f141483d880f51b070b4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-login/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="b8b26b28aae0ba8e2db55ad9fe0ebc770530c5ef">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-login-4.30.0_b51e07b621eb49a2e5bf1fe47eb0bf83a03d1e23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.4.0_b6c0ad75a312a6778d2980577d1a4437fea4badb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.4.0_3090009f0abf4c2577c55d386013120084b22c69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.3.0/73c49077166faa4c3c0059c5f583d1d7bd1475fe/core-3.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/core-3.3.0_721a001e04017c1e4d3997acddfdd11d8bbb8907.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-places/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="821200fa3e07f93d0ae66e4a5917db8bac69dfe1">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-places-4.30.0_cd639ba185c0ffff94cf3afcab31abcd7972a742.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="73d3d4e86f3d6da0dd1987f7cff9fb07d5a36132">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-11.2.2_a5074f823626d372434080be86fd88d7bd797f95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="a1c4ae24ce3c755b3ef7d79a343acfadfb0b097e">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-11.2.2_1a762056673aaeb2ee530592158cb8804a6fb690.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="1d2ee92c55b107ec366ddb534edae4548201e25b">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-11.2.2_57b58dd8ea3772a39d35b30b0362145259c68f88.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/libs/sqlite-connector.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="76169ab23a4f939925491c6fe186749da5a56ee9">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/sqlite-connector_3b52d152638ab624f7eacf6e4ea8dae23804d965.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.android.support/support-fragment/25.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.4.0_944c9f26280ad810f7f62a363874fc62853ee3ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-core/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="8fb648e3321f9556ac5b36485b0028f455350c4a">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-core-4.30.0_094cb3746f96b76138de7fc8a59a46b0dd2f7046.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="671e3171a25ffd26d01b9d7b548ae50374a9e303">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-base-11.2.2_07fb54395e51d16f12df08c6124b5a3b35687d0a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.soundcloud.android/android-crop/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="7d59ba36bdb53bd81f4d16ed7e2abb47de5c53bd">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.soundcloud.android-android-crop-1.0.0_b9a329f392a133eb591f60606826f4b808a112a0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-api-phone/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="a8f8c58325f0b364e30dca132b248ddabc71415e">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-api-phone-11.2.2_8ddc89cfdf8c8872eec5f682f8cda256276d1b97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/org.apache.cordova/CordovaLib/6.2.3/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="8292a1949ff06882a6740038e55cbd531c677939">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-6.2.3-debug_de95bca70cb0d79dbd37b374402a433723831d0e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.onesignal/OneSignal/3.6.5/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="dfff80b6e21c10f40ec59c0e5d86d00bd67a1f35">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.onesignal-OneSignal-3.6.5_6095ca3acfdb0501213bba8c4d87c067808a76cd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-applinks/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="82ea5a937ab84229fbd2f3fc8cf2a72cbdf0ee0f">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-applinks-4.30.0_783a2d3c170cfdc051ed0e27e9f10458b56e4938.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="cf47665b22d68f560d1b8fa2e51b8c23a34574f2">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-11.2.2_4839845f0b5d2afd398e2021c109f0e96b9463b0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="fef1e7957f1df7c5ff164c5fb2ae709bf3d942ee">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-11.2.2_138aa415b9a7c3c85669c3adbb808732f5aa3cc3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.30.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="b1c250352bb7bbd5ea1982ca5165f2a81f36b530">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.30.0_697be200247f8df1d88f72d46718c705ff91dc6d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/11.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="7ed36108b22a98a311676b5ad153d1e3587fcd16">
+        <dex dex="/home/moc/Desktop/All Projects/myprojects/Tawnupbedrock/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-11.2.2_6d9905e130a2694f782076e0e81ac95e9347a202.jar" />
+    </item>
+
+</items>
